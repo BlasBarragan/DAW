@@ -1,0 +1,52 @@
+/**
+ * Barragán Román, Blas
+ * Práctica Evaluable 1
+ * Ejercicio 1
+ * Estadistica de aprobados del Profesor Bacterio
+ */
+package practicaEvaluable1;
+import java.util.Scanner;
+
+public class Ejercicio1 {
+	public static void main(String[] args) 
+	{
+		//Definimos variables para contar las notas
+		int brillantes = 0;
+		int aprovados = 0;
+		int condicionados = 0;
+		int suspensos = 0;
+		int cazurros = 0;
+		
+				
+		Scanner sc = new Scanner(System.in);
+		int nota;
+				
+		
+		
+		for (int i=0; i==10; ) 
+		{
+			System.out.println("Introduzca la nota (número entero) del alumno: ");
+			nota = sc.nextInt();
+			if (nota >= 9) {
+				brillantes = brillantes +1;
+			}else if (nota >= 5 && nota <9){
+				aprovados = aprovados +1;
+			}else if (nota >=4 && nota <5){
+				condicionados = condicionados +1;
+			}else if (nota <4 && nota >0) {
+				suspensos = suspensos +1;
+			}else {
+				cazurros = cazurros +1;
+			}	
+			 //alumnos ++;
+			 
+		}
+		System.out.println("Los resultados de la evaluación son: ");
+		System.out.println(brillantes + " alumno/s brillantes");
+		System.out.println(aprovados + " alumno/s aprovados");
+		System.out.println(condicionados + " alumno/s condicionados");
+		System.out.println(suspensos + " alumno/s suspensos");
+		System.out.println(cazurros + " alumno/s cazurros");
+		
+	}
+}

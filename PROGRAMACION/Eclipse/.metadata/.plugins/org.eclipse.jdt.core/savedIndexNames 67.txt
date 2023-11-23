@@ -1,0 +1,6 @@
+INDEX VERSION 1.134+C:\Users\bRoman\iCloudDrive\DAW\PROGRAMACION\Eclipse\.metadata\.plugins\org.eclipse.jdt.core
+213204757.index
+1865797976.index
+205736146.index
+4244829206.index
+2756603650.index

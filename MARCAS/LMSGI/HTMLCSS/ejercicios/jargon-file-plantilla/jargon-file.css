@@ -1,0 +1,42 @@
+html {
+    background-color: #A2CCE7;
+    font-family:sans-serif;
+}
+
+h1 {
+    text-align: center;
+    text-decoration: underline;
+    text-transform: uppercase;
+    font-size:3rem;
+}
+
+h2 {
+    font-size: 2rem;
+    background-color: #1680C3;
+}
+
+h3 {
+    color: white;
+    background-color: #5BB6EF;
+    font-size: 1.5rem ;
+}
+p {
+    text-align: justify;
+}
+blockquote {
+    font-style: italic;
+}
+
+
+pre {
+    font-family: monospace;
+    background-color: white;
+    font-weight:bold;
+    font-size: 0.9rem;
+}
+
+address {
+    text-align: right;
+    font-family: serif;
+    font-style: normal;
+}

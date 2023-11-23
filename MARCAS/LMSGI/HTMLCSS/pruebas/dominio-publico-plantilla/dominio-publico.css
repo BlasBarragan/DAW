@@ -1,0 +1,63 @@
+body {
+    background-color: #D9B88C;
+    border-left: solid 20px #BC8A44;
+    padding-left: 20px;
+    margin-left: 20px;
+    font-family: sans-serif;
+}
+
+h1 {
+    text-align: center;
+    text-shadow: #765426 2px 2px ;
+    font-size: 40px;
+    margin-top: 0px;
+}
+
+h2 {
+    font-weight: bolder;
+    font-size: 60px;
+}
+
+img {
+    border: #BC8A44 5px solid;
+    padding: 3px;
+}
+
+div {
+
+    border-left:#BC8A44 10px solid ;
+    border-right: #BC8A44 10px solid;
+    padding: 10px;
+}
+
+.izq {
+    float: left;
+    clear: right;
+    position: relative;
+    left: 10px;
+    bottom: 0px;
+}
+
+.der {
+    float: right;
+}
+
+.subtitulo {
+    box-sizing: border-box;
+    border: 5px dotted #BC8A44;
+    padding: 10px;
+    border-radius: 20px;
+}
+
+.aka {
+    color: blue;
+}
+
+.profesion {
+    font-weight: bold;
+}
+
+.nacionalidad {
+    color: green;
+    font-style: normal;
+}

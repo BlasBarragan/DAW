@@ -1,0 +1,46 @@
+body {
+    background-color: aliceblue;
+    font-family: sans-serif;
+    text-align: justify;
+    font-size: 1.5rem;
+}
+
+h1 {
+    color: darkblue;
+    font-size: 3rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    text-align: right;
+    letter-spacing: 3rem;
+}
+
+h2 {
+    background-color: olive;
+    color: white;
+    clear: both;
+}
+
+.izquierda {
+    float:left ;
+    margin-right: 10px;
+    margin-bottom: 10px;
+}
+
+.centrado {
+    text-align: center;
+}
+
+.derecha {
+    float: right;
+    margin-left: 10px;
+}
+
+address {
+    clear: both;
+    font-style: italic;
+    font-size: 1rem;
+}
+
+strong{
+    font-style: italic;
+}

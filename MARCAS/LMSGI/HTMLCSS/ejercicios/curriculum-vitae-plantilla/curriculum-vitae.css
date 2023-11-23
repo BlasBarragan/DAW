@@ -1,0 +1,44 @@
+body {
+    background-color: #d4dade;
+    font-family: sans-serif;
+}
+
+h1 {
+    font-size: 2.5rem;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+h2 {
+    background-color: #7a929e;
+    color: #405159;
+    text-decoration: underline;
+    font-size: 1.8rem;
+}
+
+h3 {
+    background-color: #99aab3;
+    font-style: italic;
+    color: #5d6a73 ;
+}
+
+p {
+    background-color:#b5c3c9;
+    text-align: justify;
+}
+
+address {
+    background-color: white;
+    text-align: right;
+    font-size: 0.9rem;
+    font-weight: bold;
+}
+strong {
+    color: #006699;
+    font-weight: lighter;
+}
+em {
+    color: #0088cc;
+    font-weight: bold;
+    font-style: normal;
+}

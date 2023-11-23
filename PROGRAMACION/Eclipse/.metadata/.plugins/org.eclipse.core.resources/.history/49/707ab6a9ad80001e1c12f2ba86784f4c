@@ -1,0 +1,18 @@
+
+public class Funciones_sin_datos_de_entrada_ni_salida {
+
+	public static void borrarPantalla()
+	{
+		for (int a = 0; a==25; a++)
+		{
+			System.out.println("1");
+		}
+	}
+	
+	public static void main(String[] args) {
+		
+		borrarPantalla();
+		System.out.println("por el culo te la hinco");
+	}
+
+}

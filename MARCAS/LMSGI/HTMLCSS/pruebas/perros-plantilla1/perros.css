@@ -1,0 +1,80 @@
+body {
+    background-color: lightgray;
+    font-family: sans-serif;
+    text-align: justify;
+}
+
+@font-face {
+    font-family: "sigmar-one";
+    src: url("/HTMLCSS/pruebas/perros-plantilla/sigmar-one.woff");
+}
+
+h1 {
+    text-align: center;
+    font-family: sigmar-one, sans-serif;
+    font-size: 3rem;
+    text-shadow: 2px 2px;
+}
+
+h2 {
+    text-align: left;
+    font-family: sigmar-one, sans-serif;
+    color: rgb(81, 171, 201);
+    font-size: 3rem;
+    text-shadow: 2px 2px black;
+}
+
+hr {
+    width: 66%;
+    height: 10px;
+    background-color: rgb(81, 171, 201);
+    border-radius: 5px;
+    outline: black solid 1px;
+    clear: both;
+    margin: 40px auto;
+}
+
+img {
+    border: rgb(81, 171, 201) solid 5px;
+    padding: 5px;
+}
+
+.yorkshire {
+    float: left;
+    margin-right: 10px;
+    margin-bottom: 10px;
+}
+
+.dogo {
+    float: right;
+    margin-left: 10px;
+}
+
+.izquierda {
+    float: left;
+    width: 33%;
+}
+
+.ratonero {
+    text-align: center;
+}
+
+address {
+    font-style: italic;
+}
+
+strong {
+    background-color: white;
+    color: red;
+    font-weight: 900;
+}
+
+i {
+    text-decoration: underline;
+    font-style: italic;
+    font-weight: 700;
+}
+
+date {
+    color: blue;
+}

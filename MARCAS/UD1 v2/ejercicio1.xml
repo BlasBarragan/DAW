@@ -1,0 +1,40 @@
+
+<!-- EJERCICIO 1 -->
+
+<?xml version="1.0" encoding="UTF-8"?>
+<pedido>
+  <destinatario>Pedro Perez</destinatario>
+  <articulo>Patinete eléctrico modelo o89q</articulo>
+  <direccion_entrega>calle Cardenal Benlloch 123, quinto piso, letra B</direccion_entrega>
+  <fecha_entrega>19-10-2021</fecha_entrega>
+</pedido>
+
+<!-- EJERCICIO 2 -->
+
+<?xml version="1.0" encoding="UTF-8"?>
+<mensaje>
+    <remite>
+        <nombre>Fernando Lopez</nombre>
+        <email>flopez@inventhotmail.com</email>
+    </remite>
+    <destinatario>
+        <nombre>Manolo Garcia</nombre>
+        <email>manolog@inventhotmail.com</email>
+    </destinatario>
+    <asunto>Hola Manolo</asunto>
+    <texto>
+        <parrafo>¿Hola qué tal?</parrafo>
+        <parrafo>Hace mucho tiempo que no escribes. A ver si llamas y quedamos pronto.</parrafo>
+        <parrafo>Un saludo.</parrafo>
+    </texto>
+</mensaje>
+
+<!-- EJERCICIO 1 -->
+
+
+
+<!-- EJERCICIO 1 -->
+
+
+
+<!-- EJERCICIO 1 -->

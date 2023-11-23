@@ -1,0 +1,76 @@
+
+<?xml version="1.0" encoding="UTF-8"?>
+<deportistas>
+  <deportista>
+    <deporte Atletismo /> <!-- Error al escribir las etiquetas, deberia ser <deporte>Atletismo</deporte> -->
+    <nombre>Jesse Owens</nombre>
+    <!-- Aqui falta el cierre </deportista> -->
+  <deportista>
+    <deporte Natación /> <!-- Error al escribir las etiquetas, deberia ser <deporte>Natación</deporte> -->
+    <nombre>Mark Spitz</nombre>
+  </deportista>
+</deportistas>
+
+-------------------------------------------------------------------------------------
+
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Solo debe haber un elemento raiz, podriamos usar <peliculas>...</peliculas> -->
+<pelicula>
+  <titulo>Con faldas y a lo loco</titulo>
+  <director>Billy Wilder</director>
+</pelicula>
+<pelicula>
+  <director>Leo McCarey</director>
+  <titulo>Sopa de ganso</titulo>
+</pelicula>
+<autor />barto</autor> <!-- etiquetas mal escritas y fuera de sitio, <autor>...</autor> deberia ir dentro de <pelicula>...</pelicula> -->
+
+-------------------------------------------------------------------------------------
+
+<?xml version="1.0" encoding="UTF-8"?>
+<texto>
+  <Titulo>XML explicado a los niños</titulo> <!-- Xml diferencia mayusculas y minusculas, las etiquetas de apertura y cierre deben ser iguales-->
+  <párrafo>El <abreviatura>XML</abreviatura>define cómo crear
+  lenguajes de marcas.</párrafo> <!-- la sangría no es correcta -->
+  <párrafo>Las marcas se añaden a un documento de texto
+  para añadir información.</párrafo>
+  <http://>www.example.org</http://> º<!-- La etiqueta no es valida por que esta reservada por sistema-->
+</texto>
+
+-------------------------------------------------------------------------------------
+
+<?xml version="1.0" encoding="UTF-8"?>
+<geografia mundial><!-- No se admiten espacion en los nombres de las etiquetas -->
+  <pais> <!-- Deberiamos cambiar la etiquetas a <paises> y asi resolveria el conflicto de la etiqueta hijo repetida -->
+    <pais>España</pais> <!-- Ya existe una etiqueta <pais> que es padre de esta -->
+    <continente>Europa</continente>
+    <capital></capital nombre="Madrid"> <!-- Los atributos se definen en la apertura, <capital nombre="Madrid">...</capital> -->
+  </pais>
+</geografia mundial> <!-- No se admiten espacion en los nombres de las etiquetas -->
+
+-------------------------------------------------------------------------------------
+
+<?xml version="1.0" encoding="UTF-8"?>
+<programas>
+  <programa nombre="Firefox" licencia="GPL" licencia="MPL" /> <!-- No se pueden repetir los nombre de los atributos en un mismmo elemento-->
+  <programa nombre="LibreOffice" licencia="LGPL" />
+  <programa nombre="Inkscape" licencia=GPL /> <!-- Le faltan las comillas al elemento licencia="GPL"-->
+</programas>
+
+-------------------------------------------------------------------------------------
+
+<?xml version="1.0" encoding="UTF-8"?>
+<mundiales-de-futbol>
+  <mundial>
+    <pais="España" /> <!-- Seria mas correcto la etiqueta <pais>España</pais> con contenido y no que sea un atributo -->
+    <1982 /> <!-- Las etiquetas que empiezan con un digito no son validas, mejor <año>1982</año> -->
+  </mundial>
+</mundiales-de-futbol>
+
+-------------------------------------------------------------------------------------
+
+<?xml version="1.0" encoding="UTF-8"?>
+<mediosDeTransporte>
+  <bicicleta velocidad="v<100km/h" /> 
+  <patinete velocidad maxima="50 km/h" <!-- El atributo tiene espacios en el nombre y la etiqueta no esta cerrada </patinete> -->
+</mediosDeTransporte>

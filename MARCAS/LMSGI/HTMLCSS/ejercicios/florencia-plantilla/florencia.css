@@ -1,0 +1,45 @@
+body {
+    background-color: #C9CCB3;
+    font-family: sans-serif;
+    font-size: 24px;
+    text-align: justify;
+}
+
+h1 {
+    font-size: 50px;
+    font-weight: 900;
+    text-align: right;
+    text-transform: uppercase;
+    letter-spacing: 50px;
+    color: #1A1A66;
+}
+
+h2 {
+    color: white;
+    background-color: #5F6633;
+    clear: both;
+}
+
+strong {
+    font-style: italic;
+}
+
+img.izq {
+    float: left;
+    margin-right: 10px;
+    margin-bottom: 10px;
+}
+
+.centro {
+    text-align: center;
+}
+
+img.der {
+    float: right;
+    margin-left: 10px;
+}
+
+address {
+    clear: both;
+    font-size: 20px;
+}

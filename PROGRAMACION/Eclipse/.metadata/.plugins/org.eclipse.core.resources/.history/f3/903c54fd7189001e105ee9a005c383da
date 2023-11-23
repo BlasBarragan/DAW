@@ -1,0 +1,137 @@
+import java.util.Scanner;
+
+public class ejercicios1_14 {
+
+	public static boolean esCapicua(int capi) {
+		//Devuelve V si el numero es capicua
+		boolean i = true;
+		return i;
+	}
+	
+	public static boolean esPrimo(int primo) {
+		boolean i = true;
+		return i; 
+	}
+	
+	public static boolean siguientePrimo(int primo2) {
+		
+	}
+	public static double potencia(int base, int exponente) {
+		if (exponente == 0) {
+		return 1;
+		}
+		if (exponente < 0) {
+		return 1/potencia(base, -exponente);
+		}
+		int n = 1;
+		for (int i = 0; i < Math.abs(exponente); i++) {
+		n = n * base;
+		}
+		return n;
+		}
+
+	
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		int opcion = 0;
+
+		// Mostramos el menú hasta opción Salir...
+		do 
+		{
+			System.out.println("\n-- Biblioteca Matematica --");
+			System.out.println("1. Es Capicua?");
+			System.out.println("2. Es Primo?");
+			System.out.println("3. Siguiente Primo?");
+			System.out.println("4. Potencia");
+			System.out.println("5. Cuantos digitos?");
+			System.out.println("6. Dale la vuelta");
+			System.out.println("7. Digito N");
+			System.out.println("8. Posicion de un digito");
+			System.out.println("9. Resta N por detras");
+			System.out.println("10. Resta N por delante");
+			System.out.println("11. Añade por detras");
+			System.out.println("12. Añade por delante");
+			System.out.println("13. Un trozo de numero");
+			System.out.println("14. Pega-numeros");
+			System.out.println("15. Salir");
+			System.out.print("\nElija una opción: ");
+
+			opcion = sc.nextInt();
+
+			switch(opcion) 
+			{
+				case 1: // opción 1
+					System.out.println("\n1. Es Capicua?");
+					System.out.println("Que numero quieres analizar? ");
+					int capi = sc.nextInt();
+					esCapicua(capi);
+					break;	
+				case 2: // opción 2
+					System.out.println("\n3. Siguiente Primo?");
+					// .. otras instrucciones
+					break;
+				case 3: // opción 3
+					System.out.println("\n4. Potencia");
+					System.out.println("Base? ");
+					int base = sc.nextInt();
+					System.out.println("Exponente? ");
+					int exponente = sc.nextInt();
+					System.out.println(potencia(base, exponente));
+					break;	
+				case 4: // opción 4
+					System.out.println("\n5. Cuantos digitos?");
+					// .. otras instrucciones
+					break;
+				case 5: // opción 1
+					System.out.println("\n6. Dale la vuelta");
+					// ... otras instrucciones
+					break;
+				case 6: // opción 2
+					System.out.println("\n7. Digito N");
+					// .. otras instrucciones
+					break;
+				case 7: // opción 3
+					System.out.println("\n8. Posicion de un digito");
+					// ... otras instrucciones
+					break;
+				case 8: // opción 4
+					System.out.println("\n9. Resta N por detras");
+					// .. otras instrucciones
+					break;
+				case 9: // opción 1
+					System.out.println("\n10. Resta N por delante");
+					// ... otras instrucciones
+					break;
+				case 10: // opción 2
+					System.out.println("\n11. Añade por detras");
+					// .. otras instrucciones
+					break;
+				case 11: // opción 3
+					System.out.println("\n12. Añade por delante");
+					// ... otras instrucciones
+					break;
+				case 12: // opción 4
+					System.out.println("\n13. Un trozo de numero");
+					// .. otras instrucciones
+					break;
+				case 13: // opción 1
+					System.out.println("\n14. Pega-numeros");
+					// ... otras instrucciones
+					break;
+				case 14: // opción 2
+					System.out.println("\nOpción 14...");
+					// .. otras instrucciones
+					break;
+				case 15: // salir
+					break;
+				default: // si pone opción que no existe
+					System.out.println("Opción no válida.");
+			}
+		}
+		while(opcion != 15);
+
+		System.out.println("\nFin del programa!");
+
+	}
+
+}

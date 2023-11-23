@@ -1,0 +1,15 @@
+/**
+ * Barragán Román, Blas
+ * Práctica Evaluable 1
+ * Ejercicio 02 Totalmente
+ * 
+ */
+
+import java.util.scanner;
+public class Ejercicio02 {
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+	}
+
+}

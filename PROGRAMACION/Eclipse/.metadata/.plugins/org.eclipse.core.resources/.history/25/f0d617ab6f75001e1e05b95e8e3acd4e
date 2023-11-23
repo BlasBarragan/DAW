@@ -1,0 +1,44 @@
+/**
+ * Barragán Román, Blas
+ * Práctica Evaluable 1
+ * Ejercicio 02 Totalmente
+ * Los sueldos de la T.I.A.
+ */
+import java.util.Scanner;
+
+public class Ejercicio02 {
+
+	public static void main(String[] args) {
+		// Definimos variables
+				
+		int maximo = 0;
+		int minimo = 0;
+		
+		Scanner sc = new Scanner(System.in);
+		// Preguntamos cuantos empleados hay en la empresa
+		System.out.println("¿Cuantos empleados quiere introducir?: ");
+		int empleados = sc.nextInt();
+		
+		if (empleados<=0) { // Si no hay empleados
+			System.out.println("¿No tienes empleados? ¿¡Que haces aqui!?");
+		}else {
+			for (int i=1; i<=empleados; i++) { // Si existe almenos 1 empleado
+				// Registramos y comparamos los sueldos según se introducen 
+				System.out.println("Introduce el sueldo de empleado " + i + ": ");
+				int sueldo = sc.nextInt();
+				if (i==1) {// Si solo hay un empleado, el sueldo cumple ambas variables
+					maximo = sueldo;
+					minimo = sueldo;
+				}else if (sueldo <maximo) { // Cuando hay mas empleados se van comparando los sueldos
+					minimo = sueldo;
+				}else {
+					maximo = sueldo;
+				}
+			}
+			// Imprimimos el resultado
+			System.out.println("Sueldo máximo: " + maximo + "€");
+			System.out.println("Sueldo mínimo: " + minimo + "€");
+		}
+		sc.close();	
+	}
+}

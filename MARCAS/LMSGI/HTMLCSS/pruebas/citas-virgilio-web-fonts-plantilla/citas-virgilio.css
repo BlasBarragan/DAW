@@ -1,0 +1,53 @@
+body {
+    background-color: #CCAC4D;
+}
+
+@font-face {
+    font-family: "just another hand" ;
+    src: url("just-another-hand.woff2");
+}
+
+@font-face {
+    font-family: lobster;
+    src: url("lobster.woff");
+}
+
+@font-face {
+    font-family: "ribeye-marrow";
+    src: url("ribeye-marrow.woff");
+}
+
+h1 {
+    font-family: "ribeye-marrow";
+    font-size: 3rem;
+    text-transform: uppercase;
+    letter-spacing: 1.5rem;
+    text-align: center;
+}
+
+p.intro {
+    text-align: justify;
+    margin-left: 30%;
+    margin-right: 30%;
+    font-family: sans-serif;
+    line-height: 200%;
+}
+
+p.latin {
+    font-family: "lobster", sans-serif;
+    font-size: 2.5em;
+    margin: 0;
+}
+
+p.español {
+    text-align: right;
+    font-family: "just another hand";
+    color: white;
+    font-size: 3.5em;
+    margin: 0 0 3rem;
+    letter-spacing: 1px;
+}
+
+cite {
+    text-decoration: underline;
+}

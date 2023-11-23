@@ -1,0 +1,80 @@
+{
+    "people_with_pets": {
+      "people": [
+        {
+          "name": "Sandra",
+          "category": "women",
+          "surname": "Yuguero",
+          "age": 30,
+          "pets": [
+            {
+              "name": "Fry",
+              "category": "dog",
+              "colour": "Black",
+              "birth": 2005,
+              "owner": "Sandra Yuguero"
+            },
+            {
+              "name": "Lola",
+              "category": "dog",
+              "colour": "Grey",
+              "birth": 2008,
+              "owner": "Sandra Yuguero"
+            },
+            {
+              "name": "Pio",
+              "category": "bird",
+              "colour": "Green",
+              "birth": 2023,
+              "owner": "Sandra Yuguero"
+            }
+          ]
+        },
+        { 
+          "name": "Blas",
+          "category": "men",
+          "surname": "Barragán",
+          "age": 35,
+          "pets": [
+            {
+              "name": "Pika",
+              "category": "mouse",
+              "colour": "Yellow",
+              "birth": 1999,
+              "owner": "Blas Barragán"
+            },
+            {
+              "name": "Twitch",
+              "category": "rat",
+              "colour": "Grey",
+              "birth": 2001,
+              "owner": "Blas Barragán"
+            }
+          ]
+        },
+        {
+          "name": "Angela",
+          "category": "women",
+          "surname": "Barragán",
+          "age": 25,
+          "pets": [
+            {
+              "name": "Donfi",
+              "category": "cat",
+              "colour": "Grey",
+              "birth": 2019,
+              "owner": "Angela Barragán"
+            },
+            {
+              "name": "Blanquita",
+              "category": "cat",
+              "colour": "White",
+              "birth": 2019,
+              "owner": "Angela Barragán"
+            }
+          ]
+        }
+      ]
+    }
+  }
+  

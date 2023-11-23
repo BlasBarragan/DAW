@@ -1,0 +1,23 @@
+
+import java.util.Scanner;
+public class Funciones_con_datos_de_entrada_y_salida {
+
+	public static float cubo(float num)
+	{
+		float cubo = num;
+		for (int i=3;i>0;i++)
+			num = num*cubo;
+		return num;
+	}
+	
+	public static void main(String[] args) {
+		
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Dame un numero: ");
+		float num = sc.nextInt();
+		cubo(num);
+		System.out.print("Su cubo es: " + num);
+
+	}
+
+}

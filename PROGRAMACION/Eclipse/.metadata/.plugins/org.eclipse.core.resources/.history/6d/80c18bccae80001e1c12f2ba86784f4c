@@ -1,0 +1,26 @@
+
+public class Funciones_sin_datos_de_entrada_ni_salida {
+
+	public static void borrarPantalla()
+	{
+		for (int i = 0; i<26; i++)
+			{
+				System.out.println();
+			}
+	}
+	
+	public static void dibujarCuadrado3x3()
+	{
+		for (int i=0; i<4; i++)
+		{
+			System.out.println("***");
+		}
+	}
+	
+	public static void main(String[] args) {
+		
+		borrarPantalla();
+		dibujarCuadrado3x3();
+	}
+
+}

@@ -1,0 +1,20 @@
+
+public class Funciones_con_datos_de_entrada {
+	
+	public static void dibujarRectangulo(int ancho, int alto)
+	{
+		for (int i=alto; i>0; i--) 
+		{
+			for (int a=ancho; a>0; a--)
+			{
+				System.out.print("*");
+			}
+			System.out.println();
+		}
+	}
+	
+	public static void main(String[] args)
+    {
+        dibujarRectangulo(5,3);
+    }
+}

@@ -1,0 +1,53 @@
+body {
+    font-family: sans-serif;
+    font-size: 1.5em;
+}
+
+h1 {
+    border: black 5px solid ;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+p {
+    text-align: justify;
+}
+
+p.a {
+    border-color: red;
+    border-style: double;
+    border-width:20px 0 0 20px;
+}
+
+p.b {
+    border-color: blue green;
+    border-style: dashed;
+    border-width: 5px 10px 20px 30px;
+}
+
+p.c {
+    border-color: gold;
+    border-style: double;
+    border-width: 40px 10px ;
+}
+
+p.d {
+    border-color: lime;
+    border-bottom: blue;
+    border-style: solid;
+    border-width: 20px 0 ;
+}
+
+p.e {
+    border-color: red black black;
+    border-style: dashed dashed dotted;
+    border-width: 40px;
+}
+
+p.f {
+    border-color: black;
+    border-top: dotted 10px;
+    border-right: solid 40px;
+    border-bottom: dashed 20px;
+    border-left: red 40px double;
+}

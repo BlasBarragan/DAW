@@ -1,0 +1,30 @@
+/**
+ * Barragán Román, Blas
+ * Práctica Evaluable 1
+ * Ejercicio 04 Totalmente
+ * El número secreto del Súper
+ */
+import java.util.Scanner;
+public class Ejercicio04 {
+
+	public static void main(String[] args) {
+
+		int par;
+		int impar;
+		
+		Scanner sc = new Scanner(System.in);
+
+		System.out.println("Dime un numero: ");
+		int numero = sc.nextInt();
+
+		String digitos = String.valueOf(numero);
+
+		char[] cifras = digitos.toCharArray();
+
+		    for (int i = 0; i < cifras.length; i++) {
+		      System.out.println(cifras[i]);
+		    }
+		
+	}
+
+}

@@ -1,0 +1,14 @@
+
+public class Funciones_sin_datos_de_entrada_ni_salida {
+
+	public static void main(String[] args) {
+		
+		public static void borrarPantalla()
+		{
+			System.out.println(/n);
+		}
+		
+		borrarPantalla();
+	}
+
+}
