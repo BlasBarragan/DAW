@@ -1,0 +1,383 @@
+
+/*
+ * DAWS 2023-2024
+ * 
+ * Examen 1er parcial CFGS PROGRAMACIÓN
+ * 
+ * Profesor: Jose Sebastiá
+ */
+
+import java.util.Scanner;
+
+import javax.lang.model.util.ElementScanner6;
+
+public class examen {
+
+    /**
+     * ***********************EXAMEN*******************
+     * ***********************EXAMEN*******************
+     */
+
+     /*
+      *     Funcion calcularDescuentosEstudiante 
+      * Calcula un descuento del 20% sobre el precio final si el cliente es buen estudiante
+      *
+      * Se pide "S" si la media es superior a 8 o "N" si es inferior
+      * Si se introduce un caracter distinto se asume un "N" y arroja error
+      * Al imprimir el billete este dato aparecera en **DATOS CLIENTE**
+      *
+      * *     Funcion obtenerTipoEstudiante 
+      * Devuelve dato para imprimir billete
+      */
+    
+    public static float calcularDescuentoEstudiante(char estudiante) {
+        
+        float descuentoEstu = 0;
+        if (estudiante == 'S')
+            descuentoEstu = 0.2f;
+        else if (estudiante == 'N')
+            descuentoEstu = 0;
+        else 
+            descuentoEstu = 0;
+
+        return descuentoEstu;
+    }
+
+    public static String obtenerTipoEstudiante(char estudiante)
+    {
+        String buenEstudiante = "";
+        
+        if(estudiante == 'S')
+            buenEstudiante = "Si";
+        else 
+            buenEstudiante = "No";
+        return buenEstudiante;
+    }
+
+	 /*
+     *  Función obtenerTipoFechaViaje
+     *  
+     *  Descripción: según el día de inicio de viaje la función me devuelve:
+     *  
+     *  						"Blancos": si son los 10 primeros días
+     *  						"Rojos": si se sale entre el 15 y el 20
+     *  						"Verde": para el resto de días.
+     *
+     */
+    public static String obtenerTipoFechaViaje(int dia)
+    {
+        String tipoFecha = "";
+        
+        if(dia >= 1 && dia <= 10)
+            tipoFecha = "Blancos";
+        else if(dia >= 15 && dia <= 20)
+            tipoFecha = "Rojos";
+        else
+            tipoFecha = "Verdes";
+        
+        return tipoFecha;
+    }
+    
+    /*
+     *  Función calcularPrecioBillete
+     *  
+     *  Descripción: calcula el precio de billete según el parámetro de destino y 
+     *  cantidad de días
+     */
+    public static float calcularPrecioBillete(char tipoDestino, int nDias) {
+        float precioBillete = 0;
+        
+        /*
+         * Si destino Nacional (N), precio billete 100€ + 65€ por día
+         * Si destino Europeo (E), precio billete 170€ + 100€ por día
+         * Si destino Internacional (I), precio billete 560€ + 100€ por día
+         */
+        if (tipoDestino == 'N' || tipoDestino == 'n')
+            precioBillete = 100 + nDias*65;
+        else if(tipoDestino == 'E' || tipoDestino == 'e')
+            precioBillete = 170 + nDias*100;
+        else if(tipoDestino == 'I' || tipoDestino == 'i')
+            precioBillete = 560 + nDias*100;
+            
+        return precioBillete;
+    }
+    
+    /*
+     *  Función imprimirBillete
+     *  
+     *  Descripción: imprime por pantalla los datos del billete del cliente.
+     *  
+     */
+    public static void imprimirBillete(String nombreCliente, char tipoDestino, int nNoches, float precioBase, float precioTotal, float totalSobrecargos, char tipoPago, int diaInicioViaje, char estudiante) {
+        System.out.println("\n===============Imprimiendo Billete===============");
+        
+        /*
+         * Muestro los datos del cliente
+         */
+        System.out.println("**DATOS CLIENTE**");
+        
+        System.out.println("Nombre cliente: " + nombreCliente);
+        System.out.println("Destino: " + tipoDestino);
+        System.out.println("Días: " + (nNoches+1) + " (" + nNoches + " noches)");
+        System.out.println("Precio base: " + precioBase);
+        System.out.println("Buen estudiante: " + obtenerTipoEstudiante(estudiante));
+        
+        /* 
+         * Muestro los sobrecargos 
+         */
+        System.out.println("\n**SOBRECARGOS**");
+        System.out.println("\tTipo de pago: " + tipoPago + "\t\t\t=> Sobrecargo: " + calcularSobrecargoTipoPago(tipoPago) + "€");
+        System.out.println("\tTipo de fecha de viaje: " + obtenerTipoFechaViaje(diaInicioViaje) + "\t\t=> Sobrecargo: " + calcularSobrecargoDiaInicioViaje(diaInicioViaje) + "€");
+        System.out.println("\tTotal sobrecargos: " + totalSobrecargos + "€" );  
+        /*
+         *  Muestro el total con los decuentos
+         */
+        System.out.println("\n**TOTAL**");
+        System.out.println("\tPrecio total del viaje (sin descuentos): " + (precioBase + totalSobrecargos) + "€");
+        System.out.println("\tPrecio total del viaje (con descuentos): " + precioTotal + "€");
+
+
+        
+        System.out.println("===============Fin Imprimiendo Billete===============");
+    }
+    
+    /*
+     *  Función imprimirResumen
+     *  
+     *  Descripción: imprime por pantalla el total de billetes emitidos y la facturación.
+     */
+    public static void imprimirResumen(int numReservas, float facturacion) {
+        System.out.println("\n=============Mostrar Resumen del Día=============");
+        System.out.println("Billetes emitidos: " + numReservas);
+        System.out.println("Total: " + facturacion);
+        System.out.println("===========Fin Mostrar Resumen del Día============");
+    }
+    
+    /* 
+     * Función calcularPrecioTipoPago
+     * 
+     * Descripción: calcula el sobrecargo por el tipo de pago del billete.
+     *
+     */
+    public static float calcularSobrecargoTipoPago(char tipoPago) {
+        float sobrecargo = 0;
+        
+        /*
+         * Si paga en efectivo, no se cobra sobrecargo.
+         * Si paga con tarjeta, 10€ de sobrecargo
+         * Si paga con tarjeta de crédito, 20€ de sobrecargo
+         */
+        if (tipoPago == 'E' || tipoPago == 'e') // Efectivo
+            sobrecargo = 0; // Obvio, pero lo dejo por ser más descriptivo en la solución
+        else if(tipoPago == 'T' || tipoPago == 't') // Transferencia
+            sobrecargo = 10;
+        else if(tipoPago == 'C' || tipoPago == 'c') // Crédito
+            sobrecargo = 20;
+
+        return sobrecargo;
+    }
+    
+    /* 
+     * Función calcularSobrecargoDia
+     * 
+     * Descripción: calcula el sobrecargo según el día del mes en que el cliente desea iniciar su viaje.
+     *
+     */
+    public static float calcularSobrecargoDiaInicioViaje(int dia) {
+        float sobrecargo = 0;
+        
+        /*
+         * Si día inicio entre 1 y 10, sobrecargo 35€
+         * Si día inicio entre 15 y 20, sobrecargo 0€
+         * Resto de días, 10€
+         */
+        if(dia >= 1 && dia <= 10)
+            sobrecargo = 35;
+        else if(dia >= 15 && dia <= 20)
+            sobrecargo = 0; // Obvio, pero lo dejo por más descriptivo
+        else
+            sobrecargo = 10;
+        
+        return sobrecargo;
+    }
+    
+    /* 
+     * Función calcularDescuentoEdad
+     * 
+     * Descripción: calcula el descuento según la edad del cliente.
+     *
+     */
+    public static float calcularDescuento(float precio, int edad, int nDias) {
+        float descuentoEdad = 0;
+        float descuentoDias = 0;
+        
+        /*
+         *  Si se trata de un niño de menos de 7 años, paga tan solo la mitad del viaje.
+         *  
+         *  Si el cliente tiene menos de 25 años, tiene un descuento por tarifa joven que asciendo al 20%
+         *  
+         *  Si se trata de una persona mayor de 65 años, el descuento será del 25%
+         */
+        if(edad >= 0 && edad < 7)
+            descuentoEdad = 0.5f; // atención a la f final para que sea float
+        else if(edad < 25)
+            descuentoEdad = 0.2f;
+        else if(edad > 65)
+            descuentoEdad = 0.25f;
+        
+        /*
+         *  Si el número total de días de estancia supera una semana, se le aplicará un descuento
+         *  de 30€ al precio del viaje.
+         */
+        if(nDias > 7)
+            descuentoDias = 30;
+        
+        precio = precio - (precio * descuentoEdad) - descuentoDias;
+        
+        /*
+         *  Si después de todo, la factura final asciende a más de 1200€, la agencia le hará un descuento
+         *  un descuento adicional al cliente del 2%
+         */
+        if(precio >1200)
+            precio = precio - precio * 0.02f;
+        
+        return precio;
+    }
+	
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+        int opcion = 0; // 
+        
+        float facturacion = 0;
+        int numReservas = 0;
+        
+        do {
+            System.out.println("\n=================Menú Principal=================\n");
+            System.out.println("Menú Principal");
+            System.out.println("1. Añadir cliente");
+            System.out.println("2. Ver resumen del día");
+            System.out.println("3. Salir\n");
+            System.out.print("Elija una opción: ");
+            
+            opcion = sc.nextInt();
+            sc.nextLine();
+            
+            switch(opcion) {
+                 case 1:
+                     
+                     System.out.println("\n=================Añadir Cliente=================");
+                     
+                     System.out.print("Nombre: ");
+                     String nombreCliente = sc.nextLine();
+                     
+                     System.out.print("Edad: ");
+                     int edad = sc.nextInt();
+
+                     System.out.print("Destino (N: Nacional, E: Europeo, I: Internacional): ");
+                     char tipoDestino = sc.next().charAt(0); // obtiene el primer caracter de la cadena
+
+                     System.out.print("Días: ");
+                     int nDias = sc.nextInt();
+                     
+                     //calcular sobrecargo por tipo de pago
+                     System.out.print("Tipo de pago (C: T.Crédito, E: Efectivo, T: Transferencia): ");
+                     char tipoPago = sc.next().charAt(0);
+                     
+                     //calcular sobrecargo por días del mes
+                     System.out.print("Día inicio de viaje (1-31): ");
+                     int diaInicioViaje = sc.nextInt();
+/*############################ AQUI EJERCICIO 2 ###################################################  */
+
+                     //Descuento por buen estudiante
+                     
+                     /*System.out.print("Eres buen estudiante? ");
+                     System.out.print("Nota Media (S: Superior a 8, N: Inferior a 8: ");
+                     char estudiante = sc.next().charAt(0);
+                        if (estudiante != 'S')
+                            System.out.println("NO VALIDO");
+                     System.out.println("===============Fin Añadir Cliente================");
+                     */
+
+/*############################ HASTA AQUI EJERCICIO 2 ###################################################  */
+/*############################ AQUI EJERCICIO 3 ###################################################  */
+                // Solicitud del tipo de estudiante
+                char estudiante = 'n';
+				do 
+				{
+					System.out.print("Eres buen estudiante? ");
+                    System.out.print("Nota Media (S: Superior a 8, N: Inferior a 8: ");
+					estudiante = sc.next().charAt(0);
+					switch(estudiante) // 
+					{
+					case 'S': 
+						break;
+					case 'N': 
+						break;
+					default:
+						System.out.println("Error: Opción no valida");
+					}
+                    sc.nextLine();
+				}
+				while(estudiante != 'N' || estudiante != 'S');
+				{
+				} // Salimos del do-while
+
+/*############################ HASTA AQUI EJERCICIO 2 ###################################################  */
+                     /*
+                      * Calculo el precio del billete
+                      */
+                     float precioBase = calcularPrecioBillete(tipoDestino, nDias);
+                     
+                     /* 
+                      * Calculo el sobrecargo por tipo de pago
+                      */
+                     float sobrecargoPago = calcularSobrecargoTipoPago(tipoPago);
+                     
+                     /* 
+                      * Calculo el sobrecargo según día de salida
+                      */
+                     float sobrecargoDiaInicioViaje = calcularSobrecargoDiaInicioViaje(diaInicioViaje);
+
+                     float totalSobrecargos = sobrecargoPago + sobrecargoDiaInicioViaje;
+                     float precioTotal = precioBase + totalSobrecargos;
+                                         
+                     /* 
+                      * Calculo los desceuntos según edad y número de días de viaje
+                      */
+                     precioTotal = calcularDescuento(precioTotal, edad, nDias);
+
+                     /* 
+                     * Calculo el descuento según nota media
+                     */
+                    float descuentoEstu = calcularDescuentoEstudiante(estudiante);
+                    precioTotal = precioTotal - (precioTotal * descuentoEstu);
+
+                                         
+                     // Imprimo el billete
+                     imprimirBillete(nombreCliente, tipoDestino, nDias-1, precioBase, precioTotal, totalSobrecargos, tipoPago, diaInicioViaje, estudiante);
+
+                     facturacion += precioTotal;
+                     numReservas++;
+                     break;
+                     
+                 case 2:
+                	 imprimirResumen(numReservas, facturacion);
+                	 
+                 case 3:
+                     break;
+                     
+                 default:
+                     System.out.println("Opcion no válida!");
+            }
+    
+            System.out.println("\n\n");
+        }while(opcion != 3);
+        
+        // Muestro el resumen del día como se indica en el algoritmo
+        imprimirResumen(numReservas, facturacion);
+
+        System.out.println("\n**FIN DEL PROGRAMA**\n");
+
+	}
+
+}
