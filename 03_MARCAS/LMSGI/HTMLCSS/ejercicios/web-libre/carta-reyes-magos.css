@@ -1,0 +1,15 @@
+body {
+    background-color: blanchedalmond;
+}
+
+h1 {
+    text-align: center;
+}
+
+h2 {
+    text-align: center;
+}
+.reyes {
+    justify-content: center;
+    display: inline-flex;
+}
