@@ -1,15 +1,122 @@
+@font-face {
+    font-family: "Mountains_of_Christmas";
+    src: url(Mountains_of_Christmas/MountainsofChristmas-Regular.ttf);
+}
+@font-face {
+    font-family: "Agbalumo";
+    src: url(Agbalumo/Agbalumo-Regular.ttf);
+}
+
+html {
+    background:green url(IMAGENES/snowflakes2_86970.png) right top /50px;
+}
+
 body {
-    background-color: blanchedalmond;
+    /*background-color: green;*/
+    text-align: center;
+    font-family: Agbalumo;
 }
 
 h1 {
     text-align: center;
+    font-size: 3rem;
+    font-weight: 500;
+    color: red;
+    text-shadow: white 3px 3px;
 }
 
-h2 {
-    text-align: center;
+.izq {
+    float: left;
+    margin-left: 20%;
 }
-.reyes {
+
+.der {
+    float: right;
+    margin-right: 20%;
+}
+
+p {
+    text-align: center;
+    color: white;
+    text-shadow: red 3px 3px;
+}
+
+table {
     justify-content: center;
-    display: inline-flex;
+    font-family: "Mountains_of_Christmas";
+    font-weight: 700;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+caption {
+    font-weight: 500;
+    font-size: 2rem;
+    padding-bottom: 10px;
+    text-decoration: underline red;
+    color: gold;
+}
+
+tr {
+    font-size: 1.3rem;
+    padding-top: 30px;
+}
+
+.reyes {
+    padding-top: 20px;
+}
+
+.reyes:hover {
+    padding-top: 20px;
+    background-color: red;
+}
+
+.carta {
+    background-color: papayawhip;
+    margin: auto;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px black;
+    width: 400px;
+}
+
+form {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid black;
+    border-radius: 4px;
+    resize: vertical;
+}
+
+button {
+    background-color: darkred;
+    color: white;
+    padding: 10px 15px;
+    border-radius: 4px;
+    border: none;
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: gold;
+}
+
+ul {
+    list-style-type: none;
+}
+
+a:link {
+    color: gold;
+}
+
+object {
+    width: 200px;
+    height: 100px;
 }
