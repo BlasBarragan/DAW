@@ -28,12 +28,14 @@
 	<section name="BasicNewProjectResourceWizard">
 	</section>
 	<section name="ExternalProjectImportWizard">
-		<item key="WizardProjectsImportPage.STORE_NESTED_PROJECTS" value="false"/>
-		<item key="WizardProjectsImportPage.STORE_COPY_PROJECT_ID" value="false"/>
+		<item key="WizardProjectsImportPage.STORE_NESTED_PROJECTS" value="true"/>
+		<item key="WizardProjectsImportPage.STORE_COPY_PROJECT_ID" value="true"/>
 		<item key="WizardProjectsImportPage.STORE_ARCHIVE_SELECTED" value="false"/>
 		<item key="WizardProjectsImportPage.STORE_CLOSE_CREATED_PROJECTS_ID" value="false"/>
 		<item key="WizardProjectsImportPage.STORE_HIDE_CONFLICTING_PROJECTS_ID" value="false"/>
 		<list key="WizardProjectsImportPage.STORE_DIRECTORIES">
+			<item value="C:\Users\Blas\Desktop\Repos\DAW\05_PROGRAMACION\Eclipse"/>
+			<item value="C:\Users\Blas\Desktop\Repos\DAW\05_PROGRAMACION"/>
 			<item value="C:\Users\bRoman\iCloudDrive\DAW\PROGRAMACION\Eclipse\UD4_Ejercicios_Funciones"/>
 			<item value="C:\Users\bRoman\iCloudDrive\DAW\PROGRAMACION\Eclipse"/>
 		</list>
