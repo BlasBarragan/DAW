@@ -31,7 +31,13 @@ public class Ejercicio6 {
 		System.out.println(calendario.size());
 	}
 
-	//######## FUNCIONES #########
+//######## FUNCIONES #########
+	/**
+	 * Funcion ObtenerFecha
+	 * 
+	 * Solicita el ingreso de fechas y comprueba su validez (formato DD/MM/AAAA, rango de dias, etc..)/
+	 * Al ingresar "fin", se termina la recogida de fechas y se ejecuta el resta del programa.
+	 */
 	public static void ObtenerFecha() {
 
 		// Solicitamos fechas

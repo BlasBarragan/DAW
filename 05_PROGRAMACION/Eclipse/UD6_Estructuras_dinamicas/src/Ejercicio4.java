@@ -25,18 +25,18 @@ public class Ejercicio4 {
 					cola.add(a);
 				}
 			}
-		*/	
-			System.out.println("*** Añadimos numeros por programa para agilizar las pruebas ***");	
-			//Añado numeros por programa para las pruebas
-					equipo.add(33);
-				    equipo.add(15);
-				    equipo.add(10);
-				    equipo.add(34);
-				    equipo.add(8);
-				    equipo.add(13);
-			
-			System.out.println(equipo);
-			
+		 */	
+		System.out.println("*** Añadimos numeros por programa para agilizar las pruebas ***");	
+		//Añado numeros por programa para las pruebas
+		equipo.add(33);
+		equipo.add(15);
+		equipo.add(10);
+		equipo.add(34);
+		equipo.add(8);
+		equipo.add(13);
+
+		System.out.println(equipo);
+
 		// A. Comprobar si el jugador 10 existe.
 		if (equipo.contains(10)) {
 			System.out.println("El jugador numero 10, esta en el equipo.");
@@ -45,15 +45,15 @@ public class Ejercicio4 {
 		}
 		// B. Mostrar todos los numeros de jugador.
 		System.out.println("El equipo, esta formado por los jugadores numero: " + equipo);
-		
+
 		// C. Eliminar al jugador numero 13.
 		equipo.remove(13);
 		System.out.println("El jugador numero 13, ha sido eliminado");
 		System.out.println("Asi queda el equipo: " + equipo);
-		
+
 		// D. Eliminar a todos los jugadores.
 		equipo.clear();
-		
+
 		// E. Comprobar que no hay jugadores en el equipo.
 		if (equipo.isEmpty()) {
 			System.out.println("El equipo esta vacio " + equipo);

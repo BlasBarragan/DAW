@@ -8,6 +8,7 @@
 		<item key="isRegEx" value="false"/>
 		<item key="selection" value="procesoAtendido"/>
 		<list key="findhistory">
+			<item value="upContrasena"/>
 			<item value="procesoPendiente"/>
 			<item value="cola"/>
 			<item value="push"/>

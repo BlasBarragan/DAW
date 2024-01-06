@@ -26,8 +26,8 @@ public class Ejercicio5 {
 	// ### Importamos java.util.LinkedList ###
 	// Creamos cola vacia
 	private static Queue<Integer> cola = new LinkedList<Integer>();
-	
-	
+
+
 	public static void main(String[] args) {
 
 		// Pedimos valores al usuario
@@ -42,56 +42,56 @@ public class Ejercicio5 {
 					cola.add(a);
 				}
 			}
-		*/	
+		 */	
 		System.out.println("*** Añadimos numeros por programa para agilizar las pruebas ***");	
 		//Añado numeros por programa para las pruebas
-				cola.add(33);
-			    cola.add(15);
-			    cola.add(20);
-			    cola.add(34);
-			    cola.add(8);
-			    cola.add(12);
-		
+		cola.add(33);
+		cola.add(15);
+		cola.add(20);
+		cola.add(34);
+		cola.add(8);
+		cola.add(12);
+
 		System.out.println(cola);
 		System.out.println();
-			
-			// Menu programa
-			int opcion = 0; // Declaramos opcion fuera del *do* para no tener fallo
+
+		// Menu programa
+		int opcion = 0; // Declaramos opcion fuera del *do* para no tener fallo
 		do {
 			MenuPrincipal();
 			System.out.println("Elija una opcion: ");
-			
+
 			opcion = sc.nextInt(); // Obtenemos digito de usuario
 			sc.nextLine(); // Consumo retorno dde carro
-			
+
 			switch(opcion) {
-				case 1:
-					AtenderProceso();
-					break;
-				case 2:
-					EliminarProceso();
-					break;
-				case 3:
-					MostrarRestante();
-					break;
-				case 4:
-					ProcesosAtendidos();
-					break;
-				case 5:
-					AtenderTodos();
-					break;
-				case 6:
-					break;
-				default:
-		 			System.out.println("Opcion no válida!");
+			case 1:
+				AtenderProceso();
+				break;
+			case 2:
+				EliminarProceso();
+				break;
+			case 3:
+				MostrarRestante();
+				break;
+			case 4:
+				ProcesosAtendidos();
+				break;
+			case 5:
+				AtenderTodos();
+				break;
+			case 6:
+				break;
+			default:
+				System.out.println("Opcion no válida!");
 			}// FIN switch
-			
+
 		}while (opcion != 6); // FIN do
-			System.out.println("< ==== Salir ==== >");
-			
+		System.out.println("< ==== Salir ==== >");
+
 	}// FIN MAIN
 
-// ######## FUNCIONES ########
+	// ######## FUNCIONES ########
 	/**
 	 * Funcion MenuPrincipal
 	 * Muestra un menu con las distintas opciones del programa
@@ -118,7 +118,7 @@ public class Ejercicio5 {
 		System.out.println("Proceso: " + cola.peek());
 		System.out.println("El proceso con el PID " + cola.poll() + " ha sido atendido.");
 		System.out.println("");
-		
+
 		procesoAtendido ++;
 	}
 	/**
@@ -130,7 +130,7 @@ public class Ejercicio5 {
 		System.out.println("");
 		System.out.println("Proceso " + cola.poll() + " eliminado.");
 		System.out.println("");
-}
+	}
 	/**
 	 * Funcion MostrarRestante
 	 * Muestra la lista de PIDs que quedan por atender en formato vertical.
@@ -169,10 +169,10 @@ public class Ejercicio5 {
 			System.out.println("Proceso " + cola.poll() + " atendido");
 			procesoAtendido ++;
 		}
-			System.out.println("Todos los procesos atendidos");
-			System.out.println("La cola esta vacia");
-			System.out.println("");
+		System.out.println("Todos los procesos atendidos");
+		System.out.println("La cola esta vacia");
+		System.out.println("");
 	}
-	
-// FIN PROGRAMA
+
+	// FIN PROGRAMA
 }
