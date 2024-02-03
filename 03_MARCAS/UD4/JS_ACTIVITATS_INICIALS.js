@@ -6,11 +6,11 @@
 * Llamamiento a la función 3 veces con diferentes parámetros. En uno de esos llamamientos pásale por parámetro un valor que no sea string.
 */
 
-function DosCadenas(cadena1, cadena2){
-    if (typeof cadena1 !== "string" || typeof cadena2 !== "string"){
-        console.error("Error: El tipo de variable no es String");
-    } else {
-        if (cadena1.length > cadena2.length){
+function dosCadenas(cadena1, cadena2){ // La funcion recibe 2 parametros.
+    if (typeof cadena1 !== "string" || typeof cadena2 !== "string"){ // Comprobamos que los parametros recividos sean de tipo string.
+        console.error("Error: El tipo de variable no es String"); // Si no, devolvemos error.
+    } else { // Si se cumple la condicion...
+        if (cadena1.length > cadena2.length){ // Comparamos la longuitud de las cadenas y devolvemos la mayor.
             console.log(cadena1);
         }else{
             console.log(cadena2);
@@ -18,10 +18,9 @@ function DosCadenas(cadena1, cadena2){
     }
 }
 
-DosCadenas("Esta cadena es menor", "Esta cadena es mayor que la otra cadena");
-DosCadenas("Blas Barragán Román", 123456);
-DosCadenas("Blas Barragán Román", "Mi nombre es: ");
-
+dosCadenas("Esta cadena es menor", "Esta cadena es mayor que la otra cadena"); // La segunda cadena es mayor.
+dosCadenas("Blas Barragán Román", 123456); // La segunda cadena, no cumple la condicion string.
+dosCadenas("Blas Barragán Román", "Mi nombre es: "); // La primera cadena es mayor.
 
 /*
 * Apartado 2
@@ -31,19 +30,19 @@ DosCadenas("Blas Barragán Román", "Mi nombre es: ");
 * Llama a la función varias veces.
 */
 
-function LosNumeros(numero1,numero2){
-    for (let i = 0; i < numero1; i++){
+function losNumeros(numero1,numero2){ // La funcion recibe dos parametros.
+    for (let i = 0; i < numero1; i++){ // Realizamos el bucle tantas veces como nos indique el primer parametro.
         console.log(numero2);
         numero2 = numero2*2;
     }
 }
 
 console.log("Llamada uno:")
-LosNumeros(4,6);
+losNumeros(4,6);
 console.log("Llamada dos:")
-LosNumeros(3,5);
+losNumeros(3,5);
 console.log("Llamada tres:")
-LosNumeros(5,1);
+losNumeros(5,1);
 
 
 /*
@@ -55,35 +54,34 @@ LosNumeros(5,1);
 * Llamamiento a la función varias veces.
 */
 
-function BuscaLetras(cadena,letra){
-    cadena = String(cadena);
-    letra = String(letra);
-    let contador = 0;
+function buscaLetras(cadena,letra){ // La funcion recibe dos parametros.
+    cadena = String(cadena); // Convertimos el primer parametro en string.
+    letra = String(letra); // Convertimos el segundo parametro en string.
 
-    if (letra.length = 1){
-        cadena = cadena.trim();
-        let contador = 0;
-        const myArr = cadena.split("");
-        for (let j = 0; j<myArr.length; j++){
-            if (myArr[j] == letra){
-                console.log(myArr[j]);
-                contador = contador + 1;
+    if (letra.length == 1){ // Comprobamos que el segundo parametro solo contenga un caracter.
+        cadena = cadena.trim(); // Eliminamos todos los espacios en blanco de "cadena".
+        let contador = 0; // Inicializamos un contador.
+        const myArr = cadena.split(""); // Creamos un array con cada uno de los caracteres de "cadena".
+        for (let j = 0; j<myArr.length; j++){ // Recorremos cada una de las posiciones del array.
+            if (myArr[j] == letra){ // Si el valor de la posicion "j" en el array es igual a "letra"...
+                contador = contador + 1; // Sumamos 1 a "contador".
             }
         }
-        console.log(typeof cadena);
-        console.log(typeof letra);
-        console.log(contador);
+        console.log("La letra "+ letra + " aparece "+ contador+ " veces."); // Devolvemos el resultado.
     }else{
-        console.error("Error: Solo es posible buscar una letra.")
+        console.error("Error: Solo es posible buscar una letra.") // Devolvemos error si se busca mas de 1 caracter.
     }
 }
 
 console.log("Mi nombre sin tildes: ");
-BuscaLetras("Blas Barragan Roman", "a");
+buscaLetras("Blas Barragan Roman", "a");
 console.log("Mi nombre con tildes: ");
-BuscaLetras("Blas Barragán Román", "a");
+buscaLetras("Blas Barragán Román", "á");
 console.log("Buscando mayusculas: ");
-BuscaLetras("Blas BArragán Román", "A");
+buscaLetras("Blas BArragán Román", "A");
+console.log("Buscando más de un caracter: ");
+buscaLetras("Blas BArragán Román", "aA");
+
 /*
 * Apartado 4
 * Crea una función que reciba 3 parámetros (nombre de producto, precio e impuesto en porcentaje sobre 100).
@@ -94,8 +92,22 @@ BuscaLetras("Blas BArragán Román", "A");
 * - Llamamiento a la función varias veces, omitiendo parámetros, con todos los parámetros, y pasando algún valor no númerico en el precio o impuesto.
 */
 
+function precioProducto(nombre = "Producto generico",precio = 100,impuesto = 21){ // La funcion recibe 3 parametros o en su defecto toma los valores definidos.
+    nombre = String(nombre); // Convertimos en string.
+    precio = Number(precio);
+    impuesto = Number(impuesto); // Convertimos en numero
 
+    if (isNaN(precio) || isNaN(impuesto)){ // Si el valor es igual a NaN.
+        console.error("Error: Precio o Impuesto no son numeros validos"); // Devolvemos error.
+    }else{ // En caso contrario...
+        console.log(nombre + ": " + (precio += (precio*impuesto/100))); // Devuelve el nombre y el precio total.
+    }
+}
 
+precioProducto(); // Valores omitidos, obtiene por defecto.
+precioProducto("Naranja",1,10); // Todos los parametros.
+precioProducto("Coche",20000,"l0"); // Valor no numerico en impuesto.
+precioProducto("Moto","l0000",21); // Valor no numerico en precio.
 
 /*
 * Apartado 5
@@ -106,3 +118,19 @@ BuscaLetras("Blas BArragán Román", "A");
 * a minúsculas (o a mayúsculas). Ej: La cadena "Santiago de Compostela" contiene la cadena de búsqueda "COMPO".
 * Llamamiento a la función varias veces.
 */
+
+let funcionFlecha = (completa, pedazo) =>{ // Variable con funcion flecha de dos parametros.
+    let texto = completa.toLowerCase(); // Convertimos a minusculas.
+    let busqueda = pedazo.toLowerCase();
+    let respuesta = "";
+    if (texto.includes(busqueda)) { // Si "texto" contiene "busqueda"...
+        respuesta = 'La cadena "' + completa + '" contiene la cadena de busqueda "' + pedazo + '".'
+    }else{ // En caso contrario..
+        respuesta = '"'+ pedazo + '" no se encentra en el texto.'
+    };
+    return console.log(respuesta); // Devuelve "respuesta".
+}
+
+funcionFlecha("Blas Barragan Roman", "an"); // Busqueda en minusculas.
+funcionFlecha("Pablito clavo un clavito, que clavito clavo Pablito?", "CLAVO"); // Busqueda en mayusculas.
+funcionFlecha("Pablito clavo un clavito, que clavito clavo Pablito?", "calvo"); // Texto no encontrado.
