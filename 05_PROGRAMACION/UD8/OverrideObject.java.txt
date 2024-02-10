@@ -1,0 +1,147 @@
+package ud8_poo;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+
+class Alumno implements Comparable<Alumno> {
+	
+	//Atributos
+	private String nombre;
+	private int edad;
+	private int curso;
+	private int suspendidas;
+
+	//Constructor
+	public Alumno(String nombre, int edad, int curso, int suspendidas) {
+		this.nombre = nombre;
+		this.edad = edad;
+		this.curso = curso;
+		this.suspendidas = suspendidas;
+	}	
+	
+	//Métodos sobreescritos de Object !!
+
+	@Override
+	public boolean equals(Object obj) {
+
+		Alumno a = (Alumno) obj;
+
+		return this.nombre.equals(a.nombre) && (this.curso == a.curso)
+				&& (this.edad == a.edad) && (this.suspendidas == a.suspendidas);
+	}
+
+	@Override
+	public String toString() {
+		
+		return String.format("%-10s Edad:%3d Curso:%2dºDAW Susp: %d", nombre, edad, curso, suspendidas);
+	}	
+
+	@Override
+	public int compareTo(Alumno a) {
+
+		//Criterio de ordenación
+		
+		// 1- por edad (de menor a mayor)
+		// 2- por curso (de mayor a menor)
+		// 3- por suspensos (de menor a mayor)
+		// 4- por nombre (de menor a mayor)		
+		
+		//1ero.- Ordenar por edad de menor a mayor
+		if (this.edad != a.edad) {
+			return this.edad - a.edad;
+		}
+				
+		//2ndo.- Ordenar por curso de mayor a menor
+		if (this.curso != a.curso) {
+			return a.curso - this.curso;	
+		}
+		
+		//3ero.- Ordenar por suspensos de menor a mayor
+		if (this.suspendidas != a.suspendidas) {
+			return this.suspendidas - a.suspendidas;
+		}
+		
+		//4rto.- Ordenar por nombre de menor a mayor
+		return this.nombre.compareTo(a.nombre);
+	}	
+}
+
+public class OverrideObject {
+	
+	public static void main(String[] args) {
+
+		//0.- Recordar compareTo
+		
+		String s1 = "cate";
+		String s2 = "agua";
+		
+		// 0	si les 2 cadenes son iguals
+		// >0 	si s1 > s2
+		// <0	si s1 < s2
+		
+		int a = s1.compareTo(s2);
+		
+		System.out.println( a );
+		
+		//1.- Ordenar vectores (estr. estática)
+		String[] vs = {"cate", "agua", "tenis", "mateo", "zzz"};
+		
+		Arrays.sort(vs);
+		
+		for (String s : vs) {
+			System.out.println(s);
+		}		
+		
+		//2.- Ordenar colecciones (estr. dinámica)
+		ArrayList<Integer> ale = new ArrayList<Integer>();
+		
+		ale.add(4);
+		ale.add(1);
+		ale.add(5);
+		ale.add(3);
+		ale.add(2);
+		
+		Collections.sort(ale);
+		
+		for (Integer i : ale) {
+			System.out.println( i );
+		}
+		
+		//3.- Crear objetos alumnos
+		Alumno a1 = new Alumno("Pedro", 19, 2, 0);
+		Alumno a2 = new Alumno("Luis", 21, 1, 2);
+		Alumno a3 = new Alumno("Ana", 20, 2, 1);
+		Alumno a4 = new Alumno("Marta", 19, 1, 2);
+		
+		//3.1.- Ordenar vectores de objetos
+		Alumno[] va = new Alumno[4];
+		
+		va[0] = a1;
+		va[1] = a2;
+		va[2] = a3;
+		va[3] = a4;
+		
+		Arrays.sort(va);
+		
+		for (Alumno alumno : va) {
+			System.out.println(alumno);
+		}		
+		
+		//3.2.- Ordenar colecciones de objetos
+		ArrayList<Alumno> ala = new ArrayList<Alumno>();
+		
+		ala.add(a1);
+		ala.add(a2);
+		ala.add(a3);
+		ala.add(a4);		
+		
+		Collections.sort(ala);	
+		
+		System.out.println("---");
+		for (Alumno alumno : ala) {
+			System.out.println(alumno);
+		}		
+	}
+	
+}

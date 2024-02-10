@@ -1,0 +1,7 @@
+Practicar POO en Java:
+Ejercicios: 2 (Pág. 194), 4 y 5 (Pág. 195), 12 (Pág. 200)
+Practicar arrays de POO:
+
+Proyecto Colección de Discos: Ejercicios 3 y se amplía en Ejercicio 4 (Pág. 206)
+Proyecto Juego de Cartas: Ejercicio 8 y 9 (Pág. 229), se amplía en Ejercicio 12 (Pág. 230)
+Proyecto GESTISIMAL: Ejercicio 5 (Pág. 207) y se amplía en Ejercicio 13 (Pág. 230)

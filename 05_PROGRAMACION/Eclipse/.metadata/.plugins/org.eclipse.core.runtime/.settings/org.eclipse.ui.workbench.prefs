@@ -14,6 +14,7 @@ org.eclipse.egit.ui.DiffHeadlineFont=1|Courier New|12.0|0|WINDOWS|1|0|0|0|0|0|0|
 org.eclipse.egit.ui.IgnoredResourceForegroundColor=0,255,0
 org.eclipse.jdt.internal.ui.compare.JavaMergeViewer=1|Courier New|12.0|0|WINDOWS|1|0|0|0|0|0|0|0|0|1|0|0|0|0|Courier New;
 org.eclipse.jdt.internal.ui.compare.PropertiesFileMergeViewer=1|Courier New|12.0|0|WINDOWS|1|0|0|0|0|0|0|0|0|1|0|0|0|0|Courier New;
+org.eclipse.jdt.ui.ColoredLabels.match_highlight=206,92,0
 org.eclipse.jdt.ui.Javadoc.backgroundColor=81,86,88
 org.eclipse.jdt.ui.PropertiesFileEditor.textfont=1|Courier New|12.0|0|WINDOWS|1|0|0|0|0|0|0|0|0|1|0|0|0|0|Courier New;
 org.eclipse.jdt.ui.editors.textfont=1|Courier New|12.0|0|WINDOWS|1|0|0|0|0|0|0|0|0|1|0|0|0|0|Courier New;

@@ -1,0 +1,6 @@
+Practicar conceptos
+Ejercicios del 3 al 7.
+Practicar POO en Java:
+
+Ejercicio 1, 4, 5, 6, 7, 8, 10, 11
+Nota: algunos ejercicios pide que se creen subclases. Esto no lo hemos estudiado todavía así que podéis saltarlos.

@@ -1,0 +1,24 @@
+
+public class EstructuraClase {
+
+	//1.- Atributos
+	
+		//1.a- Atributos de clase (static)
+					
+		//1.b.- Atributos de instancia
+			
+	//2.- Constructores
+	
+		//Primero el constructor por defecto y después con parámetros
+
+	//3.- Propiedades && Getters and Setters
+
+	//4.- Métodos sobreescritos de la clase Object o de la superclase
+	
+	//5.- Métodos propios
+		
+		//4.a- Métodos estáticos
+	
+		//4.b- Métodos de instancia
+		
+}
