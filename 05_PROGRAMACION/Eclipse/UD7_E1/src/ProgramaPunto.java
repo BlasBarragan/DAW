@@ -7,6 +7,8 @@ public class ProgramaPunto {
 		Punto punto1 = new Punto(5,0);
 		Punto punto2 = new Punto(10,10);
 		Punto punto3 = new Punto(-3,7);
+		Punto punto4 = Punto.puntoAleatorio();
+		punto4.imprime();
 		
 		//Imprimimos las coordenadas de los tres puntos        
         System.out.println("Coordenadas del punto2 (" + punto1.getX() + "," + punto1.getY() + ")");
@@ -16,6 +18,7 @@ public class ProgramaPunto {
         System.out.println("Coordenadas del punto3 (" + punto3.getX() + "," + punto3.getY() + ")");
         punto3.imprime();
         System.out.println();
+        
 		
         //Modificamos las coordenadas de los tres puntos
         punto1.setX(punto1.getX()+3);
