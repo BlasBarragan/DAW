@@ -20,6 +20,13 @@
 		<item key="SmartImportRootWizardPage.STORE_NESTED_PROJECTS" value="true"/>
 		<item key="SmartImportRootWizardPage.STORE_CONFIGURE_NATURES" value="true"/>
 		<list key="org.eclipse.ui.internal.wizards.datatransfer.SmartImportRootWizardPage.knownSources">
+			<item value="C:\Users\Blas\Desktop\Repos\DAW\05_PROGRAMACION\Eclipse\UD8\p4-juego-de-cartas"/>
+			<item value="C:\Users\Blas\Desktop\Repos\DAW\05_PROGRAMACION\Eclipse\UD8\Ejercicios_UD8"/>
+			<item value="C:\Users\Blas\Desktop\Repos\DAW\05_PROGRAMACION\Eclipse\UD8\Soluciones ejercicios\Ejercicio 2 - Mascotas"/>
+			<item value="C:\Users\Blas\Desktop\Repos\DAW\05_PROGRAMACION\Eclipse\UD8\Soluciones ejercicios"/>
+			<item value="C:\Users\Blas\Desktop\Repos\DAW\05_PROGRAMACION\Eclipse\UD8\Soluciones ejercicios\Ejercicio 1 - Astros"/>
+			<item value="C:\Users\Blas\Desktop\Repos\DAW\05_PROGRAMACION\Eclipse\UD8"/>
+			<item value="C:\Users\Blas\Desktop\Repos\DAW\05_PROGRAMACION\Eclipse"/>
 			<item value="C:\Users\Blas\iCloudDrive\DAW\05_PROGRAMACION\Eclipse"/>
 			<item value="C:\Users\bRoman\iCloudDrive\DAW\PROGRAMACION\Eclipse"/>
 			<item value="/Users/blas/Library/Mobile Documents/com~apple~CloudDocs/DAW/PROGRAMACION/Eclipse"/>
@@ -31,9 +38,10 @@
 		<item key="WizardProjectsImportPage.STORE_NESTED_PROJECTS" value="true"/>
 		<item key="WizardProjectsImportPage.STORE_COPY_PROJECT_ID" value="true"/>
 		<item key="WizardProjectsImportPage.STORE_ARCHIVE_SELECTED" value="false"/>
-		<item key="WizardProjectsImportPage.STORE_CLOSE_CREATED_PROJECTS_ID" value="false"/>
-		<item key="WizardProjectsImportPage.STORE_HIDE_CONFLICTING_PROJECTS_ID" value="false"/>
+		<item key="WizardProjectsImportPage.STORE_CLOSE_CREATED_PROJECTS_ID" value="true"/>
+		<item key="WizardProjectsImportPage.STORE_HIDE_CONFLICTING_PROJECTS_ID" value="true"/>
 		<list key="WizardProjectsImportPage.STORE_DIRECTORIES">
+			<item value="C:\Users\Blas\Desktop\Repos\DAW\05_PROGRAMACION\Eclipse\UD8"/>
 			<item value="C:\Users\Blas\Desktop\Repos\DAW\05_PROGRAMACION\Eclipse"/>
 			<item value="C:\Users\Blas\Desktop\Repos\DAW\05_PROGRAMACION"/>
 			<item value="C:\Users\bRoman\iCloudDrive\DAW\PROGRAMACION\Eclipse\UD4_Ejercicios_Funciones"/>

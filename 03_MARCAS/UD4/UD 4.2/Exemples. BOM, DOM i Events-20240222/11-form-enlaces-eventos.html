@@ -1,0 +1,32 @@
+<!DOCTYPE>
+<html>
+  <head>
+    <title></title>
+    <meta charset="UTF-8">
+    <style>
+      .not-valid {
+        border: 1px solid red; 
+      }
+    </style>
+  </head>
+  <body>
+    <p>
+      <a href="https://google.es">Este enlace funciona</a>
+      <a id="novale" href="https://google.es">Este no funciona</a>
+    </p>
+    <h5>Prueba a dejar vacío el campo y darle al tab</h5>
+    <form id="form" action="https://google.es" method="GET">
+      <p>
+        <label for="name">Nombre: </label>
+        <input type="text" id="name">
+      </p>
+      <p>
+        <button type="submit">Enviar</button>
+      </p>
+    </form>
+    <p id="info"></p>
+
+    <!-- Soy un comentario -->
+    <script src="11-form-enlaces-eventos.js"></script>
+  </body>
+</html>

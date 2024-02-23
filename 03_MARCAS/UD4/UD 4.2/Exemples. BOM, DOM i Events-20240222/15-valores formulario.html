@@ -1,0 +1,51 @@
+<!DOCTYPE>
+<html>
+  <head>
+    <title></title>
+    <meta charset="UTF-8">
+  </head>
+  <body>
+    <form id="formulario">
+      <div>
+        <label for="nombre">Nombre: </label>
+        <input type="text" id="nombre" name="nombre">
+      </div>
+      <div style="margin-top: 15px;">
+        Aficiones:
+      </div>
+      <div>
+        <input type="checkbox" id="deporte" name="aficiones" value="deporte">
+        <label for="deporte">Deporte</label>
+        <input type="checkbox" id="viajar" name="aficiones" value="viajar">
+        <label for="viajar">Viajar</label>
+        <input type="checkbox" id="comer" name="aficiones" value="comer">
+        <label for="comer">Comer</label>
+      </div>
+      <div style="margin-top: 15px;">
+        Elige un color:
+      </div>
+      <div>
+        <input type="radio" id="rojo" name="color" value="rojo" checked>
+        <label for="rojo">Rojo</label>
+        <input type="radio" id="verde" name="color" value="verde">
+        <label for="verde">Verde</label>
+        <input type="radio" id="azul" name="color" value="azul">
+        <label for="azul">Azul</label>
+      </div>
+      <div style="margin-top: 15px;">
+        <label for="fichero">Elige un archivo:</label>
+        <input type="file" id="fichero" name="fichero">
+      </div>
+      <div>
+        <button type="submit">Enviar</button>
+      </div>
+    </form>
+
+    <p id="envio"></p>
+    <p id="envioArchivo"></p>
+    <p><img style="max-width: 200px;" src="" id="imgPreview"></p>
+
+    <!-- Soy un comentario -->
+    <script src="15-valores-formulario.js"></script>
+  </body>
+</html>

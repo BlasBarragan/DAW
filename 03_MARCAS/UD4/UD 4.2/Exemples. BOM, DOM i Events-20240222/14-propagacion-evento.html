@@ -1,0 +1,37 @@
+<!DOCTYPE>
+<html>
+  <head>
+    <title></title>
+    <meta charset="UTF-8">
+    <style>
+      #div1 {
+        width: 200px; 
+        height: 200px;
+        background-color: red; 
+      }
+      #div2 {
+        width: 100px; 
+        height: 100px;
+        background-color: blue; 
+      }
+      #div3 {
+        width: 50px; 
+        height: 50px;
+        background-color: green; 
+      }
+    </style>
+  </head>
+  <body>
+    <h4>Propagación del evento en fase de captura (de abajo a arriba).
+      Haz click en el recuadro verde (#div3) para verlo mejor
+    </h4>
+    <div id="div1">
+        <div id="div2">
+           <div id="div3"></div>
+        </div>
+    </div>
+
+    <!-- Soy un comentario -->
+    <script src="14-propagacion-evento.js"></script>
+  </body>
+</html>

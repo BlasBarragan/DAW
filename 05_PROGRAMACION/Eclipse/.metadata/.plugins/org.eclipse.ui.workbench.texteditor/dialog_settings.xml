@@ -6,22 +6,32 @@
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
-		<item key="selection" value="procesoAtendido"/>
+		<item key="selection" value="Canta"/>
 		<list key="findhistory">
+			<item value="Habla"/>
+			<item value="Origen"/>
+			<item value="habla"/>
+			<item value="origen"/>
+			<item value="peloLargo"/>
+			<item value="color"/>
+			<item value="Pulgas"/>
+			<item value="Raza"/>
+			<item value="raza"/>
+			<item value="pulgas"/>
 			<item value="upContrasena"/>
 			<item value="procesoPendiente"/>
 			<item value="cola"/>
 			<item value="push"/>
 			<item value="pila"/>
-			<item value=";"/>
-			<item value="add"/>
-			<item value="numeritos"/>
-			<item value="myNumbers"/>
-			<item value="rand"/>
-			<item value="scanner"/>
-			<item value="elegirDificultad"/>
 		</list>
 		<list key="replacehistory">
+			<item value="Canta"/>
+			<item value="Color"/>
+			<item value="vuela"/>
+			<item value="color"/>
+			<item value="habla"/>
+			<item value="origen"/>
+			<item value="peloLargo"/>
 			<item value="procesoAtendido"/>
 			<item value="equipo"/>
 			<item value="add"/>
@@ -30,17 +40,13 @@
 			<item value="search"/>
 			<item value="push"/>
 			<item value="pila"/>
-			<item value="numeritos"/>
-			<item value="rd"/>
-			<item value="sc"/>
-			<item value="menuDificultad"/>
 		</list>
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
-		<item key="DIALOG_X_ORIGIN" value="807"/>
-		<item key="DIALOG_Y_ORIGIN" value="268"/>
+		<item key="DIALOG_X_ORIGIN" value="969"/>
+		<item key="DIALOG_Y_ORIGIN" value="303"/>
 		<item key="DIALOG_WIDTH" value="322"/>
 		<item key="DIALOG_HEIGHT" value="391"/>
-		<item key="DIALOG_FONT_NAME" value="1|Segoe UI|9.0|0|WINDOWS|1|-12|0|0|0|400|0|0|0|1|0|0|5|0|Segoe UI"/>
+		<item key="DIALOG_FONT_NAME" value="1|Segoe UI|9.0|0|WINDOWS|1|-12|0|0|0|400|0|0|0|1|0|0|0|0|Segoe UI"/>
 	</section>
 </section>
