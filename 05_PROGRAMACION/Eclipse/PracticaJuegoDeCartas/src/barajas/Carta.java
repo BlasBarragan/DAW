@@ -94,7 +94,7 @@ public class Carta implements Relacionable {
 			
 			return NombreNumero() + " de " + NombrePalo();
 		}
-		// Posiblemente mejor usar if que switch para valores
+		
 		public int ValorTute() {
 			
 			int valorTute; 
@@ -135,13 +135,7 @@ public class Carta implements Relacionable {
 			
 			double valor7ymedio; 
 			
-			if (numero == 2) {
-				valor7ymedio = 1;
-			}
-			else if (numero == 3) {
-				valor7ymedio = 10;
-			}
-			else if (numero >=8 || numero == 1) {
+			if (numero >=8) {
 				valor7ymedio = 0.5;
 			}
 			else {

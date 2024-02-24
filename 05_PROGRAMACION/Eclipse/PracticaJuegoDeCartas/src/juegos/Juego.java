@@ -23,6 +23,31 @@ public abstract class Juego {
 	// Metodos
 	public abstract void jugar();
 	
+	public String getNombreJ(int num) {
+		if (num == 1) {
+			return nombreJ1;
+		}
+		else {
+			return nombreJ2;
+		}
+	}
+	
+	public String getNombreJ1() {
+		return nombreJ1;
+	}
+
+	public void setNombreJ1(String nombreJ1) {
+		this.nombreJ1 = nombreJ1;
+	}
+
+	public String getNombreJ2() {
+		return nombreJ2;
+	}
+
+	public void setNombreJ2(String nombreJ2) {
+		this.nombreJ2 = nombreJ2;
+	}
+
 	public String imprimirCabecera() {
 		
 		return nombreJuego;
@@ -53,6 +78,11 @@ public abstract class Juego {
 	public String imprimirPuntuacionP1() {
 		
 		return "Jugador: " + nombreJ1 + " " + puntosJ1 + " puntos. \n";
+	}
+	
+	public String imprimirPuntuacionP2() {
+		
+		return "Jugador: " + nombreJ2 + " " + puntosJ2 + " puntos. \n";
 	}
 	
 	public void sumarPuntosJugador(double puntosCarta1, double puntosCarta2, int numJugador) {

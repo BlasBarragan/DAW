@@ -23,7 +23,6 @@
     <fullyQualifiedTypeName name="java.lang.String"/>
     <fullyQualifiedTypeName name="Persona"/>
     <fullyQualifiedTypeName name="Rectangulo"/>
-    <fullyQualifiedTypeName name="java.lang.Math"/>
     <fullyQualifiedTypeName name="java.util.function.ToIntFunction"/>
     <fullyQualifiedTypeName name="Astro"/>
     <fullyQualifiedTypeName name="Planeta"/>
@@ -51,4 +50,6 @@
     <fullyQualifiedTypeName name="barajas.Carta"/>
     <fullyQualifiedTypeName name="java.lang.System"/>
     <fullyQualifiedTypeName name="juegos.Juego"/>
+    <fullyQualifiedTypeName name="javax.swing.text.PlainDocument"/>
+    <fullyQualifiedTypeName name="java.lang.Math"/>
 </qualifiedTypeNameHistroy>
