@@ -24,23 +24,21 @@ public class Principal {
 		
 		switch (opcion) {
 			case 1: {// 7 y medio
-				Juego siete = new SieteYMedio();
-				System.out.println("**********************************");
-				System.out.println("           " + siete.imprimirCabecera() + "         ");
-				System.out.println("**********************************");
-				siete.jugar();
+				Juego siete = new SieteYMedio(); // creamos un juego nuevo
+				System.out.println("******* " + siete.nombreJuego + " *******"); // mostramos cabecera
+				siete.jugar(); // llamamos al metodo jugar()
 				break;
 			}
 			case 2: {// Brisca
-				System.out.println("**********************************");
-				System.out.println("        " + "" + "         ");
-				System.out.println("**********************************");
+				Juego brisca = new Brisca();// creamos un juego nuevo
+				System.out.println("******* " + brisca.nombreJuego + " *******");// mostramos cabecera
+				brisca.jugar(); // llamamos al metodo jugar()
 				break;
 			}
 			case 3: {// Tute
-				System.out.println("**********************************");
-				System.out.println("        " + "" + "         ");
-				System.out.println("**********************************");
+				Juego tute = new Tute();// creamos un juego nuevo
+				System.out.println("******* " + tute.nombreJuego + " *******");// mostramos cabecera
+				tute.jugar(); // llamamos al metodo jugar()
 				break;
 			}
 			case 0: {// Salir

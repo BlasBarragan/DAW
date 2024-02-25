@@ -3,23 +3,29 @@ package juegos;
 import java.util.Scanner;
 import barajas.Baraja;
 import barajas.Carta;
+import principal.Principal;
 
+// Clase sieteYMedio - Determina el comportamiento del juego 7 y medio. 
 public class SieteYMedio extends Juego {
 
 // Constructor
 	public SieteYMedio() {
 		super("El 7 y medio");
-		baraja = new Baraja(1, true);
+		baraja = new Baraja(1, true); // Creamos baraja simple y la barajamos con el true
 		nombreJ1 = "Jugador 1";
 		nombreJ2 = "Jugador 2";
 	}
 	
 // Metodos
 	
-	// jugar() - Contiene el menu principal del juego 
+	// jugar() - heredado de Juego. Contiene el menu principal del juego 
 	public void jugar(){
 		
 		Scanner sc = new Scanner(System.in);
+		
+	
+		// Cabezera de juego
+		System.out.println("Elige un modo de juego: ");
 		
 		
 		// Menu modo de juego
@@ -43,9 +49,8 @@ public class SieteYMedio extends Juego {
 			case 3:
 				modoP1vsCPU();
 				break;
-			case 4:
-				break;
 			case 0:
+				Principal.main(null);
 				break;
 				
 			default:
@@ -62,17 +67,12 @@ public class SieteYMedio extends Juego {
 	
 	// modoP1() - Modo de juego 1 jugador
 	public void modoP1() {
-		
 		Scanner sc = new Scanner(System.in);
 		Carta c;
 		String opcion;
 		String ganaPierde = null;
 		
-		// Cabezera de juego
-		System.out.println("*********** BIENVENID@ ***********");
-		System.out.println("           " + this.imprimirCabecera() + "         ");
-		System.out.println("******* COMENCEMOS A JUGAR *******");
-		System.out.println("\n");
+		imprimirCabecera();
 		
 		// Mostramos la primera carta jugada
 		c = baraja.robar();
@@ -87,11 +87,13 @@ public class SieteYMedio extends Juego {
 			
 			ganaPierde = "gana";
 			imprimirFinJuego(nombreJ1, ganaPierde);
+			Principal.main(null);
 		}
 		else if (puntosJ1 > 7.5) {
 
 			ganaPierde = "pierde";
 			imprimirFinJuego(nombreJ1, ganaPierde);
+			Principal.main(null);
 		}
 		else{
 			
@@ -107,7 +109,7 @@ public class SieteYMedio extends Juego {
 					case "c": {
 						
 						System.out.println("#--------------#");
-						System.out.println("Continúa...");
+						System.out.println("Continúa...\n");
 						c = baraja.robar(); // Robamos carta
 						sumarPuntosJugador(c.Valor7ymedio(), 0, 1); // Se suman los puntos de la carta robada al total del jugador
 						mostrarCarta(c, nombreJ1); // Se muestra la carta previamente robada
@@ -165,7 +167,8 @@ public class SieteYMedio extends Juego {
 				imprimirFinJuego(nombreJ1, ganaPierde);
 			}
 			
-			System.out.println("\n*********** JUEGO TERMINADO ***********");
+			System.out.println("\n*********** JUEGO TERMINADO ***********\n");
+			Principal.main(null);
 		}
 	}
 	
@@ -175,11 +178,7 @@ public class SieteYMedio extends Juego {
 		Scanner sc = new Scanner(System.in);
 		int jugadores = 2;
 		
-		// Cabezera de juego
-		System.out.println("*********** BIENVENID@S ***********");
-		System.out.println("           " + this.imprimirCabecera() + "         ");
-		System.out.println("******* COMENCEMOS A JUGAR *******");
-		System.out.println("\n");
+		imprimirCabecera();
 		
 		// Pedimos nombre a los dos jugadores
 		System.out.println("Jugador 1, ingresa un nombre de jugador: ");
@@ -216,9 +215,9 @@ public class SieteYMedio extends Juego {
 			
 			// Terminamos el juego
 			System.out.println("*********** JUEGO TERMINADO ***********\n");
-			System.out.println(imprimirPuntuacionP1());
-			System.out.println(imprimirPuntuacionP2());
+			System.out.println(imprimirPuntuacion());
 			
+			// Comprobamos ganador
 			if (puntosJ1 == 7.5 || puntosJ2 == 7.5) {
 				if (puntosJ1 == 7.5 && puntosJ2 == 7.5) {
 					System.out.println("EMPATE");
@@ -247,10 +246,12 @@ public class SieteYMedio extends Juego {
 				}
 				
 			}
-		
-			System.out.println("\n*********** JUEGO TERMINADO ***********");	
+			
+			System.out.println("\n*********** JUEGO TERMINADO ***********\n");
+			Principal.main(null);	
 	}
-	
+
+	// turno() - Determina el funcionamiento de la mano de cada jugador
 	public void turno(String nombre, double puntos, int num) {
 
 		Scanner sc = new Scanner(System.in);
@@ -279,9 +280,8 @@ public class SieteYMedio extends Juego {
 			puntosJ = puntosJ2;
 		}
 		
-
 		// Mostramos resultado
-		System.out.println(nombreJ + ": " + puntosJ + "\n");
+		System.out.println(imprimirPuntuacion());
 		
 	do {
 		
@@ -292,6 +292,8 @@ public class SieteYMedio extends Juego {
 		
 		if (opcion.equalsIgnoreCase("c")){
 			continuar = true;
+			System.out.println("#--------------#");
+			System.out.println("Continúa...\n");
 			// Mostramos la carta jugada
 			c = baraja.robar();
 			mostrarCarta(c, nombreJ);
@@ -305,7 +307,7 @@ public class SieteYMedio extends Juego {
 			
 
 			// Mostramos resultado
-			System.out.println(nombreJ + ": " + puntosJ + "\n");
+			System.out.println(imprimirPuntuacion());
 		}
 		else if (opcion.equalsIgnoreCase("p")){
 			continuar = false;
@@ -314,7 +316,8 @@ public class SieteYMedio extends Juego {
 	}while (continuar) ;
 
 	}
-	
+
+	// modoP1vsCPU() - Modo de juego jugador contra la maquina	
 	public void modoP1vsCPU() {
 		
 		Scanner sc = new Scanner(System.in);
@@ -322,11 +325,14 @@ public class SieteYMedio extends Juego {
 		String opcion;
 		String ganaPierde = null;
 		
+		imprimirCabecera();
+		/*
 		// Cabezera de juego
 		System.out.println("*********** BIENVENID@ ***********");
 		System.out.println("           " + this.imprimirCabecera() + "         ");
 		System.out.println("******* COMENCEMOS A JUGAR *******");
 		System.out.println("\n");
+		*/
 		
 		// Pedimos nombre a los dos jugadores
 		System.out.println("Jugador 1, ingresa un nombre de jugador: ");
@@ -344,9 +350,9 @@ public class SieteYMedio extends Juego {
 		sumarPuntosJugador(c.Valor7ymedio(), puntosJ1, 1);
 		mostrarCarta(c, nombreJ1);
 
-		// Mostramos resultado
-		System.out.println(nombreJ1 + ": " + puntosJ1 + "\n");
-		System.out.println(nombreJ2 + ": " + puntosJ2 + "\n");
+		// Mostramos puntuaciones
+		System.out.println(imprimirPuntuacion());
+		
 		// Comprobamos puntuacion
 		if (puntosJ1 == 7.5) {
 			
@@ -370,12 +376,11 @@ public class SieteYMedio extends Juego {
 					case "c": {
 						
 						System.out.println("#--------------#");
-						System.out.println("Continúa...");
+						System.out.println("Continúa...\n");
 						c = baraja.robar(); // Robamos carta
 						sumarPuntosJugador(c.Valor7ymedio(), 0, 1); // Se suman los puntos de la carta robada al total del jugador
 						mostrarCarta(c, nombreJ1); // Se muestra la carta previamente robada
-						System.out.println(nombreJ1 + ": " + puntosJ1 + "\n"); // Mostramos puntuacion total del jugador
-						System.out.println(nombreJ2 + ": " + puntosJ2 + "\n");
+						System.out.println(imprimirPuntuacion()); // Mostramos puntuaciones
 						
 						// Comparamos resultado
 						if (puntosJ1 == 7.5) {
@@ -419,8 +424,7 @@ public class SieteYMedio extends Juego {
 			
 			// Terminamos el juego
 			System.out.println("*********** JUEGO TERMINADO ***********\n");
-			System.out.println(imprimirPuntuacionP1());
-			System.out.println(imprimirPuntuacionP2());
+			System.out.println(imprimirPuntuacion());
 			
 			if (puntosJ1 == 7.5 || puntosJ2 == 7.5) {
 				if (puntosJ1 == 7.5 && puntosJ2 == 7.5) {
@@ -451,10 +455,12 @@ public class SieteYMedio extends Juego {
 				
 			}
 			
-			System.out.println("\n*********** JUEGO TERMINADO ***********");
+			System.out.println("\n*********** JUEGO TERMINADO ***********\n");
+			Principal.main(null);
 		}	
 	}
-	
+
+	// turnoCPU() - Determina el funcionamiento del turno de la CPU
 	public void turnoCPU(String nombre, double puntos) {
 
 		Scanner sc = new Scanner(System.in);
@@ -477,8 +483,7 @@ public class SieteYMedio extends Juego {
 		puntosJ = puntosJ2;
 
 		// Mostramos resultado
-		System.out.println("\n" + nombreJ1 + ": " + puntosJ1);
-		System.out.println(nombreJ2 + ": " + puntosJ2 + "\n");
+		System.out.println(imprimirPuntuacion());
 		
 	do {
 
@@ -488,17 +493,16 @@ public class SieteYMedio extends Juego {
 			puntosJ = puntosJ2;
 
 			// Mostramos resultado
-			System.out.println("\n" + nombreJ1 + ": " + puntosJ1);
-			System.out.println(nombreJ2 + ": " + puntosJ2 + "\n");
+			System.out.println(imprimirPuntuacion());
 
 		
 	}while (!(puntosJ > 7.5 || puntosJ == 7.5)) ;
 
 	}
 		
-	
+	// mostrarCarta() - Muestra la carta robada con el nombre del jugador y el valor de puntos
 	private void mostrarCarta(Carta carta, String jugador) {
-		System.out.println(jugador + " => " + carta.NombreCarta()+ ": " + carta.Valor7ymedio() + " puntos. " );
+		System.out.println(jugador + " => " + carta.getNombreCarta()+ ": " + carta.Valor7ymedio() + " puntos. \n" );
 	}
 	
 }
