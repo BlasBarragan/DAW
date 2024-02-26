@@ -32,7 +32,6 @@
     <fullyQualifiedTypeName name="java.awt.image.AreaAveragingScaleFilter"/>
     <fullyQualifiedTypeName name="Gato"/>
     <fullyQualifiedTypeName name="javax.print.DocFlavor.READER"/>
-    <fullyQualifiedTypeName name="java.util.ArrayList"/>
     <fullyQualifiedTypeName name="defecto.Uso_Tallas.Pie"/>
     <fullyQualifiedTypeName name="java.lang.Comparable"/>
     <fullyQualifiedTypeName name="poo.Empleado"/>
@@ -44,12 +43,15 @@
     <fullyQualifiedTypeName name="Juegos.SieteYMedio"/>
     <fullyQualifiedTypeName name="Juegos.Juego"/>
     <fullyQualifiedTypeName name="Barajas.Baraja"/>
-    <fullyQualifiedTypeName name="barajas.Baraja"/>
-    <fullyQualifiedTypeName name="juegos.Brisca"/>
-    <fullyQualifiedTypeName name="juegos.SieteYMedio"/>
     <fullyQualifiedTypeName name="barajas.Carta"/>
     <fullyQualifiedTypeName name="java.lang.System"/>
-    <fullyQualifiedTypeName name="juegos.Juego"/>
     <fullyQualifiedTypeName name="javax.swing.text.PlainDocument"/>
     <fullyQualifiedTypeName name="java.lang.Math"/>
+    <fullyQualifiedTypeName name="juegos.SieteYMedio"/>
+    <fullyQualifiedTypeName name="juegos.Juego"/>
+    <fullyQualifiedTypeName name="juegos.Brisca"/>
+    <fullyQualifiedTypeName name="principal.Principal"/>
+    <fullyQualifiedTypeName name="java.util.ArrayList"/>
+    <fullyQualifiedTypeName name="barajas.Baraja"/>
+    <fullyQualifiedTypeName name="Ejercicio_1.caballo"/>
 </qualifiedTypeNameHistroy>

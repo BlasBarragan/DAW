@@ -82,6 +82,14 @@ public class Baraja{
 		return carta;
 	}
 	
+	// getCarta() - extrae la carta en primera posicion del array
+		public Carta getCarta(int i) {
+			
+			Carta carta = listaCartas.get(i);
+			listaCartas.remove(i);
+			return carta;
+		}
+	
 	// cortar() - corta la baraja. Pasa tantas cartas como nos diga el atributo desde la primera a la ultima posicion
 	public void cortar(int posicion) {
 		

@@ -8,6 +8,10 @@ public abstract class Juego {
 	
 	// Atributos
 	protected Baraja baraja;
+
+	protected Baraja manoJ1;
+	protected Baraja manoJ2;
+	protected Baraja monton;
 	public String nombreJuego;
 	protected String nombreJ1;
 	protected String nombreJ2;
