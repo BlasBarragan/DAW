@@ -1,7 +1,106 @@
 Practicar POO en Java:
-Ejercicios: 2 (Pág. 194), 4 y 5 (Pág. 195), 12 (Pág. 200)
-Practicar arrays de POO:
+Ejercicios: 2 (Pág. 194)
+-Ejercicio 2, 4 y 5 (Pág. 195), 12 (Pág. 200)
 
-Proyecto Colección de Discos: Ejercicios 3 y se amplía en Ejercicio 4 (Pág. 206)
+Ejercicio 12
+Se quiere informatizar una biblioteca. Crea las clases Publicacion, Libro y
+Revista. Las clases deben estar implementadas con la jerarquía correcta. Las
+características comunes de las revistas y de los libros son el código ISBN, el
+título, y el año de publicación. Los libros tienen además un atributo prestado.
+Cuando se crean los libros, no están prestados. Las revistas tienen un número.
+La clase Libro debe implementar la interfaz Prestable que tiene los métodos
+presta, devuelve y estaPrestado.
+Programación orientada a objetos 201
+Programa principal:
+Libro libro1 = new Libro("123456", "La Ruta Prohibida", 2007);
+Libro libro2 = new Libro("112233", "Los Otros", 2016);
+Libro libro3 = new Libro("456789", "La rosa del mundo", 1995);
+Revista revista1 = new Revista("444555", "Año Cero", 2019, 344);
+Revista revista2 = new Revista("002244", "National Geographic", 2003, 255);
+System.out.println(libro1);
+System.out.println(libro2);
+System.out.println(libro3);
+System.out.println(revista1);
+System.out.println(revista2);
+libro2.presta();
+if (libro2.estaPrestado()) {
+System.out.println("El libro está prestado");
+}
+libro2.presta();
+libro2.devuelve();
+if (libro2.estaPrestado()) {
+System.out.println("El libro está prestado");
+}
+libro3.presta();
+System.out.println(libro2);
+System.out.println(libro3);
+Salida:
+ISBN: 123456, título: La Ruta Prohibida, año de publicación: 2007 (no prestado)
+ISBN: 112233, título: Los Otros, año de publicación: 2016 (no prestado)
+ISBN: 456789, título: La rosa del mundo, año de publicación: 1995 (no prestado)
+ISBN: 444555, título: Año Cero, año de publicación: 2019
+ISBN: 002244, título: National Geographic, año de publicación: 2003
+El libro está prestado
+Lo siento, ese libro ya está prestado.
+ISBN: 112233, título: Los Otros, año de publicación: 2016 (no prestado)
+ISBN: 456789, título: La rosa del mundo, año de publicación: 1995 (prestado)
+
+
+-Practicar arrays de POO:
+
+-Proyecto Colección de Discos: Ejercicios 3 y se amplía en Ejercicio 4 (Pág. 206)
+Ejercicio 3
+Realiza el programa “Colección de discos” por tu cuenta, mirando lo menos
+posible el ejemplo que se proporciona. Pruébalo primero para ver cómo
+funciona y luego intenta implementarlo tú mismo.
+Ejercicio 4
+Modifica el programa “Colección de discos” como se indica a continuación:
+a) Mejora la opción “Nuevo disco” de tal forma que cuando se llenen todas las
+posiciones del array, el programa muestre un mensaje de error. No se permitirá
+introducir los datos de ningún disco hasta que no se borre alguno de la lista.
+b) Mejora la opción “Borrar” de tal forma que se verifique que el código
+introducido por el usuario existe.
+c) Modifica el programa de tal forma que el código del disco sea único, es decir
+que no se pueda repetir.
+d) Crea un submenú dentro dentro de “Listado” de tal forma que exista un
+listado completo, un listado por autor (todos los discos que ha publicado un
+determinado autor), un listado por género (todos los discos de un género determinado) y un listado de discos cuya duración esté en un rango determinado
+por el usuario.
+
 Proyecto Juego de Cartas: Ejercicio 8 y 9 (Pág. 229), se amplía en Ejercicio 12 (Pág. 230)
-Proyecto GESTISIMAL: Ejercicio 5 (Pág. 207) y se amplía en Ejercicio 13 (Pág. 230)
+
+-Ejercicio 8
+Realiza un programa que escoja al azar 10 cartas de la baraja española
+(10 objetos de la clase Carta). Emplea un objeto de la clase ArrayList para
+almacenarlas y asegúrate de que no se repite ninguna.
+Ejercicio 9
+Modifica el programa anterior de tal forma que las cartas se muestren ordenadas. Primero se ordenarán por palo: bastos, copas, espadas, oros. Cuando
+coincida el palo, se ordenará por número: as, 2, 3, 4, 5, 6, 7, sota, caballo, rey.
+
+
+-Proyecto GESTISIMAL: Ejercicio 5 (Pág. 207) y se amplía en Ejercicio 13 (Pág. 230)
+
+Crea el programa GESTISIMAL (GESTIón SIMplificada de Almacén) para llevar el
+control de los artículos de un almacén. De cada artículo se debe saber el código,
+la descripción, el precio de compra, el precio de venta y el stock (número de
+unidades). El menú del programa debe tener, al menos, las siguientes opciones:
+1. Listado
+2. Alta
+3. Baja
+4. Modificación
+5. Entrada de mercancía
+6. Salida de mercancía
+7. Salir
+La entrada y salida de mercancía supone respectivamente el incremento y
+decremento de stock de un determinado artículo. Hay que controlar que no
+se pueda sacar más mercancía de la que hay en el almacén.
+
+
+Ejercicio 13
+Modifica el programa Gestisimal realizado anteriormente añadiendo las siguientes mejoras:
+• Utiliza una lista en lugar de un array para el almacenamiento de los datos.
+• Comprueba la existencia del código en el alta, la baja y la modificación de
+artículos para evitar errores.
+• Cambia la opción “Salida de stock” por “Venta”. Esta nueva opción permitirá hacer una venta de varios artículos y emitir la factura correspondiente.
+Se debe preguntar por los códigos y las cantidades de cada artículo que
+se quiere comprar. Aplica un 21% de IVA.
