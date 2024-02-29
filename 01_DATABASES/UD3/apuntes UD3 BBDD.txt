@@ -1,0 +1,67 @@
+DATABASES UD3
+RELATIONAL MODEL CONCEPT
+
+-Se estudia en lenguaje SQL
+Una relacion es una tabla de valores
+Contiene tuplas(filas/registros) 
+Cada tupla representa hechos/ocurrencias que coresponden a las relaciones del mundo real(rombo E-R)
+El titulo de cada columna corresponde a los atributos de la relacion(E-R).
+Y el nombre de la(tabla) relacion, corresponde a la entidad.
+
+-El esquema de la relacion se representa: 
+n.deRelacion(atrib1,atrib2,...atribN) 
+CLIENTE(IDclient,nombre,dir,telf)
+Es la estructura de la relacion
+
+-El estado es el contenido de la relacion.
+r(R): (estado especifico / el valor que tienen en ese momento los atributos de la relacion para todos sus atributos) conjunto de tuplas, donde cada tupla es un conjunto de valores que tiene que pertenecer al dominio.
+Todas la relaciones de datos posibles.
+
+-El dominio es el conjunto de todos los valores posibles de un atributo.
+dom(nom_cliente) is varchar(25)
+
+- El valor NULL se puede restringir con (not null)
+
+
+
+DATABASES UD3
+CONSTRAINTS // restricciones
+
+-Inherent or Implicit: Las que vienen de casa.
+repeticion de tuplas
+lista de valores para un atributo
+
+-Schema-based or Explicit: 
+Key: atributo que identifica la tupla
+ * Superkey: Conjunto de atributos que incluya el atributo clave.
+ * Candidate key: Atributos candidatos a ser clave primaria
+Entity integrity: Ninguna tupla puede tener el valor NULL como valor para la clave primaria, incluso si es una clave compuesta por varios atributos.
+ * Tambien podemos aplicar restricciones a diversos atributos para no aceptar el valor null al crear la DB.
+Referential Integrity//FOREIGN KEY: Atributo clave de una relacion que se usa como atributo en una relacion distinta
+ 
+-Relational database schema: conjunto de esquemas de todas las relaciones de la DB.
+-Relational database state: Conjunto de los estados de todas las relaciones de la DB. 
+
+UPDATE OPERATIONS on RELATIONS
+POSIBLES VIOLACIONES
+INSERT: 
+Domain: Los valores de los atributos no estan dentro del dominio definido
+Key: El valor del atributo clave ya existe en otra tupla de la relacion.
+Referential: La foreign key a la que hace referencia no existe como clave primaria en la relacion principal.
+Entity: La clave primaria contiene valor null.
+
+DELETE:
+Referential: Hay una relacion referencial en la tupla que se desea eliminar.
+  * En su caso: (se define en el gestor)
+-RESTRICT: No se permite el borrado
+-CASCADE: Se borra la tupla y todas las que estan relacionadas.
+-SET NULL: Si se borra, las relaciones se establecen como NULL.
+-SET DEFAULT: Si se borra, se establece un valor por defecto.
+
+UPDATE:
+Domain: Los valores de los atributos no estan dentro del dominio definido.
+Nor Null: No cumple las restricciones de null definidas.
+Key: No cumple todas las relaciones de clave.
+
+
+

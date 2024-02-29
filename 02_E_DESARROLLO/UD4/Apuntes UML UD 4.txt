@@ -1,0 +1,166 @@
+UML Introduccion UD 4
+
+-OBJETO: Rectangulo con nombre subrayado.
+Estructura: atributos
+metodos: comportamiento
+
+(Al rellenar los datos de la clase, definimos un objeto) 
+
+CLASE: (molde/plantilla)
+CLASE: persona
+  (q lo define?)
+    peso, estatura, dni, etc
+(todo sin valor, definira la clase, el molde del objeto)
+
+-ENCAPSULACION (Propiedad de la OO, permite que determinados atributos y metodos sean privados)
+Lo normal es que los atributos sean privados y los metodos sean publicos y accedamos a los atributos con los metodos get y set.
+
+ESPECIALIZACION(de abajo a arriba) : animal
+GENERALIZACION(de arriba a abajo) : perro
+HERENCIA: perro hereda todos los atributos y metodos de animal.
+De esta manera se asignan atributos y metodos generalistas a la clase animal (corre) y otros mas especialistas a perro (ladra).
+
+-COMPOSICION: Un objeto puede estar compuesto por otros objetos que se denominan componentes. 
+C. Debil: Objetos que se puede compartir (silla montar)
+C. Fuerte: No se puede compartir y si desaparece el objeto principal este tambien lo hace. (cabeza o pata de CABALLO)
+
+-POLIMORFISMO (una caracteristica puede tomar varias formas): 
+Hereda el metodo del padre pero se puede modificar LOCALMENTE (ANIMAL;dormir() -> OSO;dormir(en el suelo) // TIGRE;dormir(en un arbol))
+DIAGRAMA DE CLASES - UML UD 4.1
+*Parte estatica del sistema
+
+CLASES 
+Representación
+ .Se representa por un rectangulo con tres divisiones
+ .Nombre de la clase
+ .Atributos de la clase [por defecto: Private]
+ .Metodos(operaciones de la clase) [por defecto: Public]
+*Los atributos y metodos pueden omitirse
+
+Encapsulación
+.Protege datos de accesos indebidos
+.Favorece la modularidad y mantenimiento
+
+Niveles de encapsulación
+(-) Privado: el mas fuerte, totalmente invisible.
+(#) Protegido, visible para clases derivadas de la original.
+(+) Publico, visible a otras clases.
+
+Atributos
+ .Representa alguna propiedad de la clase que se encuentra en todas las instancias.
+ .Al crear los atributos se indica el tipo de dato y su visibilidad.
+
+Metodos u Operaciones
+ .Un metodo u operacion es la implementacion de un servicio que muesstra un comportamiento comun a todos los objetos.
+ .Definen como la clase interactua con el entorno.
+
+###### EJEMPLO ######
+__
+|          Reglas de visibilidad          |
+|------------------------------------|
+|       Atributo logico : Integer       |
+| (#)Atributo protegido : Integer   |
+|    (-)Atributo privado : Integer    |
+|------------------------------------|
+|            Operacion publica()         |
+|       (#)Operacion protegida()      |
+|          (-)Operacion privada()       |
+|------------------------------------|
+
+RELACIONES
+ .Asociaciones entre los objetos.
+
+Asociacion
+.Expresa conexion bidireccional.
+   universidad<--------->estudiante
+
+ .Posee cardinalidad llamada multiplicidad(numero de instancias que se relacionan con otras clases)
+
+Expresion de multiplicidad:
+-1 : uno y solo una
+-0..1 : cero o uno
+-M..N : Desde M hasta N (enteros naturales)
+- : cero o muchos
+0..* : cero o muchos
+1..* : uno o muchos (al menos uno)
+>=1 : restriccion de existencia
+.Una clase puede asociarse consigo misma creando una asociacion reflexiva.
+   Un alumno(delegado) es delegado de muchos alumnos o un empleado(jefe) es jefe de muchos empleados.
+
+#CLASE ASOCIACION
+.Una asociacion puede llevar info necesaria para esa asociacion (una clase que cuelga de asociacion de otras dos clases) 
+*Los cargos de los empleados de una empresa
+
+-COMPOSICION
+ .Asocia un objeto complejo con los objetos que lo constituyen(sus componentes) 
+.Fuerte (Composicion) o Debil (Agregacion)
+
+Composicion
+ .Constituyen una parte del objeto compuesto.
+ .Eliminar el objeto compuesto, supone eliminar los componentes.
+ .Se representa con una linea con rombo
+   compuesto<:>----------componente
+  
+ordenador<:>-------componentes
+Agregacion
+ .Los componentes pueden ser compartidos por varios compuestos.
+ .Linea con rombo vacio 
+   compuesto<>------------componente
+         
+equipo<>-------jugador
+
+Generalizacion y Especializacion
+ .La clase hereda los metodos y atributos de otra clase padre o superclase.
+ .La superclase generaliza a las hijas y las subclases especializan a la padre.
+ .Se representa con una flecha
+ ---------->
+
+Especificaciones de herencia
+-Total: conjunto completo que cubre la padre.
+-Parcial: conjunto incompleto que no cubre al padre.
+-Disjunta: Las hijas no tienen instancias en comun.
+-Superpuesta: Las hijas pueden tener una o varias instancias en comun.
+
+POLIMORFISMO
+
+ .Se refiere a que una caracteristica de una clase puede formar varias subclases.
+ .Representa la posibilidad de desencadenar operaciones distinas en respuesta a un mismo mensaje.
+.Cada subclase hereda las operaciones del padre, con la posibilidad de modificar localmente el comportamiento.
+
+*Todo animal duerme, pero cada clase lo hace de una forma distinta.
+DIAGRAMA DE CASOS DE USO - UML UD 4.2
+*Parte dinamica del sistema
+
+.Representa las funciones del sistema sin entrar en detalle de su funcionamiento por detras.
+
+REPRESENTACION
+Actor : monigote
+Caso de uso : elipse
+Limite de sistema() : Rectangulo con titulo (enmarca el diagrama)
+Asociacion de comunicacion : linea
+Generalizacion : flecha
+Extension : flecha (extend)
+Inclusion : flecha (include)
+
+Actores (monigote con nombre del rol que representa al pie)
+.Principal: Objetivo del caso de uso es esencial
+.Secundarion: Sirve para apoyar al principal.
+
+-Se diferencia del usuario en que el actor es la clase(abstracto) y el usuario la instancia(concreto). 
+
+Casos de uso (elipse con nombre)
+.Describen el comportamiento del sistema desde el punto de vista del usuario.
+
+RELACIONES
+
+Comunicacion (linea)
+.Vincula al actor con un caso de uso
+
+Inclusion (flecha y linea de puntos <<include>> desde el que necesita hasta el necesitado)
+.Relaciona dos casos de uso donde uno necesita siempre al otro
+
+Extension (flecha y linea de puntos <<extend>> desde el opcional haste el principal)
+.Relaciona dos casos de uso cuando de forma opcional, uno necesita al otro.
+
+Herencia (flecha vacia)
+.Especializa un caso de uso en otro y hereda las relaciones de comunicacion.

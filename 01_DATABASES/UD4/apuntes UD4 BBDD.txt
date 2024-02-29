@@ -1,0 +1,83 @@
+
+DATABASES UD4
+
+DISEÑO LÓGICO (paso a tablas)
+
+Partimos del esquema ER
+
+- RELACION 1:1
+*Relacion de existencia = doble raya
+raya simple minimo 0 
+raya doble minimo 1
+
+Esquema de la relacion:  [ S ]-1-< R >-1-[ T ]
+- Elegimos una tabla [S] o [T] (en esta ocasion da igual cual coger, ya que estan en igualdad de condicion al no haber una restriccion de existencia(doble raya))
+  S = (so+s1+r+to) //  CAj(FK) = (to -> T) // CAlt = (to) // 
+*En la tabla S las columnas seran los atributos de S, los que tenga la relacion r y el que sera la CAj de T, to.
+*La CAlt es necesaria por haber una igualdad de cardinalidad entre las entidades S y T 
+- Ahora completamos la otra tabla con los atrinbutos que quedan.
+T = (to + t1) // Siempre hay que añadir en esta tabla, la CAj y el resto de atributos.
+
+Esquema de la relacion:  [ S ]=1=< R >-1-[ T ]
+- En esta es obligatorio elegir S, por haber doble raya(restriccion de existencia).
+  S = (so+s1+r+to) //  CAj(FK) = (to -> T) // VNN = (to) // 
+*Al tener restriccion de existencia, no tenemos CAlt. En su lugar, estamos obligados a que el atributo (to) sea VNN (Valor NOT NULL) .
+- La otra tabla [T] contendra el resto de atributos
+ T = (to + t1)
+
+Esquema de la relacion:  [ S ]=1=< R >=1=[ T ] *Caso poco habitual.
+- En esta ocasion, las dos entidades formaran una unica tabla, debido a la doble restriccion de existencia. Por lo que la tabla resultante, sera: 
+ST = (so+s1+r+to+t1) // 
+- CAlt = (to) // VNN = (to) // Obligatoriamente, la clave primaria de la relacion, que no es CP en la tabla, se convierte en clave alternativa y VNN. 
+
+
+- RELACION 1:N
+*La que tiene la N manda (contendra la CAj(FK) hacia la otra tabla)
+*Si la N tiene restriccion de existecia(doble raya), la CAj(FK) sera VNN.
+*No existe CAlt en este tipo de relaciones.
+*Relacion reflexiva, genera Super_clave.
+
+ Esquema de la relacion:  [ S ]-N-< R >-1-[ T ]
+  S = (so+s1+r+to) //  CAj(FK) = (to -> T) // T = (to + t1)
+- S tiene N mas cerca, con lo cual es la que manda y contien la CAj to en su tabla.
+- to no es VNN por no haber doble raya.
+
+Esquema de la relacion:  [ S ]=N=< R >-1-[ T ]
+S = (so+s1+r+to) //  CAj(FK) = (to -> T) // VNN = (to) // 
+- S tiene N mas cerca, con lo cual es la que manda y contien la CAj to en su tabla.
+- to es VNN por haber doble raya.
+
+Esquema de la relacion:  [ S ]-N-< R >=1=[ T ] (igual que la primera)
+  S = (so+s1+r+to) //  CAj(FK) = (to -> T) // T = (to + t1)
+- S tiene N mas cerca, con lo cual es la que manda y contien la CAj to en su tabla.
+- to no es VNN por no haber doble raya.
+
+Esquema de la relacion:  [ S ]=N=< R >=1=[ T ] (igual que la segunda)
+S = (so+s1+r+to) //  CAj(FK) = (to -> T) // VNN = (to) // 
+- S tiene N mas cerca, con lo cual es la que manda y contien la CAj to en su tabla.
+- to es VNN por haber doble raya.
+
+
+- RELACION N:N
+*La propia relacion genera tabla con las CP de las demas entidades que relaciona. Ademas una CAj a cada una de las entidades que relaciona.
+
+Esquema de la relacion:  [ S ]-N-< R >-N-[ T ]
+  S = (so+s1) // T = (to+t1) // R = (so+to+r)  CAj(FK) = (so -> S) //
+CAj(FK) = (to -> T) //
+- R  genera tabla y contiene las dos CAj(FK) hacia las otras entidades que relaciona.
+- Por defecto, siempre es VNN.
+
+
+
+- GENERALIZACION/ESPECIALIZACION
+
+Para todas, primero se sacan las tablas:
+- La CP del padre, es la CP de todas las hijas.
+- La CP del padre, es la CAj(FK) de todas las hijas.
+
+Despues, se indican las restricciones según las mismas.
+Total: Gx:G Ax:A Bx:B Cx:C (G = padre // A,B,C = hijas)
+*Total/Disjunta(T/D): Añade las dos restricciones.
+*Total/Solapada(T/S): Añade restriccion Total.
+*Parcial/Disjunta: Añade retriccion Disjunta.
+*Parcial/Solapada: No añade nada.
