@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<quantitat divisa="euro" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="schema3.xsd">
+</>
+
+<quantitat divisa="euro">20</quantitat>
+<quantitat divisa="libra">15.32</quantitat>
+
+<quantitat>20</quantitat>
+<quantitat divisa="euro">daa</quantitat>
+
+<quantitat divisa="aaaa">18.32</quantitat>

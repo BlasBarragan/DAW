@@ -1,0 +1,7 @@
+<!ELEMENT pedido ((llibre | quadern | llapis)*)>
+<!ELEMENT llibre EMPTY>
+<!ATTLIST llibre titulo CDATA #REQUIRED>
+<!ELEMENT quadern EMPTY>
+<!ATTLIST quadern num_hojas CDATA #IMPLIED>
+<!ELEMENT llapis (numero+)>
+<!ELEMENT numero (#PCDATA)>

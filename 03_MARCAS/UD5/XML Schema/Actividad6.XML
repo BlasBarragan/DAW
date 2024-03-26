@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<cliente xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="schema6.xsd" codigo="AAA222" habitual="true" cantidad="999">
+    Pepe Pérez
+</cliente>

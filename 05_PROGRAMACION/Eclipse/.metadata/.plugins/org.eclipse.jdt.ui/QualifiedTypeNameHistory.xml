@@ -54,4 +54,7 @@
     <fullyQualifiedTypeName name="java.util.ArrayList"/>
     <fullyQualifiedTypeName name="barajas.Baraja"/>
     <fullyQualifiedTypeName name="Ejercicio_1.caballo"/>
+    <fullyQualifiedTypeName name="Calculadora"/>
+    <fullyQualifiedTypeName name="java.lang.ArithmeticException"/>
+    <fullyQualifiedTypeName name="CalentadorPorInduccion"/>
 </qualifiedTypeNameHistroy>

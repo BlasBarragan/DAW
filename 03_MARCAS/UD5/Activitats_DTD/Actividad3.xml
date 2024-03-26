@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pedido SYSTEM "libreria.dtd">
+<pedido>
+    <llibre titulo="Java 8"></llibre>
+    <quadern></quadern >
+    <llibre titulo="HTML y CSS"/>
+    <llibre titulo="SQL para Dummies"/>
+    <quadern num_hojas="150"/>
+    <llapis>
+        <numero>2H</numero>
+    </llapis >
+    <quadern num_hojas="250"/>
+    <quadern num_hojas="100"/>
+    <llapis >
+        <numero>2B</numero>
+    </llapis >
+    <llapis >
+        <numero>1HB</numero>
+    </llapis >
+</pedido>

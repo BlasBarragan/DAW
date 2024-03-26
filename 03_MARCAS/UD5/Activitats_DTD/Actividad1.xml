@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE entrega SYSTEM "mayorista.dtd">
+<entrega>
+    <lote>
+        <pale>
+            <numcajas>3</numcajas>
+            <contenido>
+                <nombrecomponente>Fuentes</nombrecomponente>
+                <numserie>3A</numserie>
+                <peso>2kg</peso>
+                <unidades>50</unidades>
+            </contenido>
+            <peso>100kg</peso>
+            <formamanipulacion>Manual</formamanipulacion>
+        </pale>
+    </lote>
+    <lote>
+        <pale>
+            <numcajas>2</numcajas>
+            <contenido>
+                <nombrecomponente>CPUs</nombrecomponente>
+                <procedencia>
+                    <pais>China</pais>
+                    <pais>Corea del Sur</pais>
+                </procedencia>
+                <numserie>5B</numserie>
+                <peso>100g</peso>
+                <unidades>1000</unidades>
+            </contenido>
+            <peso>100kg</peso>
+            <formamanipulacion>Manual</formamanipulacion>
+        </pale>
+    </lote>
+</entrega>

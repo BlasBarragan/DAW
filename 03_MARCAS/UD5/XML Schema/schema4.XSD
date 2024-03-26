@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+    <xs:element name="codi">
+        <xs:complexType>
+            <xs:simpleContent>
+                <xs:extension base="codiType">
+                    <xs:attribute name="seu" type="xs:string" use="required" />
+                </xs:extension>
+            </xs:simpleContent>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:simpleType name="codiType">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="[A-Z]{2}\d{2}[A-Z]{3}" />
+        </xs:restriction>
+    </xs:simpleType>
+
+</xs:schema>

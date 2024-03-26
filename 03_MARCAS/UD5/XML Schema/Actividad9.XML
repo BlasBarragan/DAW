@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<llistatalumnes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="schema9.xsd">
+    <alumne dni="5667545Z">
+      <nom>Jose</nom>
+      <ap1>Sanchez</ap1>
+    </alumne>
+    <alumne dni="5778221D">
+      <nom>Andres</nom>
+      <ap1>Ruiz</ap1>
+      <ap2>Ruiz</ap2>
+      <edat>25</edat>
+    </alumne>
+  </llistatalumnes>

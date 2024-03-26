@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+    <xs:element name="cliente">
+        <xs:complexType>
+            <xs:simpleContent>
+                <xs:extension base="xs:string">
+                    <xs:attribute name="codigo" type="codiType" use="required" />
+                    <xs:attribute name="habitual" type="xs:boolean" />
+                    <xs:attribute name="cantidad">
+                        <xs:simpleType>
+                            <xs:restriction base="xs:integer">
+                                <xs:minInclusive value="0" />
+                                <xs:maxInclusive value="1000" />
+                            </xs:restriction>
+                        </xs:simpleType>
+                    </xs:attribute>
+                </xs:extension>
+            </xs:simpleContent>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:simpleType name="codiType">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="[A-Z]{3}\d{3}" />
+        </xs:restriction>
+    </xs:simpleType>
+
+</xs:schema>

@@ -1,0 +1,13 @@
+<?xml version="1.0" ?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:element name="preu">
+    <xs:simpleType>
+      <xs:restriction base="xs:integer">
+        <xs:minInclusive value="3"/>
+        <xs:maxInclusive value="99"/>
+      </xs:restriction>
+    </xs:simpleType>
+  </xs:element>
+
+</xs:schema>
