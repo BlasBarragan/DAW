@@ -6,8 +6,12 @@
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
-		<item key="selection" value="manoJ2"/>
+		<item key="selection" value="JAVA"/>
 		<list key="findhistory">
+			<item value="instruccio"/>
+			<item value="BASIC"/>
+			<item value="instruccion"/>
+			<item value="import java.io.EOFException;"/>
 			<item value="package Ejercicio_7;"/>
 			<item value="manoJugador2"/>
 			<item value="manoJugador1"/>
@@ -19,12 +23,10 @@
 			<item value="origen"/>
 			<item value="peloLargo"/>
 			<item value="color"/>
-			<item value="Pulgas"/>
-			<item value="Raza"/>
-			<item value="raza"/>
-			<item value="pulgas"/>
 		</list>
 		<list key="replacehistory">
+			<item value="JAVA"/>
+			<item value="instruccionJ"/>
 			<item value="manoJ2"/>
 			<item value="manoJ1"/>
 			<item value="ArrayList"/>
@@ -38,16 +40,14 @@
 			<item value="habla"/>
 			<item value="origen"/>
 			<item value="peloLargo"/>
-			<item value="procesoAtendido"/>
-			<item value="equipo"/>
 		</list>
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
-		<item key="DIALOG_X_ORIGIN" value="969"/>
-		<item key="DIALOG_Y_ORIGIN" value="303"/>
+		<item key="DIALOG_X_ORIGIN" value="1201"/>
+		<item key="DIALOG_Y_ORIGIN" value="312"/>
 		<item key="DIALOG_WIDTH" value="511"/>
 		<item key="DIALOG_HEIGHT" value="523"/>
-		<item key="DIALOG_FONT_NAME" value="1|Segoe UI|9.0|0|WINDOWS|1|-18|0|0|0|400|0|0|0|1|0|0|5|0|Segoe UI"/>
+		<item key="DIALOG_FONT_NAME" value="1|Segoe UI|9.0|0|WINDOWS|1|-18|0|0|0|400|0|0|0|1|0|0|0|0|Segoe UI"/>
 	</section>
 	<section name="org.eclipse.ui.texteditor.GotoLineAction$GotoLineDialog_dialogBounds">
 		<item key="DIALOG_X_ORIGIN" value="724"/>
