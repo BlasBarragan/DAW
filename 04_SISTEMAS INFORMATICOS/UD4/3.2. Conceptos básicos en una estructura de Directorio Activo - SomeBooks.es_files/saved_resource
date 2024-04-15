@@ -1,0 +1,743 @@
+.header-filter::before {
+    background-color: rgba(0, 0, 0, 0) !important;
+
+}
+.navbar-brand {
+    height: 8vh !important;
+}
+.navbar-brand > img{
+max-height: 100% !important;
+max-width: 130% !important;
+}
+.copyright.pull-right {
+    display: none;
+}
+.genericon {
+	font-size: 2.5em !important;}
+
+#numero {
+  font-size: 3em;
+  color: #a4c639;
+  font-weight: bold;
+  font-family: Arial;
+  margin-top: -0.2em;
+  margin-right: 0px;
+  margin-bottom: 0px;
+  margin-left: 0px;
+}
+
+#figura-contenedor {
+  display: table;
+  width: 60%;
+  margin-top: 1em;
+  margin-right: 0px;
+  margin-bottom: 1em;
+  margin-left: 20%;  -webkit-border-radius: 10px 3em 10px 10px;
+  border-radius: 10px 3em 10px 10px;  -webkit-box-shadow: 5px 5px 5px #bbbbbb;
+  box-shadow: 5px 5px 5px #bbbbbb;
+  background-color: #d1e29c;
+  padding-top: 15px;
+  padding-right: 15px;
+  padding-bottom: 15px;
+  padding-left: 15px;
+}
+
+#figura-contenido {
+  display: table-row;
+}
+
+#figura-texto {
+  margin-left: 3.5em;
+}
+
+#figura-texto p {
+  margin-top: 0px;
+  padding-left: 0.5em;
+  border-left-width: thick;
+  border-left-style: solid;
+  border-left-color: #a4c639;
+  min-height: 2.5em;
+}
+
+#figura-numero {
+  margin-top: 0px;
+  margin-right: 0px;
+  margin-bottom: 0px;
+  margin-left: 0px;
+  vertical-align: middle;
+  padding-top: 0px;
+  text-align: center;
+  float: left;
+}
+
+#figura-imagen {
+  display: table-row;
+  margin-top: 1em;
+  margin-right: 0em;
+  margin-bottom: 0em;
+  margin-left: 0em;
+}
+
+#figura-imagen img {  -webkit-border-radius: 10px 10px 10px 10px;
+  border-radius: 10px 10px 10px 10px;
+}
+
+* html #figura-contenido {
+  top: 50%;
+  left: 0px;
+  height: 1px;
+}
+
+* html #figura-contenido #figura-texto {
+  position: relative;
+  top: -50%;
+}
+
+.cuadro-recuerda {
+  clear: right;
+  padding-top: 60px;
+  padding-right: 20px;
+  padding-bottom: 20px;
+  padding-left: 20px;
+  width: 45%;
+  float: right;
+  color: #114477;
+  border-top-style: solid;
+  border-right-style: solid;
+  border-bottom-style: solid;
+  border-left-style: solid;
+  border-top-color: #496d8c;
+  border-right-color: #496d8c;
+  border-bottom-color: #496d8c;
+  border-left-color: #496d8c;
+  border-top-width: 1px;
+  border-right-width: 1px;
+  border-bottom-width: 1px;
+  border-left-width: 1px;
+  background-color: #d5d5ff;
+  background-image: url("http://somebooks.es/wp-content/uploads/2014/08/recuerda.png");
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+  background-position: 20px 20px;
+  position: relative;
+  margin-top: 0.5em;
+  margin-right: 0.5em;
+  margin-bottom: 0.5em;
+  margin-left: 0.5em;  -ms-word-wrap: break-word;
+  word-wrap: break-word;
+  right: 0px;  -webkit-border-radius: 10px 3em 10px 3em;
+  border-radius: 10px 3em 10px 3em;  -webkit-box-shadow: 5px 5px 5px #bbbbbb;
+  box-shadow: 5px 5px 5px #bbbbbb;
+}
+
+.cuadro-importante {
+  clear: right;
+  padding-top: 60px;
+  padding-right: 20px;
+  padding-bottom: 20px;
+  padding-left: 20px;
+  width: 45%;
+  float: right;
+  color: maroon;
+  border-top-style: solid;
+  border-right-style: solid;
+  border-bottom-style: solid;
+  border-left-style: solid;
+  border-top-color: maroon;
+  border-right-color: maroon;
+  border-bottom-color: maroon;
+  border-left-color: maroon;
+  border-top-width: 1px;
+  border-right-width: 1px;
+  border-bottom-width: 1px;
+  border-left-width: 1px;
+  background-color: #ffefef;
+  background-image: url("http://somebooks.es/wp-content/uploads/2014/08/importante.png");
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+  background-position: 20px 20px;
+  position: relative;
+  margin-top: 0.5em;
+  margin-right: 0.5em;
+  margin-bottom: 0.5em;
+  margin-left: 0.5em;  -ms-word-wrap: break-word;
+  word-wrap: break-word;
+  right: 0px;  -webkit-border-radius: 10px 3em 10px 3em;
+  border-radius: 10px 3em 10px 3em;  -webkit-box-shadow: 5px 5px 5px #bbbbbb;
+  box-shadow: 5px 5px 5px #bbbbbb;
+}
+
+.cuadro-importante-centro {
+  display: block;
+  margin-top: auto;
+  margin-right: auto;
+  margin-bottom: auto;
+  margin-left: auto;
+  max-width: 80%;
+  padding-top: 60px;
+  padding-right: 20px;
+  padding-bottom: 20px;
+  padding-left: 20px;
+  border-top-style: solid;
+  border-right-style: solid;
+  border-bottom-style: solid;
+  border-left-style: solid;
+  border-top-color: maroon;
+  border-right-color: maroon;
+  border-bottom-color: maroon;
+  border-left-color: maroon;
+  color: maroon;
+  border-top-width: 1px;
+  border-right-width: 1px;
+  border-bottom-width: 1px;
+  border-left-width: 1px;
+  background-color: #ffefef;
+  background-image: url("http://somebooks.es/wp-content/uploads/2014/08/importante.png");
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+  background-position: 20px 20px;
+  right: 0px;  -webkit-border-radius: 10px 3em 10px 3em;
+  border-radius: 10px 3em 10px 3em;  -webkit-box-shadow: 5px 5px 5px #bbbbbb;
+  box-shadow: 5px 5px 5px #bbbbbb;
+}
+
+.cuadro-nota-centro {
+  display: block;
+  margin-top: auto;
+  margin-right: auto;
+  margin-bottom: auto;
+  margin-left: auto;
+  max-width: 80%;
+  padding-top: 60px;
+  padding-right: 20px;
+  padding-bottom: 20px;
+  padding-left: 20px;
+  color: black;
+  border-top-width: 1px;
+  border-right-width: 1px;
+  border-bottom-width: 1px;
+  border-left-width: 1px;
+  background-color: #d1e29c;
+  background-image: url("http://somebooks.es/wp-content/uploads/2014/08/nota.png");
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+  background-position: 20px 20px;
+  right: 0px;  -webkit-border-radius: 10px 3em 10px 3em;
+  border-radius: 10px 3em 10px 3em;  -webkit-box-shadow: 5px 5px 5px #bbbbbb;
+  box-shadow: 5px 5px 5px #bbbbbb;
+}
+
+.ampliar {
+  max-width: 90%;
+  background-image: url("http://somebooks.es/wp-content/uploads/2014/08/ampliar.png");
+  background-color: #eee;
+  margin-bottom: 1em;
+  border-style: solid;
+  border-color: #777;
+}
+
+.recordar{
+  max-width: 90%;
+  background-image: url("http://somebooks.es/wp-content/uploads/2014/08/recuerda.png");
+  background-color: #e3f1ff;
+  margin-bottom: 1em;
+  border-style: solid;
+  border-color: #496d8c;
+}
+
+.separar {
+  max-width: 90%;
+  margin-bottom: 1em;
+}
+
+.medio {
+  vertical-align:middle;
+}
+
+.win81 {
+  max-width: 90%;
+  background-image: url("http://somebooks.es/wp-content/uploads/2014/08/win81.png");
+  background-color: #eee;
+  margin-bottom: 1em;
+  border-style: solid;
+  border-color: #777;
+}
+
+.ub1404 {
+  max-width: 90%;
+  background-image: url("http://somebooks.es/wp-content/uploads/2014/08/ub1404.png");
+  background-color: #eee;
+  margin-bottom: 1em;
+  border-style: solid;
+  border-color: #777;
+}
+
+.ubu {
+  max-width: 90%;
+  background-image: url("http://somebooks.es/wp-content/uploads/2014/08/ubuntu.png");
+  background-color: #eee;
+  margin-bottom: 1em;
+  border-style: solid;
+  border-color: #777;
+}
+
+.win {
+  max-width: 90%;
+  background-image: url("http://somebooks.es/wp-content/uploads/2014/08/windows.png");
+  background-color: #eee;
+  margin-bottom: 1em;
+  border-style: solid;
+  border-color: #777;
+}
+
+.img-derecha {
+  float: right;
+  margin-left: 0.5em;
+  max-width: 80%;
+}
+
+.img-izquierda {
+  float: left;
+  margin-right: 0.5em;
+  max-width: 50%;
+}
+
+.img-centro {
+  display: block;
+  margin-top: auto;
+  margin-right: auto;
+  margin-bottom: auto;
+  margin-left: auto;
+  max-width: 80%;
+}
+
+.img-array {
+  float: left;
+  margin-top: 0.5em;
+  margin-right: 0.5em;
+  margin-bottom: 0.5em;
+  margin-left: 0.5em;
+  max-width: 30%;
+}
+
+.codigo {
+  counter-reset: linea;
+  display: block;
+  margin-top: auto;
+  margin-right: auto;
+  margin-bottom: auto;
+  margin-left: auto;
+  max-width: 80%;
+  padding-top: 1em;
+  padding-right: 1em;
+  padding-bottom: 1em;
+  padding-left: 1em;  -ms-word-wrap: break-word;
+  word-wrap: break-word;
+  background-color: #a4c639;
+  background-image: none;
+  background-repeat: repeat;
+  background-attachment: scroll;
+  background-position: 0% 0%;
+  right: 0px;  -webkit-border-radius: 1em 1em 1em 1em;
+  border-radius: 1em 1em 1em 1em;
+}
+
+.codigo > p {
+  color: white;
+  font-size: 120%;
+}
+
+.codigo-new{
+  box-sizing: border-box;
+  hyphens: none;
+  font: 1em monospace;
+  border: 1px solid rgb(104, 104, 104);
+  border-radius: 4px;
+  background: rgb(230, 230, 230);
+  overflow: auto;
+  margin: 20px 2em 20px 2em !important;
+  max-width: 100%;
+  padding: 1em;
+  white-space: pre-wrap;
+  overflow-wrap: break-word;
+  display: block;
+  color: rgb(20, 20, 20);
+  word-break: break-all;
+  orphans: 2;
+  -webkit-text-stroke-width: 0px;
+  text-decoration-style: initial;
+  text-decoration-color: initial;
+  box-shadow: 0 3px 5px rgba(0,0,0,0.3);
+}
+
+pre {  -ms-overflow-y: auto;
+  overflow-y: auto;  -ms-overflow-x: scroll;
+  overflow-x: scroll;
+  padding-top: 0px;
+  padding-right: 1em;
+  padding-bottom: 1em;
+  padding-left: 1em;
+  background-color: #d1e29c;
+  background-image: none;
+  background-repeat: repeat;
+  background-attachment: scroll;
+  background-position: 0% 0%;
+  color: black;
+}
+
+code:before {
+  counter-increment: linea;
+  content: counter(linea, decimal) "- ";
+}
+
+code {
+  font-size: 120%;
+}
+
+.codigo .titulo {
+  color: white;
+  padding-top: 0px;
+  padding-right: 0.5em;
+  padding-bottom: 0px;
+  padding-left: 0.5em;
+  font-size: 120%;
+}
+
+.codigo .contenido {
+  background-color: #d1e29c;
+  padding-top: 0px;
+  padding-right: 0.5em;
+  padding-bottom: 0px;
+  padding-left: 0.5em;
+  text-align: center;
+  width: 90%;
+}
+
+#figura-texto tt {
+  font-weight: bold;
+  font-size: 120%;
+}
+
+.page-links {
+font-size: 1.2em;
+line-height: 1.2em;
+font-weight: bold;
+}
+
+kbd {
+	padding:.1em .3em;
+	border:1px solid #888;
+	font-size:.8em;
+	font-family:Arial,Helvetica,sans-serif;
+	background-color:#fff;
+	color:#333;
+	-moz-box-shadow:0 1px 0 rgba(0,0,0,0.2),0 0 0 3px #fff inset;
+	-webkit-box-shadow:0 1px 0 rgba(0,0,0,0.2),0 0 0 3px #fff inset;
+	box-shadow:0 1px 0 rgba(0,0,0,0.2),0 0 0 3px #fff inset;
+	border-radius:7px;
+	display:inline-block;
+	margin:0 .1em;
+	text-shadow:0 1px 0 #fff;
+	line-height:1.2;
+	white-space:nowrap
+}
+
+/* Nuevos estilos de figuras */
+.numerar{
+  counter-reset: first 0;
+}
+
+.figura{
+  position: relative;
+  padding: 0.5em;
+  padding-left: 1em;
+  padding-right: 1em;
+  min-height: 3em;
+  border-bottom: 10px;
+
+  width: 60%;
+  margin-top: 1em;
+  margin-right: 0px;
+  margin-bottom: 1em;
+  margin-left: 20%;  -webkit-border-radius: 10px 2em 10px 10px;
+  border-radius: 10px 2em 10px 10px;  -webkit-box-shadow: 5px 5px 5px #bbbbbb;
+  box-shadow: 5px 5px 5px #bbbbbb;
+  background-color: #d1e29c;
+
+}
+.figura img{
+  width: 100%;
+  margin-top: 1em;
+  -webkit-border-radius: 10px 10px 10px 10px;
+  border-radius: 10px 10px 10px 10px;
+}
+
+.figura p img{
+
+  margin-top: 1.5em;
+  margin:0;
+  padding:0;
+
+}
+.figura p:first-child{
+padding-left: 2.7em;
+}
+.figura > p{
+  margin-top: 0px;
+  margin-bottom: 0px;
+  margin-left: 2.6em;
+  padding-left: 0.5em;
+
+  min-height: 2.5em;
+  font-size: 0.9em;
+}
+.figura[numero="no"]:before{font-size: 0em;}
+.figura[numero="no"] > p{margin-left: 0em; min-height: 2em;}
+.figura[numero="no"] img{margin-top: 0;}
+
+.figura:before{
+  counter-increment: first;
+  content: counter(first);
+
+  position: absolute;
+  top: 0.1em;
+  left: 0.1em;
+  width: 1.2em;
+  height: 1.2em;
+  padding: 0.2em;
+
+  font-size: 2em;
+  line-height: 1.2;
+  text-align: center;
+  color: #f5f5f5;
+
+  border-radius: 50%;
+  background-color: #a4c639;;
+
+  -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+
+  -o-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+  -webkit-box-shadow: 2px 2px 3px 0 rgba(104,104,104,0.91) ;
+  box-shadow: 2px 2px 3px 0 rgba(104,104,104,0.91) ;
+}
+.redondear{
+  -webkit-border-radius: 10px 10px 10px 10px;
+ border-radius: 10px 10px 10px 10px;
+}
+
+.terminal{
+  font-family: monospace;
+  font-weight: bold;
+}
+
+/* Tabs */
+
+.tabs-container {
+  margin: auto;
+  padding: 2rem;
+  /*max-width: 36rem;*/
+}
+.tabs-container input {
+  display: none;
+}
+.tabs-container label {
+  display: inline-block;
+  background-color: #ccc;
+  border-radius: 0.5rem 0.5rem 0 0;
+  color: #aaa;
+  padding: 0.5rem 1rem;
+	margin-bottom: 0px;
+}
+.tabs-container input:checked + label {
+  background-color: #fff;
+  color: #333;
+  
+}
+.tabs-container .content {
+  display: none;
+  color: #333;
+  background-color: #fff;
+  border-radius: 0 0.5rem 0.5rem 0.5rem;
+  padding: 1rem;
+}
+
+.tabs-container input:nth-of-type(1):checked ~ .content:nth-of-type(1),
+.tabs-container input:nth-of-type(2):checked ~ .content:nth-of-type(2),
+.tabs-container input:nth-of-type(3):checked ~ .content:nth-of-type(3),
+.tabs-container input:nth-of-type(4):checked ~ .content:nth-of-type(4),
+.tabs-container input:nth-of-type(5):checked ~ .content:nth-of-type(5),
+.tabs-container input:nth-of-type(6):checked ~ .content:nth-of-type(6){
+  display: block;
+}
+
+/* Tin Tabs */
+
+/* Menú */
+.menu .menu-label{
+background-color: #fff;
+border-style: solid;
+border-width: 1px;
+border-color: #fff;
+width: 100%;
+border-radius: 0;
+color: #333;
+padding: 0;
+line-height: 2em;
+margin: 0px;
+	font-size: 1.2em;
+}
+.menu .menu-label:hover {
+  background-color: #ccc;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #999;
+}
+.menu input:checked + label{
+  background-color: #ccc;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #ccc;
+}
+.menu .menu-sub{
+  display: none;
+}
+.menu-label:before {
+  content: "+";
+  display: inline-block;
+  margin-right: 1em;
+  width: 1.5em;
+  height: 100%;
+  line-height: 2em;
+  text-align: center;
+  background-color: #e5e5e5;
+}
+.menu input:checked + .menu-label:before{
+  content: "-";
+}
+
+.menu input:checked ~ .menu-sub{
+  display: block;
+}
+/* Fin Menú */
+
+/* Actividades */
+.actividades {
+	max-width: 90%;
+	background-image: url("http://somebooks.es/wp-content/uploads/2014/08/actividades.png");
+	background-color: #ffeeaa;
+	margin-bottom: 1em;
+	border-style: solid;
+	border-color: #ffa500;
+	height: auto;
+}
+
+.resp{
+	margin: 0px;
+	padding: 0px;
+}
+
+.resp-label {
+  //font-weight: 700;
+  position: relative;
+  //padding: .5em 1em;
+  margin-bottom: 0em !important;;
+  display: block;
+  cursor: pointer;
+  //background-color: whiteSmoke;
+
+	background: #a4c639;
+	color: #fff;
+	border-radius: 10px;
+	line-height: 1;
+	padding: .2em 1em .2em 1em;
+
+
+  transition: background-color .15s ease-in-out;
+}
+
+.resp-input:checked + label, .resp-label:hover {
+  //background-color: #999;
+	background: #ffa500;
+	color: #fff;
+	border-radius: 10px;
+}
+
+.resp-label:after, .resp-input:checked + .resp-label:after {
+  content: "+";
+  position: absolute;
+  display: block;
+  right: 0;
+  top: 0;
+  width: 2em;
+  height: 100%;
+  line-height: 1.25em;
+  text-align: center;
+  background-color: #b5b5b5;
+  transition: background-color .15s ease-in-out;
+}
+
+.resp-label:hover:after, .resp-input:checked + .resp-label:after {
+  background-color: #606060;
+}
+
+.resp-input:checked + .resp-label:after {
+  content: "-";
+}
+
+.resp-input {
+  display: none !important;
+}
+
+.resp-text, .resp-sub-text {
+  opacity: 0;
+  height: 0;
+  //margin-bottom: .5em;
+  //transition: opacity .5s ease-in-out;
+  overflow: hidden;
+
+	background: #fff6d5;
+  padding: .2em 1em .2em 1em;
+  border-radius: 10px ;
+	margin: 0px;
+}
+
+.resp-input:checked ~ .resp-text, .resp-sub .resp-input:checked ~ .resp-sub-text {
+  opacity: 1;
+  height: auto;
+}
+
+.resp-sub .resp-label {
+  background: none;
+  font-weight: 500;
+  padding: .5em 2em;
+  margin-bottom: 0;
+    margin-left: 1em;
+
+}
+
+.resp-sub .resp-label:checked {
+  background: none;
+  border-bottom: 1px solid whitesmoke;
+}
+
+.resp-sub .resp-label:after, .resp-sub .resp-input:checked + .resp-label:after {
+  left: 0;
+  background: none;
+
+}
+
+.resp-sub .resp-input:checked + label, .resp-sub .resp-label:hover {
+  background: none;
+}
+
+.resp-sub-text {
+  padding: 0 1em 0 2em;
+}
+.resp-sub {
+	margin: 0;
+	padding: 0;
+}
+
