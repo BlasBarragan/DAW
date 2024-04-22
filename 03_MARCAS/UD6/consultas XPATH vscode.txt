@@ -1,0 +1,5 @@
+S'ha de tenir l'extensió XML tools instal·lada i habilitada
+Tenint obert el document XML que es vol consultar (i amb el focus activitat sobre el document), s'ha d'obrir el COMMAND PALETTE (Ctrl+Shift+p o Menú View -> Command Palette)
+En el command palette, introduir: >XML Tools: Evaluate XPath
+Indica l'expressió XPath desitjada i prem Enter
+Apareix una finestra nova amb els resultats

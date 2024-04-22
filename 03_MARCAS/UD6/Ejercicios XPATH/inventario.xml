@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<inventario>
+    <producto nombre="KAH-211">
+        <descripcion>Tableta digitalizadora</descripcion>
+        <peso unidad="g">890</peso>
+    </producto>
+    <producto nombre ="JSG-441">
+        <descripcion >Placa base</descripcion>
+        <peso unidad="kg">0.7</peso>
+    </producto>
+    <producto nombre ="POA-989">
+        <descripcion >Teclado</descripcion>
+        <peso unidad="g">450</peso>
+    </producto>
+</inventario>

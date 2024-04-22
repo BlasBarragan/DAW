@@ -1,0 +1,16 @@
+-- Crear la base de datos
+CREATE DATABASE pruebabd;
+
+-- Seleccionar la base de datos
+USE pruebabd;
+
+-- Crear la tabla personas
+CREATE TABLE personas (
+  dni VARCHAR(9) NOT NULL PRIMARY KEY,
+  nombre VARCHAR(50) NOT NULL,
+  edad INT NOT NULL
+);
+
+-- Insertar una persona en la tabla
+INSERT INTO personas (dni, nombre, edad)
+VALUES ('11110000', 'Aitor Tilla', 20);
