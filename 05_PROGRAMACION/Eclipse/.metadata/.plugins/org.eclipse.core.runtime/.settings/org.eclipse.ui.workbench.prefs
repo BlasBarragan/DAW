@@ -2,6 +2,7 @@
 ColorsAndFontsPreferencePage.expandedCategories=Torg.eclipse.ui.workbenchMisc\tTorg.eclipse.egit.ui.GitTheme
 ColorsAndFontsPreferencePage.selectedElement=Corg.eclipse.egit.ui.IgnoredResourceForegroundColor
 PLUGINS_NOT_ACTIVATED_ON_STARTUP=;org.eclipse.m2e.discovery;
+RUN_IN_BACKGROUND=false
 eclipse.preferences.version=1
 org.eclipse.compare.contentmergeviewer.TextMergeViewer=1|Courier New|12.0|0|WINDOWS|1|0|0|0|0|0|0|0|0|1|0|0|0|0|Courier New;
 org.eclipse.debug.ui.DetailPaneFont=1|Courier New|12.0|0|WINDOWS|1|0|0|0|0|0|0|0|0|1|0|0|0|0|Courier New;

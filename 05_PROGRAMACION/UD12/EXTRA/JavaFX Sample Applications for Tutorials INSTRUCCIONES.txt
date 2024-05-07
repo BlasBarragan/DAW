@@ -1,0 +1,6 @@
+Aplicaciones JavaFX de ejemplo para probar y aprender.
+
+Importar el .zip del ejemplo a Eclipse, pero os indicará un error en el proyecto importado. Para solucionarlo:
+
+Click derecho sobre proyecto -> Built Path -> Configure Build Path -> Pestaña Libraries -> Classpath -> Add Library -> JavaFX SDK
+Agregar al VM Arguments de la clase principal las instrucciones indicadas en los apuntes, en el apartado "Nuestro primer proyecto" -> "Posibles errores y las soluciones" -> "Solución #2"
