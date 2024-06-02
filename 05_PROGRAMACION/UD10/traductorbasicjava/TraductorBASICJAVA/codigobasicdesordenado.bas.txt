@@ -1,0 +1,12 @@
+10 PRINT "Escribe un numero"
+
+30 PRINT "Escribe otro numero"
+
+50 PRINT "Su suma es"
+
+60 PRINT n1+n2
+
+20 INPUT n1
+
+40 INPUT n2
+
