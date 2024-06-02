@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<quantitat divisa="euro" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="schema2.xsd"></>
+<quantitat divisa="schema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="schema2.xsd">20</quantitat>
 
-<quantitat divisa="euro">20</quantitat >
-<quantitat divisa="libra">15.32</quantitat >
+<quantitat divisa="euro">20</quantitat>
+<quantitat divisa="libra">15.32</quantitat>
 
 <quantitat>20</quantitat>
 <quantitat divisa="euro">daa</quantitat>
