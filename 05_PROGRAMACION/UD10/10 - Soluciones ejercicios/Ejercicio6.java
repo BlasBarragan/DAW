@@ -1,3 +1,8 @@
+/*
+Ejercicio 6. Implementa un programa que muestre por pantalla los valores máximos y mínimos del archivo
+‘numeros.txt’
+*/
+
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;

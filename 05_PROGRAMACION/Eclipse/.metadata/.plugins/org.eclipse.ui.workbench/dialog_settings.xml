@@ -42,6 +42,7 @@
 	<section name="ZipFileImportWizard">
 		<item key="WizardZipFileResourceImportPage1.STORE_OVERWRITE_EXISTING_RESOURCES_ID" value="false"/>
 		<list key="WizardZipFileResourceImportPage1.STORE_SOURCE_NAMES_ID">
+			<item value="C:\Users\Blas\Desktop\Repos\DAW\05_PROGRAMACION\UD11\Entrega6.zip"/>
 			<item value="C:\Users\Blas\Desktop\Repos\DAW\05_PROGRAMACION\UD10\Ejercicio9.zip"/>
 			<item value="C:\Users\Blas\Desktop\Ejercicio9.zip"/>
 		</list>
