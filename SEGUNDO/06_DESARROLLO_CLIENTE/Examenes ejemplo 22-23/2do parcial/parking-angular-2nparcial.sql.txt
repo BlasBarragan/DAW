@@ -1,0 +1,146 @@
+-- phpMyAdmin SQL Dump
+-- version 5.2.0
+-- https://www.phpmyadmin.net/
+--
+-- Servidor: localhost
+-- Tiempo de generación: 12-02-2023 a las 13:07:42
+-- Versión del servidor: 10.4.24-MariaDB
+-- Versión de PHP: 8.1.6
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+START TRANSACTION;
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
+--
+-- Base de datos: `parking-angular`
+--
+CREATE DATABASE IF NOT EXISTS `parking-angular` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
+USE `parking-angular`;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `client`
+--
+
+CREATE TABLE `client` (
+  `dni` varchar(9) NOT NULL,
+  `nom` varchar(150) NOT NULL,
+  `direccio` varchar(100) NOT NULL,
+  `poblacio` varchar(50) NOT NULL,
+  `sexe` varchar(10) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `client`
+--
+
+INSERT INTO `client` (`dni`, `nom`, `direccio`, `poblacio`, `sexe`) VALUES
+('20202020a', 'jose', 'carrer', 'madrid', 'home'),
+('21212121a', 'luis', 'avenida', 'valencia', 'home'),
+('22222222a', 'juan', 'plaça', 'castello', 'home'),
+('23232323a', 'luis', 'avenida', 'barcelona', 'home'),
+('24242424a', 'juana', 'plaça', 'castello', 'dona'),
+('25252525a', 'luisa', 'avenida', 'alicant', 'dona'),
+('26262626b', 'qwerty', 'asdfg', 'zxcvb', 'ind'),
+('27272727b', 'poiuy', 'ñlkjh', 'mnbv', 'ind');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `cotxe`
+--
+
+CREATE TABLE `cotxe` (
+  `matricula` varchar(10) NOT NULL,
+  `id_client` varchar(9) NOT NULL,
+  `marca` varchar(30) NOT NULL,
+  `model` varchar(30) NOT NULL,
+  `color` varchar(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `cotxe`
+--
+
+INSERT INTO `cotxe` (`matricula`, `id_client`, `marca`, `model`, `color`) VALUES
+('1111asd', '21212121a', 'ford', 'ka', 'roig'),
+('1111qwe', '26262626b', 'a', 's', 'd'),
+('2222qwe', '26262626b', 'q', 'w', 'e'),
+('2345tre', '21212121a', 'ford', 'focus', 'negre'),
+('6545try', '22222222a', 'ford', 'kuga', 'negre'),
+('6754gfg', '25252525a', 'ford', 'fiesta', 'roig'),
+('7867hgy', '23232323a', 'ford', 'fiesta', 'blau');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `registre`
+--
+
+CREATE TABLE `registre` (
+  `id` int(11) NOT NULL,
+  `matricula` varchar(12) NOT NULL,
+  `entrada` datetime NOT NULL,
+  `eixida` datetime DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `registre`
+--
+
+INSERT INTO `registre` (`id`, `matricula`, `entrada`, `eixida`) VALUES
+(1, '1111asd', '2023-01-27 12:27:05', '2023-02-01 12:33:20'),
+(2, '1111asd', '2023-01-27 12:29:45', NULL),
+(3, '1111-asd', '2023-01-27 12:27:05', '2023-02-01 12:33:41'),
+(4, '1111-asd', '2023-01-27 12:27:05', '2023-02-01 12:46:43'),
+(5, '1111-asd', '2023-01-27 12:27:05', NULL),
+(6, '1111-asd', '2023-01-27 12:27:05', '2023-02-02 12:46:52'),
+(7, '1111-asd', '2023-01-27 12:27:05', '2023-02-03 12:46:59'),
+(8, '1111qwe', '2023-02-12 12:48:54', '2023-02-12 13:48:54'),
+(9, '1111qwe', '2023-02-12 12:02:54', '2023-02-12 18:05:54'),
+(10, '1111qwe', '2023-02-12 13:48:54', '2023-02-12 13:48:56'),
+(11, '1111qwe', '2023-02-12 13:02:54', '2023-02-12 18:05:54');
+
+--
+-- Índices para tablas volcadas
+--
+
+--
+-- Indices de la tabla `client`
+--
+ALTER TABLE `client`
+  ADD PRIMARY KEY (`dni`);
+
+--
+-- Indices de la tabla `cotxe`
+--
+ALTER TABLE `cotxe`
+  ADD PRIMARY KEY (`matricula`);
+
+--
+-- Indices de la tabla `registre`
+--
+ALTER TABLE `registre`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- AUTO_INCREMENT de las tablas volcadas
+--
+
+--
+-- AUTO_INCREMENT de la tabla `registre`
+--
+ALTER TABLE `registre`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

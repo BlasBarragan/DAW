@@ -1,2 +1,0 @@
-INDEX VERSION 1.134+C:\Users\bRoman\iCloudDrive\DAW\PROGRAMACION\Eclipse\.metadata\.plugins\org.eclipse.jdt.core
-3173329592.index
