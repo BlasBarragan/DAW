@@ -11,7 +11,7 @@
 ---------------------------------
 ## Segundo curso
 ---------------------------------
-### 📁 [- DEWC *Desarrollo entorno cliente ](/SEGUNDO/06_DESARROLLO_CLIENTE)
-### 📁 [- DEWS *Desarrollo entorno servidor (ENG)](/SEGUNDO/07_DESARROLLO_SERVIDOR)
+### 📁 [- DWC *Desarrollo entorno cliente ](/SEGUNDO/06_DESARROLLO_CLIENTE)
+### 📁 [- DWS *Desarrollo entorno servidor (ENG)](/SEGUNDO/07_DESARROLLO_SERVIDOR)
 ### 📁 [- DIW *Diseño de interfaces WEB ](/SEGUNDO/08_INTEFACES)
-### 📁 [- DEWC *Despliegue ](/SEGUNDO/09_DESPLIEGUE)
+### 📁 [- DAW *Despliegue de aplicaciones WEB ](/SEGUNDO/09_DESPLIEGUE)
