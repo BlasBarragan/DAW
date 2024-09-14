@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>E10</title>
+  <meta name="description" content="descripcion">
+  <meta name="author" content="Blas Barragán">
+</head>
+<body>
+  <script language="JavaScript">
+
+  const date = new Date();
+
+  let ano = date.getFullYear();
+  let mes = date.getMonth() + 1;
+  let dia = date.getDate();
+  let hora = date.getHours();
+  let minuto = date.getMinutes();
+  let segundo = date.getSeconds();
+  document.write("Hoy es " + dia.toString() + "/" + mes.toString() + "/" + ano.toString() + " <br>" );
+  document.write("Es la hora " + hora.toString() + ":" + minuto.toString() + ":" + segundo.toString() + " <br>" );
+
+  </script>
+</body>
+</html>

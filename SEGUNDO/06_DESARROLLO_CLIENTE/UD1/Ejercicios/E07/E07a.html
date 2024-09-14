@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>EO7a</title>
+  <meta name="description" content="descripcion">
+  <meta name="author" content="Blas Barragán">
+</head>
+<body>
+  <script language="JavaScript">
+
+    const numeros = [0, -25, 34, 4, 52, 16];
+    let num_lenght = numeros.length;
+    let maximo = numeros[0];
+    let minimo = numeros[0];
+
+    for (let i = 0; i<num_lenght; i++){
+      let cursor = numeros[i];
+        if (cursor < minimo){
+          minimo = cursor;
+        }else if (cursor > maximo){
+          maximo = cursor;
+        }
+    }
+  document.write("Numero maximo: " + maximo);
+  document.write("<br>");
+  document.write("Numero minimo: " + minimo);
+  </script>
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>EO9</title>
+  <meta name="description" content="descripcion">
+  <meta name="author" content="Blas Barragán">
+</head>
+<body>
+  <script language="JavaScript">
+
+    let num_usuario = window.prompt("Ingrese un valor entre 1 y 10: ");
+    let num_cpu = Math.floor(Math.random() * 10) +1;
+
+    if (num_cpu == num_usuario){
+      document.write("!!! FELICIDADES ¡¡¡ <br> Numero premiado: " + num_cpu);
+    }else{
+      document.write("Los sentimos, numero premiado: " + num_cpu + " y usted eligio el : " + num_usuario);
+    }
+
+  </script>
+</body>
+</html>

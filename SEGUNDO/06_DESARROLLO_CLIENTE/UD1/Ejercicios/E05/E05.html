@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>EO5</title>
+  <meta name="description" content="descripcion">
+  <meta name="author" content="Blas Barragán">
+</head>
+<body>
+  <script language="JavaScript">
+  	let numero_str = window.prompt("Escribe un numero: (Del 1 al 6)");
+    let numero = parseInt(numero_str);
+
+    const num_texto = ["Uno", "Dos", "Tres", "Cuatro", "Cinco", "Seis"];
+
+    document.write("-Utilizando Switch: <br>");
+    switch (numero) {
+      case 1:
+      document.write(numero + " ----- Uno");
+      break;
+      case 2:
+      document.write(numero + " ----- Dos");
+      break;
+      case 3:
+      document.write(numero + " ----- Tres");
+      break;
+      case 4:
+      document.write(numero + " ----- Cuatro");
+      break;
+      case 5:
+      document.write(numero + " ----- Cinco");
+      break;
+      case 6:
+      document.write(numero + " ----- Seis");
+      break;
+      default:
+        window.alert("ERROR  !!!Introduce un valor entre 1 y 6¡¡¡");
+        document.write("Valor fuera de rango");
+    }
+  document.write("<br>");
+  document.write("<br>");
+  document.write("-Utilizando Array: <br>");
+    if (numero >0 && numero <=6){
+    document.write(numero + " ----- " + num_texto[numero -1]);
+    }else{
+      document.write("Valor fuera de rango");
+    }
+
+  </script>
+</body>
+</html>

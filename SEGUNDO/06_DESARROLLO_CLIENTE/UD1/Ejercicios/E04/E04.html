@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>EO4</title>
+  <meta name="description" content="descripcion">
+  <meta name="author" content="Blas Barragán">
+</head>
+<body>
+  <script language="JavaScript">
+  	let numero_str = window.prompt("Escribe un numero: (positivo, negativo o cero)");
+    let numero = parseInt(numero_str);
+
+    if(numero === 0){
+      document.write("El numero es cero");
+    } else if (numero > 0) {
+      document.write("El numero es positivo");
+    } else if (numero < 0) {
+      document.write("El numero es negativo");
+    } else {
+      document.write("El valor introducido no es un numero");
+    }
+
+  </script>
+</body>
+</html>

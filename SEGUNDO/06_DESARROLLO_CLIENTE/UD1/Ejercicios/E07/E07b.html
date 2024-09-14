@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>EO7b</title>
+  <meta name="description" content="descripcion">
+  <meta name="author" content="Blas Barragán">
+</head>
+<body>
+  <script language="JavaScript">
+
+    const numeros = [];
+    for (let i = 5; i > 0; i--){
+      numeros[numeros.length] = parseInt(window.prompt("Introduce un numero para la posicion "+(numeros.length +1)+": "));
+    }
+
+    let num_lenght = numeros.length;
+    let maximo = numeros[0];
+    let minimo = numeros[0];
+
+    for (let i = 0; i<num_lenght; i++){
+      let cursor = numeros[i];
+        if (cursor < minimo){
+          minimo = cursor;
+        }else if (cursor > maximo){
+          maximo = cursor;
+        }
+    }
+
+  document.write("Numero maximo: " + maximo);
+  document.write("<br>");
+  document.write("Numero minimo: " + minimo);
+
+  </script>
+</body>
+</html>

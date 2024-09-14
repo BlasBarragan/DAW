@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>E11</title>
+  <meta name="description" content="descripcion">
+  <meta name="author" content="Blas Barragán">
+</head>
+<body>
+  <script language="JavaScript">
+
+    const vector = [];
+    let entrada = "";
+    do {
+      entrada = window.prompt("Añade elementos al vector: (Escribe NO para terminar de introducir valores)");
+      vector.push(entrada);
+
+    } while (entrada != "NO");
+
+    vector.pop();
+    let vector_lenght = vector.length;
+
+    document.write("Elementos del vector: <br>");
+
+    for (let i = 0; i<vector_lenght; i++){
+        document.write("Elemento " + i + " : " + vector[i] + "<br>");
+    }
+
+    vector.sort();
+    document.write("<br> Elementos del vector ordenados: <br>");
+
+    for (let i = 0; i<vector_lenght; i++){
+        document.write(vector[i] + "<br>");
+    }
+
+  </script>
+</body>
+</html>
