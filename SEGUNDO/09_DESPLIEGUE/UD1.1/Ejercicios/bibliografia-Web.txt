@@ -1,0 +1,2 @@
+Instalación vbox guestadditions en Ubuntu server: 
+https://vlade.medium.com/instalar-virtualbox-guest-additions-en-ubuntu-server-20-04-d62d48928000
