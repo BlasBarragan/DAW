@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>E11d</title>
+  <meta name="description" content="descripcion">
+  <meta name="author" content="Blas Barragán">
+</head>
+
+<body>
+  <form name="form1" action="#" onsubmit="return validar()" method="GET">
+    Ingresa clave (al menos 5 caracteres)
+    <input type="text" id="texto" name="texto">
+    <button type="submit" value="Enviar">Enviar</button>
+  </form>
+  <script>
+    function validar() {
+      let clave = document.getElementById("texto").value;
+      //console.log(clave);
+
+      if (clave.length >= 5) {
+        window.alert("La clave es: " + clave);
+        return true;
+      } else {
+        document.getElementById("texto").value = "";
+        console.log("minimo 5 caracteres");
+        return false;
+      }
+    }
+  </script>
+</body>
+</html>

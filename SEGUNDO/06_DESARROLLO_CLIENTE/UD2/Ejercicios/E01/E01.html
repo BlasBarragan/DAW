@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>EO1</title>
+  <meta name="description" content="descripcion">
+  <meta name="author" content="Blas Barragán">
+</head>
+
+<body>
+
+  <p>
+    Dirección de Internet: <input type="url" id="url1" value="http://" name="url1"> <button onclick="abrir1()"> Abrir ventana </button> <button onclick="cerrar1()"> Cerrar ventana </button>
+  </p>
+  <p>
+    Dirección de Internet: <input type="url" id="url2" value="http://" name="url2"> <button onclick="abrir2()"> Abrir ventana </button> <button onclick="cerrar2()"> Cerrar ventana </button>
+  </p>
+
+  <script language="JavaScript">
+
+    let ventana1;
+    let ventana2;
+    let url1;
+    let url2;
+
+    function abrir1() {
+      url1 = document.getElementById("url1").value;
+      ventana1 = window.open(url1, url1, "width=300,height=300");
+    }
+    function cerrar1() {
+      ventana1.close();
+    }
+
+    function abrir2() {
+      url2 = document.getElementById("url2").value;
+      ventana2 = window.open(url2, url2, "width=400,height=600");
+    }
+    function cerrar2() {
+      ventana2.close();
+    }
+
+  </script>
+
+</body>
+</html>

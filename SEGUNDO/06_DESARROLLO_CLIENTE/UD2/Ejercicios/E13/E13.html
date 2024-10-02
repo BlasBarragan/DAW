@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>E13</title>
+  <meta name="description" content="descripcion">
+  <meta name="author" content="Blas Barragán">
+  <link rel="stylesheet" href="estilos.css">
+</head>
+
+<body>
+  <table>
+    <tr>
+      <td>
+        <form name="operando" action="#" onsubmit="return validar()" method="GET">
+          <input class="campo" type="text" id="operando" name="operando">
+        </form>
+      </td>
+    </tr>
+    <tr>
+      <td class="calc">
+        <form name="calculadora" action="#" method="GET">
+          <input class="boton" type="submit" onclick="valor('1')" value="1">
+          <input class="boton" type="submit" onclick="valor('2')" value="2">
+          <input class="boton" type="submit" onclick="valor('3')" value="3">
+          <input class="boton" type="submit" onclick="valor('+')" value="+">
+        </form>
+        <form name="calculadora" action="#" method="GET">
+          <input class="boton" type="submit" onclick="valor('4')" value="4">
+          <input class="boton" type="submit" onclick="valor('5')" value="5">
+          <input class="boton" type="submit" onclick="valor('6')" value="6">
+          <input class="boton" type="submit" onclick="valor('-')" value="-">
+        </form>
+        <form name="calculadora" action="#" method="GET">
+          <input class="boton" type="submit" onclick="valor('7')" value="7">
+          <input class="boton" type="submit" onclick="valor('8')" value="8">
+          <input class="boton" type="submit" onclick="valor('9')" value="9">
+          <input class="boton" type="submit" onclick="valor('*')" value="x">
+        </form>
+        <form name="calculadora" action="#" method="GET">
+          <input class="boton" type="submit" onclick="validar('c')" value="c">
+          <input class="boton" type="submit" onclick="valor('0')" value="0">
+          <input class="boton" type="submit" onclick="validar('=')" value="=">
+          <input class="boton" type="submit" onclick="valor('/')" value="/">
+        </form>
+      </td>
+    </tr>
+  </table>
+  <script>
+    let memoria = "";
+    let resultado = "0";
+    function valor(numero) {
+      if (numero === NaN) {
+        memoria = memoria + " " + numero;
+        document.getElementById("operando").value = memoria;
+        //console.log("memoriaNAN " + memoria);
+      } else {
+        memoria = memoria + numero;
+        document.getElementById("operando").value = memoria;
+        //console.log("memoria: " + memoria);
+      }
+    }
+    function validar(caracter) {
+      if (caracter === "c") {
+        memoria = "";
+        resultado = "0";
+        document.getElementById("operando").value = "";
+      } else {
+        let calculo = eval(memoria);
+        //console.log("calculo:" + calculo);
+        if (calculo !== NaN) {
+          resultado = calculo;
+          //console.log("resultado:" + resultado);
+          document.getElementById("operando").value = resultado;
+          memoria = resultado;
+        } else {
+          //console.log("error");
+        }
+      }
+    }
+  </script>
+</body>
+</html>

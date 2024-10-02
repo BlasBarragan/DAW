@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <title>titol</title>
+  <meta name="description" content="HTML5">
+  <meta name="author" content="Jose Masip">
+  <link rel="stylesheet" href="css/estilos.css">
+  <script language="JavaScript">
+    let errores = 0;
+    let campos = 8;
+
+
+    function valida_envia() {
+      let nombre = document.getElementsByName("nom");
+      valida_nombre(nombre);
+
+      if (errores != 0) {
+        return false;
+      }
+      if (errores == 0 && campos == 0) {
+        return true;
+      }
+    }
+
+    function valida_nombre(nombre) {
+      if (nombre != "") {
+        errores++;
+        ventana_error("Nom esta vacio. \n");
+      } else {
+        campos--;
+      }
+    }
+
+    function ventana_error(errorMsj) {
+      window.alert(errorMsj);
+    }
+  </script>
+</head>
+
+<body>
+  <h1>formulari</h1>
+  <form name="form1">
+    <fieldset>
+      <legend>formulari:</legend>
+      <table>
+        <tr>
+          <td>Nom: </td>
+          <td><input type="text" name="nom" size="30" maxlength="100">----- cal
+            escriure algo
+          </td>
+        </tr>
+        <tr>
+          <td>usuari: </td>
+          <td><input type="text" name="usuari" size="30" maxlength="100">----- cal
+            escriure algo</td>
+        </tr>
+        <tr>
+          <td>clau: </td>
+          <td><input type="password" name="clau">----- longitut minima 6 caracters</td>
+        </tr>
+        <tr>
+          <td>Edat: </td>
+          <td><input type="text" name="edat" size="3" maxlength="2">----- cal ser major
+            d'edat i escriure un numero en el camp</td>
+        </tr>
+        <tr>
+          <td>edat2:</td>
+          <td>
+            <select name="edat2">
+              <option value="-1">Elegeix una opcio.......</option>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+            </select> -----cal seleccionar una opcio
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2" align="center"><input type="checkbox" name="condicions" value="acepta">acepta les condicions ----- es obligatori seleccionar el camp</td>
+        </tr>
+        <tr>
+          <td>sexe: </td>
+          <td><input type="radio" name="sexe" value="h">home <input type="radio" name="sexe" value="d">dona ----- obligatori seleccionar alguna opcio del grup</td>
+        </tr>
+        <tr>
+          <td>email: </td>
+          <td><input type="text" name="email" size="40" maxlength="100">-----cal
+            escriure un email valid (text@text.text)</td>
+        </tr>
+        <tr>
+          <td colspan="2" align="center"><input type="button" value="Enviar" onclick="valida_envia()"></td>
+        </tr>
+      </table>
+    </fieldset>
+  </form>
+</body>
+</html>

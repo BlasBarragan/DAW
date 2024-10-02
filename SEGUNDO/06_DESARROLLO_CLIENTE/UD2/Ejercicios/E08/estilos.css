@@ -1,0 +1,44 @@
+h1 {
+    text-align: center;
+    font-weight: bold;
+}
+
+.cuadrados {
+    display: inline-flex;
+    justify-content: space-around;
+}
+
+.c1 {
+    width: 50px;
+    height: 50px;
+    background-color: white;
+    margin: 10px;
+}
+
+.c2 {
+    width: 50px;
+    height: 50px;
+    background-color: red;
+    margin: 10px;
+}
+
+.c3 {
+    width: 50px;
+    height: 50px;
+    background-color: yellow;
+    margin: 10px;
+}
+
+.c4 {
+    width: 50px;
+    height: 50px;
+    background-color: lime;
+    margin: 10px;
+}
+
+.c5 {
+    width: 50px;
+    height: 50px;
+    background-color: lightskyblue;
+    margin: 10px;
+}

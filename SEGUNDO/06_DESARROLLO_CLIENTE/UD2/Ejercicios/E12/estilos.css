@@ -1,0 +1,26 @@
+table {
+    text-align: center;
+    margin: auto;
+    border: 5px outset;
+}
+
+td {
+    border: 2px inset grey;
+}
+
+.campo {
+    border: 2px solid lightgray;
+    border-radius: 4px;
+    margin: 1px;
+    color: gray;
+}
+
+.boton {
+    width: 25px;
+    height: 20px;
+    font-weight: bold;
+}
+
+.boton-grande {
+    width: 60px;
+}

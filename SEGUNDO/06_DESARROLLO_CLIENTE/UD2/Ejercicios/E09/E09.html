@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>EO9</title>
+  <meta name="description" content="descripcion">
+  <meta name="author" content="Blas Barragán">
+</head>
+
+<body>
+  <form name="form1" action="#" onsubmit="return validar()" method="GET">
+    <textarea id="texto" name="texto" maxlength="100" rows="10" cols="30"></textarea><br>
+    <input type="submit" value="Mostrar">
+  </form>
+  <script>
+    function validar() {
+      let entrada = document.getElementById("texto").value;
+      if (entrada !== "") {
+        window.alert("Has escrito: " + entrada.length + "/100 caracteres.");
+        return true;
+      } else {
+        console.log("Ingresa algo de texto");
+        return false;
+      }
+    }
+  </script>
+</body>
+</html>

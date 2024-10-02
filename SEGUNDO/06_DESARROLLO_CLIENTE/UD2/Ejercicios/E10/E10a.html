@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>E10a</title>
+  <meta name="description" content="descripcion">
+  <meta name="author" content="Blas Barragán">
+</head>
+
+<body>
+  <form name="form1" action="#" onsubmit="return validar()" method="GET">
+    <input type="checkbox" name="check" id="JavaScript" value="JavaScript">
+    <label for="JavaScript">JavaScript</label><br>
+    <input type="checkbox" name="check" id="PHP" value="PHP">
+    <label for="PHP">PHP</label><br>
+    <input type="checkbox" name="check" id="JSP" value="JSP">
+    <label for="JSP">JSP</label><br>
+    <input type="checkbox" name="check" id="VB" value="VB.Net">
+    <label for="VB">VB.Net</label><br>
+    <input type="submit" value="Mostrar">
+  </form>
+  <script>
+    function validar() {
+      let entrada = document.getElementsByName("check");
+      let contador = 0;
+      for (let i = 0; i < entrada.length; i++) {
+        if (entrada[i].checked) {
+          contador++;
+        }
+      }
+      if (contador > 0) {
+        window.alert("Has seleccionado " + contador + " campos.");
+        return true;
+      } else {
+        console.log("Selecciona almenos un campo");
+        return false;
+      }
+    }
+  </script>
+</body>
+</html>
