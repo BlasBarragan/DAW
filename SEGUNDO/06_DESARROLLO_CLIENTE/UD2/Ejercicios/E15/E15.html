@@ -7,93 +7,140 @@
   <meta name="author" content="Jose Masip">
   <link rel="stylesheet" href="css/estilos.css">
   <script language="JavaScript">
+    function error_rojo(campo, mensaje) {
+      document.getElementsByName(campo)[0].parentNode.classList.add("error");
+      let rojo = document.createElement("span");
+      rojo.textContent = mensaje;
+      document.getElementsByName(campo)[0].parentNode.appendChild(rojo);
+    }
+    function borrar_error(campo) {
+      let negro = document.getElementsByName(campo)[0].parentNode;
+      negro.classList.remove("error");
+      let span = negro.querySelector("span");
+      if (span) {
+        negro.removeChild(span);
+      }
+    }
     function valida_envia() {
       let errores = false;
       //nom
       let nom = document.getElementsByName("nom")[0].value;
       if (nom == "") {
-        window.alert("Nom esta vacio.");
+        //document.getElementsByName("nom")[0].parentNode.classList.add("error");
+        //let errorNom = document.createElement("span");
+        //errorNom.textContent = " Nom esta vacio.";
+        //errorNom.style.color = "red";
+        //document.getElementsByName("nom")[0].parentNode.appendChild(errorNom);
+        error_rojo("nom", "Nom esta vacio");
         errores = true;
+      } else {
+        borrar_error("nom");
       }
       //usuari
       if (!errores) {
         let usuari = document.getElementsByName("usuari")[0].value;
         if (usuari == "") {
-          window.alert("Usuari esta vacio.");
+          error_rojo("usuari", "Usuari esta vacio.");
+          //window.alert("Usuari esta vacio.");
           errores = true;
         }
+      } else {
+        borrar_error("usuari");
       }
       //clau
       if (!errores) {
         let clau = document.getElementsByName("clau")[0].value;
         let long = clau.length;
         if (clau.includes(" ")) {
-          window.alert("Clau no debe contener espacios");
+          //window.alert("Clau no debe contener espacios");
+          error_rojo("clau", "Clau no debe contener espacios");
           errores = true;
         }
         if (long < 6) {
-          window.alert("Clau debe contener al menos 6 caracteres.");
+          //window.alert("Clau debe contener al menos 6 caracteres.");
+          error_rojo("clau", "Clau debe contener al menos 6 caracteres.");
           errores = true;
         }
+      } else {
+        borrar_error("clau");
       }
       //edat
       if (!errores) {
         let edat = document.getElementsByName("edat")[0].value;
         if (edat == "" || edat < 18 || isNaN(edat)) {
           if (edat < 18) {
-            window.alert("Debe ser mayor de edad (+18).");
+            //window.alert("Debe ser mayor de edad (+18).");
+            error_rojo("edat", "Debe ser mayor de edad (+18).");
           } else if (edat == "") {
-            window.alert("Edat esta vacio.");
+            //window.alert("Edat esta vacio.");
+            error_rojo("edat", "Edat esta vacio.");
           } else {
-            window.alert("Edat debe ser un numero");
+            //window.alert("Edat debe ser un numero");
+            error_rojo("edat", "Edat debe ser un numero");
           }
           errores = true;
         }
+      } else {
+        borrar_error("edat");
       }
       //edat2
       if (!errores) {
         let edat2 = document.getElementsByName("edat2")[0].value;
         if (edat2 == -1) {
-          window.alert("Elija una opcion para edat2");
+          error_rojo("edat2", "Elija una opcion para edat2");
+          //window.alert("Elija una opcion para edat2");
           errores = true;
         }
+      } else {
+        borrar_error("edat2");
       }
       //condicions
       if (!errores) {
         let condicions = document.getElementsByName("condicions")[0];
         if (!condicions.checked) {
-          window.alert("Acepta las condiciones");
+          error_rojo("condicions", "Acepta las condiciones");
+          //window.alert("Acepta las condiciones");
           errores = true;
         }
+      } else {
+        borrar_error("condicions");
       }
       //sexe
       if (!errores) {
         let sexe1 = document.getElementsByName("sexe")[0];
         let sexe2 = document.getElementsByName("sexe")[1];
         if (!sexe1.checked && !sexe2.checked) {
-          window.alert("Elija una opcion para sexe");
+          error_rojo("sexe", "Elija una opcion para sexe");
+          //window.alert("Elija una opcion para sexe");
           errores = true;
         }
+      } else {
+        borrar_error("sexe");
       }
       //email
       if (!errores) {
         let email = document.getElementsByName("email")[0].value;
         if (email == "") {
-          window.alert("Email esta vacio.");
+          error_rojo("email", "Email esta vacio.");
+          //window.alert("Email esta vacio.");
           errores = true;
         } else if (email.indexOf(" ") != -1) {
-          window.alert("Email no debe contener espacios.");
+          error_rojo("email", "Email no debe contener espacios.");
+          //window.alert("Email no debe contener espacios.");
           errores = true;
         } else if (email.indexOf("..") != -1) {
-          window.alert("Email no debe contener '..'");
+          error_rojo("email", "Email no debe contener '..'");
+          //window.alert("Email no debe contener '..'");
           errores = true;
         } else if (email.indexOf("@") == -1) {
-          window.alert("Email debe contener un '@'.");
+          error_rojo("email", "Email debe contener un '@'.");
+          //window.alert("Email debe contener un '@'.");
           errores = true;
         } else {
           const trozos = email.split("@");
           if (trozos.length != 2) {
-            window.alert("Email debe contener un '@'.");
+            error_rojo("email", "Email debe contener un '@'.");
+            //window.alert("Email debe contener un '@'.");
             errores = true;
           } else {
             const punto = trozos[1].split("."); //array entre puntos
@@ -101,11 +148,14 @@
             //console.log("punto.len:" + punto.length);
             let i = punto.length - 1;
             if (punto.length <= 2 || punto[i].length < 2) {
-              window.alert("Ingresa un mail valido");
+              error_rojo("email", "Ingresa un mail valido");
+              //window.alert("Ingresa un mail valido");
               errores = true;
             }
           }
         }
+      } else {
+        borrar_error("email");
       }
 
       if (!errores) {
