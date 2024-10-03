@@ -1,0 +1,217 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <title>titol</title>
+  <meta name="description" content="HTML5">
+  <meta name="author" content="Jose Masip">
+  <link rel="stylesheet" href="css/estilos.css">
+  <script language="JavaScript">
+    let contError = false;
+    let errores = false;
+    function error_rojo(campo, mensaje) {
+      document.getElementsByName(campo)[0].parentNode.classList.add("error");
+      let rojo = document.createElement("span");
+      rojo.textContent = mensaje;
+      document.getElementsByName(campo)[0].parentNode.appendChild(rojo);
+      contError = true;
+    }
+
+    function borrar_error(campo) {
+      let negro = document.getElementsByName(campo)[0].parentNode;
+      negro.classList.remove("error");
+      let span = negro.querySelector("span");
+      if (span) {
+        negro.removeChild(span);
+        contError = false;
+        errores = false;
+      }
+    }
+
+
+    function valida_envia() {
+
+      //nom
+      let nom = document.getElementsByName("nom")[0].value;
+      if (nom == "") {
+        borrar_error("nom");
+        error_rojo("nom", "Nom esta vacio");
+        errores = true;
+      } else {
+        borrar_error("nom");
+      }
+
+      //usuari
+      let usuari = document.getElementsByName("usuari")[0].value;
+      if (usuari == "") {
+        borrar_error("usuari");
+        error_rojo("usuari", "Usuari esta vacio.");
+        errores = true;
+      } else {
+        borrar_error("usuari");
+      }
+
+      //clau
+      let clau = document.getElementsByName("clau")[0].value;
+      let long = clau.length;
+      if (clau.includes(" ")) {
+        borrar_error("clau");
+        error_rojo("clau", "Clau no debe contener espacios");
+        errores = true;
+      } else {
+        borrar_error("clau");
+      }
+      if (long < 6) {
+        borrar_error("clau");
+        error_rojo("clau", "Clau debe contener al menos 6 caracteres.");
+        errores = true;
+      } else {
+        borrar_error("clau");
+      }
+
+      //edat
+      let edat = document.getElementsByName("edat")[0].value;
+      if (edat == "" || edat < 18 || isNaN(edat)) {
+        borrar_error("edat");
+        error_rojo("edat", "Debe ser mayor de edad (+18).");
+        errores = true;
+      } else {
+        borrar_error("edat");
+      }
+
+      //edat2
+      let edat2 = document.getElementsByName("edat2")[0].value;
+      if (edat2 == -1) {
+        borrar_error("edat2");
+        error_rojo("edat2", "Elija una opcion para edat2");
+        errores = true;
+      } else {
+        borrar_error("edat2");
+      }
+
+      //condicions
+      let condicions = document.getElementsByName("condicions")[0];
+      if (!condicions.checked) {
+        borrar_error("condicions");
+        error_rojo("condicions", "Acepta las condiciones");
+        errores = true;
+      } else {
+        borrar_error("condicions");
+      }
+
+      //sexe
+      let sexe1 = document.getElementsByName("sexe")[0];
+      let sexe2 = document.getElementsByName("sexe")[1];
+      if (!sexe1.checked && !sexe2.checked) {
+        borrar_error("sexe");
+        error_rojo("sexe", "Elija una opcion para sexe");
+        errores = true;
+      } else {
+        borrar_error("sexe");
+      }
+
+      //email
+      let email = document.getElementsByName("email")[0].value;
+      if (email == "") { //comprobamos que el campo este relleno
+        borrar_error("email");
+        error_rojo("email", "Email esta vacio.");
+        errores = true;
+      } else {
+        if (email.indexOf(" ") != -1) { // comprobamos que no tenga espacios
+          borrar_error("email");
+          error_rojo("email", "Email no debe contener espacios");
+          errores = true;
+        } else {
+          borrar_error("email");
+        }
+        if (email.indexOf("..") != -1) {
+          borrar_error("email");
+          error_rojo("email", "Email no debe contener '..'");
+          //window.alert("Email no debe contener '..'");
+          errores = true;
+        } else {
+          borrar_error("email");
+        }
+        if (email.indexOf("@") == -1) { // comprobamos que solo contenga al menos un @
+          borrar_error("email");
+          error_rojo("email", "Ingresa un mail valido");
+          errores = true;
+        } else {
+          const trozos = email.split("@"); // dividimos el email en 2 por la @
+          const punto = trozos[1].split("."); // dividimos la parte posterior a la @ por puntos
+          let i = punto.length - 1; // sacamos la posicion del trozo de email despues del ultimo punto
+          if (trozos.length != 2 || punto.length <= 2 || punto[i].length < 2) { // comprobamos que solo tenga 1 @, que detras de la @ tenga al menos 1 punto y despues del finato final tenga al menos 2 caracteres
+            borrar_error("email");
+            error_rojo("email", "Ingresa un mail valido");
+            errores = true;
+          } else {
+            borrar_error("email");
+          }
+        }
+      }
+
+      if (!errores) {
+        document.form1.submit();
+      }
+    }
+
+  </script>
+</head>
+
+<body>
+  <h1>formulari</h1>
+  <form name="form1">
+    <fieldset>
+      <legend>formulari:</legend>
+      <table>
+        <tr>
+          <td>Nom: </td>
+          <td><input type="text" name="nom" size="30" maxlength="100">----- cal
+            escriure algo
+          </td>
+        </tr>
+        <tr>
+          <td>usuari: </td>
+          <td><input type="text" name="usuari" size="30" maxlength="100">----- cal
+            escriure algo</td>
+        </tr>
+        <tr>
+          <td>clau: </td>
+          <td><input type="password" name="clau">----- longitut minima 6 caracters</td>
+        </tr>
+        <tr>
+          <td>Edat: </td>
+          <td><input type="text" name="edat" size="3" maxlength="2">----- cal ser major
+            d'edat i escriure un numero en el camp</td>
+        </tr>
+        <tr>
+          <td>edat2:</td>
+          <td>
+            <select name="edat2">
+              <option value="-1">Elegeix una opcio.......</option>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+            </select> -----cal seleccionar una opcio
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2" align="center"><input type="checkbox" name="condicions" value="acepta">acepta les condicions ----- es obligatori seleccionar el camp</td>
+        </tr>
+        <tr>
+          <td>sexe: </td>
+          <td><input type="radio" name="sexe" value="h">home <input type="radio" name="sexe" value="d">dona ----- obligatori seleccionar alguna opcio del grup</td>
+        </tr>
+        <tr>
+          <td>email: </td>
+          <td><input type="text" name="email" size="40" maxlength="100">-----cal
+            escriure un email valid (text@text.text)</td>
+        </tr>
+        <tr>
+          <td colspan="2" align="center"><input type="button" value="Enviar" onclick="valida_envia()"></td>
+        </tr>
+      </table>
+    </fieldset>
+  </form>
+</body>
+</html>
