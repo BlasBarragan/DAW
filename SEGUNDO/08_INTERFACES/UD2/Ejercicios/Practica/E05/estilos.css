@@ -1,0 +1,16 @@
+body {
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: lightgray;
+}
+
+a {
+    text-decoration: none;
+    padding: 10px;
+}
+
+article {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+}

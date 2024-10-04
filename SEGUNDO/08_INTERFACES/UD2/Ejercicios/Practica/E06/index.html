@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="estilos.css">
+</head>
+
+<body>
+  <header>
+    <h1>Formulario para solicitud de presupuesto</h1>
+  </header>
+
+  <div>
+    <form action="#">
+      <label for="nombre">Nombre:</label>
+      <input id="nombre" type="text">
+
+      <label for="apellidos">Apellidos:</label>
+      <input id="apellidos" type="text">
+
+
+      <p>Tipo de inmueble</p>
+      <input id="tipo1" type="radio" value="vivienda"><label for="tipo1">Vivienda</label>
+      <input id="tipo2" type="radio" value="local"><label for="tipo2">Local</label>
+
+      <label for="email">Email</label>
+      <input id="email" type="email">
+
+      <label for="provincia">Provincia</label>
+      <select id="provincia" name="provincia">
+        <option value="seleccione">Seleccione una provincia</option>
+        <option value="alicante">Alicante</option>
+        <option value="valencia">Valencia</option>
+        <option value="valencia">Castellon</option>
+      </select>
+
+      <label for="descripcion">Descripcion</label>
+      <textarea id="descripcion" name="descripcion"></textarea>
+
+      <input id="deseo" type="checkbox" value="deseo">
+      <label for="deseo">Deseo recibir presupuesto</label>
+      <input id="declaro" type="checkbox" value="declaro">
+      <label for="deseo">Declaro que los datos facilitados son fieles a la realidad</label>
+
+      <input id="enviar" type="submit">
+
+
+    </form>
+
+  </div>
+
+</body>
+</html>

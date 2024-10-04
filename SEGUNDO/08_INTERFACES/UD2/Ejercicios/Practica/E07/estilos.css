@@ -1,0 +1,21 @@
+th,
+td {
+    border: 1px double black;
+    padding: 8px;
+}
+
+td:not(:first-child) {
+    text-align: center;
+}
+
+th {
+    background-color: #f0f0f0;
+}
+
+tr:nth-child(3) {
+    background-color: #d9ead3;
+}
+
+.fuente {
+    margin-top: 20px;
+}
