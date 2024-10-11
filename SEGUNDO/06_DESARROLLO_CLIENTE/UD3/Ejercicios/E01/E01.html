@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>EO1</title>
+  <meta name="description" content="descripcion">
+  <meta name="author" content="Blas Barragán">
+  <style>
+    div {
+      width: 300px;
+      height: 150px;
+      border: 1.5px solid black;
+    }
+
+  </style>
+  <script language="JavaScript">
+
+    function puntero(capa) {
+      //console.log(capa);
+      document.getElementById(capa).style.textAlign = "center";
+      let index = parseInt(window.getComputedStyle(document.getElementById(capa)).getPropertyValue("z-index"));
+      console.log(index);
+      document.getElementById(capa).style.zIndex = index + 4;
+
+    }
+
+    function salir(capa) {
+      document.getElementById(capa).style.textAlign = "left";
+      let index = parseInt(window.getComputedStyle(document.getElementById(capa)).getPropertyValue("z-index"));
+      console.log(index);
+      document.getElementById(capa).style.zIndex = index - 4;
+    }
+
+  </script>
+
+</head>
+
+<body>
+  <h1>
+    <div id="capa1" style="position: relative; top:0px;left:0px; background-color:red; text-align: left; z-index:1" onmouseenter="puntero(id)" onmouseleave="salir(id)">Capa 1
+    </div>
+  </h1>
+  <h2>
+    <div id="capa2" style="position: absolute;top:70px; left:50px; background-color:green; z-index: 2; text-align: left" onmouseover="puntero(id)" onmouseleave="salir(id)">Capa 2
+    </div>
+  </h2>
+  <h3>
+    <div id="capa3" style="position: absolute; top:120px; left:100px;background-color:blue; z-index: 3; text-align: left" onmouseover="puntero(id)" onmouseleave="salir(id)">Capa 3
+    </div>
+  </h3>
+  <h4>
+    <div id="capa4" style="position: absolute; top:45px; left:150px; background-color:yellow; z-index: 4; text-align: left" onmouseover="puntero(id)" onmouseleave="salir(id)">Capa 4
+    </div>
+  </h4>
+
+</body>
+</html>

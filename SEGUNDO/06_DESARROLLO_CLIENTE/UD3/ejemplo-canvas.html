@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+  <meta charset="utf-8">
+  <title>Javascript</title>
+  <meta name="description" content="descripcio">
+  <meta name="author" content="Jose Masip">
+  <script language="JavaScript">
+
+    function iniciar() {
+      canvas = document.getElementById('lienzo');
+      //obtindre el context sobre el que podem dibuixar ---
+      //""""""taula de pixels""""
+      lienzo = canvas.getContext('2d');
+      //dibuixar un rectangul -----fillRect(x, y, ancho,alto)
+      lienzo.fillRect(110, 110, 10, 10);
+      // color
+      lienzo.fillStyle = "#000099";
+      lienzo.fillRect(150, 150, 60, 40);
+      //afegir text
+      lienzo.font = "bold 24px verdana, sans-serif";
+      lienzo.textAlign = "center";
+      lienzo.fillText("Missatge", 100, 60);
+      //afegir una imatge
+      //drawImage(imagen, x, y)
+      //drawImage(imagen, x, y, ancho, alto)
+      var imagen = new Image();
+      imagen.src = "ima/banana.gif";
+      lienzo.drawImage(imagen, 40, 0, 40, 40);
+    }
+
+    var lienzo2 = null, canvas2 = null;
+    var x = 50, y = 50;
+    function iniciar2() {
+      canvas2 = document.getElementById('lienzo2');
+      lienzo2 = canvas2.getContext('2d');
+      run();
+    }
+    function run() {
+      setTimeout(run, 17);
+      act();
+      paint(lienzo2);
+    }
+    function act() {
+      if (x > canvas2.width)
+        x = 0;
+      else
+        x += 2;
+    }
+    /* Se genera una linea por no borrar lo ocurrido antes
+    function paint(lienzo2) {
+      lienzo2.fillStyle = '#0f0';
+      lienzo2.fillRect(x, y, 10, 10);
+    }
+      */
+    // esta borra lo anterior y muestra movimiento
+    function paint(lienzo2) {
+      lienzo2.fillStyle = "#112299";
+      lienzo2.fillRect(0, 0, canvas2.width, canvas2.height); // pinte fondo blau
+      lienzo2.fillStyle = '#0f0';
+      lienzo2.fillRect(x, y, 10, 10);
+    }
+
+
+  </script>
+</head>
+
+<body>
+  <canvas id="lienzo" width="500" height="300">
+    El navegador no soporta aquest element canvas
+  </canvas>
+  <canvas id="lienzo2" width="500" height="300">
+    El navegador canvas
+  </canvas>
+
+  <input type="button" onclick="iniciar()" value="Boton">
+  <input type="button" onclick="iniciar2()" value="Boton">
+</body>
+
+</html>

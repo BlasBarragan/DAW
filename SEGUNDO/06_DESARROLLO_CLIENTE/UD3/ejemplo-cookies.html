@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <title>titol</title>
+  <meta name="description" content="HTML5">
+  <meta name="author" content="Jose Masip">
+  <link rel="stylesheet" href="css/estilos.css">
+  <script language="javascript">
+    function crear() {
+      document.cookie = "galleta=ieeee";
+    }
+    function llegir() {
+      alert(document.cookie);
+    }
+
+    document.cookie = "galleta=ieeee;expires=data a la que caduca";
+
+    var datacad = new Date();
+    datacad = new Date(datacad.getTime() + 1000 * 60 * 5); //5minuts en ms
+    document.cookie = "galleta=ee;expires=" + datacad.toGMTString() + ";";
+
+    //HTML5 LOCALSTORAGE 5MB
+
+
+    // guardar valor
+    localStorage.setItem("nom", "Rodrigo de la Fuente Luis");
+    // Obtindre valor
+    localStorage.getItem("nom");
+    //eliminar valor
+    localStorage.removeItem("nom");
+  </script>
+</head>
+
+<body>
+</body>
+</html>

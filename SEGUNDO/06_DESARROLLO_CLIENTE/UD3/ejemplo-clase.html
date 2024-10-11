@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <title>titol</title>
+  <meta name="description" content="HTML5">
+  <meta name="author" content="Jose Masip">
+  <link rel="stylesheet" href="css/estilos.css">
+  <script language="javascript">
+    class client {
+      constructor(nom, saldo) {
+        this.nom = nom;
+        this.saldo = saldo;
+      }
+      depositar(diners) {
+        this.saldo = this.saldo + diners;
+      }
+      extraure(diners) {
+        this.saldo = this.saldo - diners;
+      }
+    }
+    var client1;
+    client1 = new client('didac', 1200);
+    document.write('Nom del client:' + client1.nom + '<br>');
+    document.write('Saldo actual:' + client1.saldo + '<br>');
+    client1.depositar(120);
+    document.write('Nou saldo---->' + client1.saldo + '<br>');
+    client1.extraure(1000);
+    document.write('Nou saldo---->' + client1.saldo + '<br>');
+  </script>
+</head>
+
+<body>
+</body>
+</html>

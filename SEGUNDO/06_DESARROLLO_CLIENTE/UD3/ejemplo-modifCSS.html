@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+  <meta charset="utf-8">
+  <title>Javascript</title>
+  <meta name="description" content="descripcio">
+  <meta name="author" content="Jose Masip">
+  <script language="JavaScript">
+    function mostrar() {
+      document.getElementById("capa1").style.visibility = "visible";
+    }
+    function ocultar() {
+      document.getElementById("capa1").style.visibility = "hidden";
+    }
+  </script>
+</head>
+
+<body>
+  <div id="capa1" style="position:absolute;width:100px;height:100px;top:500px;left:100px;background-color:cyan">Capa 1
+  </div>
+  <input type="button" value="mostrar" onClick="mostrar()">
+  <input type="button" value="ocultar" onClick="ocultar()"> <br>
+</body>
+
+</html>
