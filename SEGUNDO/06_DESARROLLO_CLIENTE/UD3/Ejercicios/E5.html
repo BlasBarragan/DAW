@@ -8,75 +8,32 @@
 
   <style>
     .botonera {
-      display: grid;
-      grid-template-columns: 1fr 1fr 1fr;
-      grid-template-rows: 1fr 1fr 1fr;
-      justify-items: center;
+      display: inline-block;
+      justify-content: center;
+      align-items: center;
       border: 1.5px solid black;
-      width: 400px;
-      height: 80px;
-      padding: 5px;
     }
-
 
     .arriba {
-      grid-column: 2;
-      grid-row: 1;
-    }
-
-    .arriba-izquierda {
-      grid-column: 1;
-      grid-row: 1;
-    }
-
-    .arriba-derecha {
-      grid-column: 3;
-      grid-row: 1;
+      display: flex;
+      justify-content: center;
+      color: aqua;
     }
 
     .centro {
-      grid-column: 2;
-      grid-row: 2;
       display: flex;
-      justify-content: space-between;
-      width: 100%;
-    }
-
-    .izquierda {
-      grid-column: 1;
-      grid-row: 2;
-    }
-
-    .derecha {
-      grid-column: 3;
-      grid-row: 2;
+      justify-content: center;
+      color: aqua;
     }
 
     .abajo {
-      grid-column: 2;
-      grid-row: 3;
-    }
-
-    .abajo-izquierda {
-      grid-column: 1;
-      grid-row: 3;
-    }
-
-    .abajo-derecha {
-      grid-column: 3;
-      grid-row: 3;
-    }
-
-    input {
-      text-align: center;
-      width: 150px;
-      height: 10px;
-      padding-bottom: 5px;
+      display: flex;
+      justify-content: center;
+      color: aqua;
     }
 
     button {
-      height: 20px;
-      padding: 5p;
+      margin: 2px;
     }
 
   </style>
@@ -95,22 +52,26 @@
   </div>
 
   <div id="botonera" class="botonera" style="top: 10px; left: 10px">
-    <button id="arr-izq" class="arriba-izquierda" onclick="clearInterval(timer); run('arr-izq')">Arriba - Izquierda</button>
-    <button id="arriba" class="arriba" onclick="clearInterval(timer); run('arriba')">Arriba</button>
-    <button id="arr-der" class="arriba-derecha" onclick="clearInterval(timer); run('arr-der')">Arriba - Derecha</button>
-
-    <button id="izquierda" class="izquierda" onclick="clearInterval(timer); run('izquierda')">Izquierda</button>
-    <div class="centro">
-      <input type="text" id="marcador" style="text-align: center">
+    <div class="arriba">
+      <button id="arr-izq" onclick="clearInterval(timer); run('arr-izq')">Arriba - Izquierda</button>
+      <button id="arriba" onclick="clearInterval(timer); run('arriba')">Arriba</button>
+      <button id="arr-der" onclick="clearInterval(timer); run('arr-der')">Arriba - Derecha</button>
     </div>
-    <button id="derecha" class="derecha" onclick="clearInterval(timer); run('derecha')">Derecha</button>
-
-    <button id="ab-izq" class="abajo-izquierda" onclick="clearInterval(timer); run('ab-izq')">Abajo - Izquierda</button>
-    <button id="abajo" class="abajo" onclick="clearInterval(timer); run('abajo')">Abajo</button>
-    <button id="ab-der" class="abajo-derecha" onclick="clearInterval(timer); run('ab-der')">Abajo - Derecha</button>
+    <div class="centro">
+      <button id="izquierda" onclick="clearInterval(timer); run('izquierda')">Izquierda</button>
+      <input type="text" id="marcador" style="text-align: center">
+      <button id="derecha" onclick="clearInterval(timer); run('derecha')">Derecha</button>
+    </div>
+    <div class="abajo">
+      <button id="ab-izq" onclick="clearInterval(timer); run('ab-izq')">Abajo - Izquierda</button>
+      <button id="abajo" onclick="clearInterval(timer); run('abajo')">Abajo</button>
+      <button id="ab-der" onclick="clearInterval(timer); run('ab-der')">Abajo - Derecha</button>
+    </div>
   </div>
 
   <canvas id="tablero" width="800" height="500" style="position: absolute; top: 100px; left: 10px; border: 5px solid lime;">
+    Your browser does not support the HTML canvas tag.
+
   </canvas>
 
   <script>
@@ -122,6 +83,13 @@
     const banana = document.getElementById("banana");
 
     function iniciar() {
+
+      // Canvas tablero
+      //const tablero = document.getElementById("tablero");
+      //const lienzo = tablero.getContext("2d");
+      //const mono = document.getElementById("mono");
+      //const momia = document.getElementById("momia");
+      //const banana = document.getElementById("banana");
 
       mono.addEventListener("load", (e) => {
         lienzo.drawImage(mono, 0, 0, 80, 80);
@@ -356,7 +324,9 @@
     }
 
     function iaMomia() {
+      //console.log("ini iamomia()");
       if (topMomia == topMono) { // Si estan en paralelo
+        //console.log("ini iamomia(1)");
         if (leftMomia < leftMono) {
           clearInterval(timer2);
           runMomia('derecha');
@@ -365,14 +335,23 @@
           runMomia('izquierda');
         }
       } else if (topMono < topMomia && leftMono != leftMomia) { // Mono mas alto que momia
+        //console.log("ini iamomia(2)");
         if (leftMono < leftMomia) {
+          //console.log("ini iamomia(21)");
+
+          //console.log("t2:" + timer2);
           clearInterval(timer2);
+          //console.log("t22:" + timer2);
+          //console.log("ini iamomia(23)");
           runMomia('arr-izq');
+          //console.log("ini iamomia(24)");
         } else {
+          //console.log("ini iamomia(22)");
           clearInterval(timer2);
           runMomia('arr-der');
         }
       } else if (topMono > topMomia && leftMono != leftMomia) { // Mono mas bajo que momia
+        //console.log("ini iamomia(3)");
         if (leftMono < leftMomia) {
           clearInterval(timer2);
           runMomia('ab-izq');
@@ -381,6 +360,7 @@
           runMomia('ab-der');
         }
       } else { // Si estan en vertical leftMono == leftMomia
+        //console.log("ini iamomia(4)");
         if (topMono < topMomia && leftMono == leftMomia) { // Mono encima de momia
           clearInterval(timer2);
           runMomia('arriba');
@@ -393,19 +373,26 @@
     }
 
     function colision(topMomia, topMono, leftMomia, leftMono) {
+      console.log('colision');
       // hitbox momia x +10 x' +90 // y +10 y' +90
       let hitMinTopMomia = topMomia + 10;
       let hitMaxTopMomia = topMomia + 90;
       let hitMinLeftMomia = leftMomia + 10;
       let hitMaxLeftMomia = leftMomia + 90;
-
       // hitbox mono x +20 x' +60 // y +20 y' +60
       let hitTopMono = topMono + 40;
       let hitLeftMono = leftMono + 40;
-
+      console.log('a ver');
+      console.log('hitMinTopMomia: ' + hitMinTopMomia);
+      console.log('hitMaxTopMomia: ' + hitMaxTopMomia);
+      console.log('hitMinLeftMomia: ' + hitMinLeftMomia);
+      console.log('hitMaxLeftMomia: ' + hitMaxLeftMomia);
+      console.log('hitTopMono: ' + hitTopMono);
+      console.log('hitLeftMono: ' + hitLeftMono);
       if (hitTopMono >= hitMinTopMomia && hitTopMono <= hitMaxTopMomia) {
-
+        console.log('casi');
         if (hitLeftMono >= hitMinLeftMomia && hitLeftMono <= hitMaxLeftMomia) {
+          console.log('busted');
 
           clearInterval(timer);
           clearInterval(timer2);
@@ -448,14 +435,18 @@
     }
 
     function pintar() {
+
+      console.log("pintar");
       // Borramos canvas
       lienzo.clearRect(0, 0, tablero.width, tablero.height);
+      // Dibuja el mono en nueva posicion
 
-      // Dibuja las imagenes en nueva posicion
+      console.log("topMono " + topMono);
+
+      console.log("leftMono" + leftMono);
       lienzo.drawImage(mono, leftMono, topMono, 80, 80);
       lienzo.drawImage(momia, leftMomia, topMomia, 100, 100);
       lienzo.drawImage(banana, leftBanana, topBanana, 50, 50);
-
     }
 
     iaMomia();
