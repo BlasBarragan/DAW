@@ -1,48 +1,193 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+  <meta charset="UTF-8">
+  <title>EO4 Canvas</title>
+  <meta name="description" content="descripcion">
+  <meta name="author" content="Blas Barragán">
+
   <style>
-    div {
-      position: absolute;
+    .botonera {
+      display: inline-block;
+      justify-content: center;
+      align-items: center;
+      border: 1.5px solid black;
     }
 
-    #container div {
-      background-color: lightblue;
-      border: 1px solid #333333;
-      width: 100px;
-      height: 100px;
-      opacity: 0.5;
+    .arriba,
+    .centro,
+    .abajo {
+      display: flex;
+      justify-content: center;
+      color: aqua;
     }
 
-    div#myBox {
-      opacity: 1;
-      background-color: coral;
-      z-index: 1;
-      animation: mymove 5s infinite linear;
+    button {
+      margin: 2px;
     }
 
-    @keyframes mymove {
-      50% {
-        z-index: 5;
-      }
+    canvas {
+      border: 2px solid lime;
+      display: block;
+      margin: auto;
     }
 
   </style>
 </head>
 
-<body style="position:absolute">
-
-  <h1>Animation of z-index</h1>
-
-  <p>Gradually change the z-index property of "myBox" from 1 to 5, and back to 1:
-  <p>
-  <div id="container">
-    <div id="myBox">myBox</div>
-    <div style="top:20px;left:20px;z-index:1;">z-index 1</div>
-    <div style="top:40px;left:40px;z-index:2;">z-index 2</div>
-    <div style="top:60px;left:60px;z-index:3;">z-index 3</div>
-    <div style="top:80px;left:80px;z-index:4;">z-index 4</div>
+<body>
+  <div class="botonera">
+    <div class="arriba">
+      <button onclick="moveMono('arriba')">Arriba</button>
+    </div>
+    <div class="centro">
+      <button onclick="moveMono('izquierda')">Izquierda</button>
+      <button onclick="moveMono('derecha')">Derecha</button>
+    </div>
+    <div class="abajo">
+      <button onclick="moveMono('abajo')">Abajo</button>
+    </div>
   </div>
 
+  <canvas id="tablero" width="800" height="500"></canvas>
+
+  <script>
+    // Configuración inicial
+    let canvas = document.getElementById("tablero");
+    let ctx = canvas.getContext("2d");
+
+    let puntuacion = 0;
+    let velMono = 2;
+    let velMomia = 1;
+    let juegoTerminado = false;
+
+    // Posiciones iniciales
+    let mono = { top: 0, left: 0, width: 40, height: 40 };
+    let momia = { top: 400, left: 700, width: 40, height: 40 };
+    let banana = { top: 200, left: 350, width: 20, height: 20 };
+
+    // Variables para dirección del movimiento del mono
+    let direccionMono = { x: 0, y: 0 };
+
+    // Dibujar personajes
+    function draw() {
+      // Limpiar canvas
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+      // Dibujar mono
+      ctx.fillStyle = "blue";
+      ctx.fillRect(mono.left, mono.top, mono.width, mono.height);
+
+      // Dibujar momia
+      ctx.fillStyle = "red";
+      ctx.fillRect(momia.left, momia.top, momia.width, momia.height);
+
+      // Dibujar banana
+      ctx.fillStyle = "yellow";
+      ctx.fillRect(banana.left, banana.top, banana.width, banana.height);
+
+      // Dibujar puntuación
+      ctx.fillStyle = "black";
+      ctx.font = "20px Arial";
+      ctx.fillText("Puntuación: " + puntuacion, 10, 20);
+
+      // Mensaje de fin de juego
+      if (juegoTerminado) {
+        ctx.fillStyle = "black";
+        ctx.font = "40px Arial";
+        ctx.fillText("¡Juego Terminado!", canvas.width / 2 - 150, canvas.height / 2);
+      }
+    }
+
+    // Movimiento del mono controlado por el jugador
+    function moveMono(direccion) {
+      if (!juegoTerminado) {
+        switch (direccion) {
+          case "arriba":
+            direccionMono.y = -velMono;
+            break;
+          case "abajo":
+            direccionMono.y = velMono;
+            break;
+          case "izquierda":
+            direccionMono.x = -velMono;
+            break;
+          case "derecha":
+            direccionMono.x = velMono;
+            break;
+        }
+      }
+    }
+
+    // Mover mono automáticamente
+    function updateMonoPosition() {
+      mono.top += direccionMono.y;
+      mono.left += direccionMono.x;
+
+      // Limitar movimiento dentro del canvas
+      if (mono.top < 0) mono.top = 0;
+      if (mono.top + mono.height > canvas.height) mono.top = canvas.height - mono.height;
+      if (mono.left < 0) mono.left = 0;
+      if (mono.left + mono.width > canvas.width) mono.left = canvas.width - mono.width;
+    }
+
+    // Movimiento de la momia de forma automática
+    function moveMomia() {
+      if (!juegoTerminado) {
+        // La momia sigue al mono
+        if (momia.left < mono.left) {
+          momia.left += velMomia;
+        } else if (momia.left > mono.left) {
+          momia.left -= velMomia;
+        }
+
+        if (momia.top < mono.top) {
+          momia.top += velMomia;
+        } else if (momia.top > mono.top) {
+          momia.top -= velMomia;
+        }
+      }
+    }
+
+    // Verificar colisiones entre mono y banana
+    function checkBananaCollision() {
+      if (mono.left < banana.left + banana.width &&
+        mono.left + mono.width > banana.left &&
+        mono.top < banana.top + banana.height &&
+        mono.top + mono.height > banana.top) {
+        // Colisión detectada, mover banana
+        banana.left = Math.floor(Math.random() * (canvas.width - banana.width));
+        banana.top = Math.floor(Math.random() * (canvas.height - banana.height));
+        puntuacion++;
+        console.log("Puntuación: " + puntuacion);
+      }
+    }
+
+    // Verificar colisión entre el mono y la momia
+    function checkMomiaCollision() {
+      if (mono.left < momia.left + momia.width &&
+        mono.left + mono.width > momia.left &&
+        mono.top < momia.top + momia.height &&
+        mono.top + mono.height > momia.top) {
+        // Colisión detectada, terminar el juego
+        juegoTerminado = true;
+        console.log("¡Juego Terminado!");
+      }
+    }
+
+    // Bucle de juego
+    setInterval(function () {
+      if (!juegoTerminado) {
+        updateMonoPosition();  // Mover mono
+        moveMomia();  // Mover momia
+        checkBananaCollision();  // Verificar colisión con la banana
+        checkMomiaCollision();  // Verificar colisión con la momia
+        draw();  // Redibujar todo
+      }
+    }, 50);  // 50 ms para actualizar el juego (~20 FPS)
+
+    // Inicializar dibujo
+    draw();
+  </script>
 </body>
 </html>
