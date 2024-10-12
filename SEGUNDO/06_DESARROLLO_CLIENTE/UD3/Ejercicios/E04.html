@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>EO4</title>
+  <meta name="description" content="descripcion">
+  <meta name="author" content="Blas Barragán">
+
+  <style>
+    .botonera {
+      display: inline-block;
+      justify-content: center;
+      align-items: center;
+      border: 1.5px solid black;
+    }
+
+    .arriba {
+      display: flex;
+      justify-content: center;
+      color: aqua;
+    }
+
+    .centro {
+      display: flex;
+      justify-content: center;
+      color: aqua;
+    }
+
+    .abajo {
+      display: flex;
+      justify-content: center;
+      color: aqua;
+    }
+
+    button {
+      margin: 2px;
+    }
+
+    .tablero {
+      position: absolute;
+      width: 800px;
+      height: 500px;
+      border: 2px solid lime;
+    }
+
+  </style>
+
+  <script language="JavaScript">
+
+    // timer
+    let timer;
+    let miliTimer = 10;
+    let timer2;
+    let miliTimer2 = 10;
+    // marcador
+    let puntuacion = "0";
+
+    // velocidad desplazamiento
+    let velMono = 2;
+    let velMomia = velMono / 2;
+
+    // posicion actual
+    let topMono = 0;
+    let leftMono = 0;
+    let topMomia = 400;
+    let leftMomia = 700;
+    let topBanana = 200;
+    let leftBanana = 350;
+
+    // margen sup-izq
+    let minTopMono = -10;
+    let minTopMomia = 0;
+    let minLeftMono = -10;
+    let minLeftMomia = 0;
+
+    // margen inf-der
+    let maxTopMono = 430;
+    let maxTopMomia = 400;
+    let maxLeftMono = 730;
+    let maxLeftMomia = 700;
+
+    function run(id) {
+      timer = setInterval(movimientoMono, miliTimer, id);
+      //timer = setInterval(movimientoMomia, 10, id);
+    }
+
+    function runMomia(id) {
+      timer2 = setInterval(movimientoMomia, miliTimer2, id);
+    }
+
+    function movimientoMono(direccion) { // incrementa en 1px el valor de posicion
+      //console.log("dir mono: " + direccion);
+      //console.log("leftMono:" + document.getElementById("mono").style.left);
+      //console.log("topMono:" + document.getElementById("mono").style.top);
+      //document.getElementsByName("marcador").value = puntuacion;
+      //console.log(document.getElementsByName("marcador").value);
+
+      topMono = parseInt(document.getElementById("mono").style.top);
+      leftMono = parseInt(document.getElementById("mono").style.left);
+      topMomia = parseInt(document.getElementById("momia").style.top);
+      leftMomia = parseInt(document.getElementById("momia").style.left);
+
+      switch (direccion) {
+
+        case "abajo":
+          if (topMono >= maxTopMono) {
+            clearInterval(timer); run('arriba');
+          } else {
+            document.getElementById("mono").style.top = (parseInt(document.getElementById("mono").style.top) + velMono) + "px";
+          }
+          break;
+
+        case "arriba":
+          if (topMono <= minTopMono) {
+            clearInterval(timer); run('abajo');
+          } else {
+            document.getElementById("mono").style.top = (parseInt(document.getElementById("mono").style.top) - velMono) + "px";
+          }
+          break;
+
+        case "izquierda":
+          if (leftMono <= minLeftMono) {
+            clearInterval(timer); run('derecha');
+          } else {
+            document.getElementById("mono").style.left = (parseInt(document.getElementById("mono").style.left) - velMono) + "px";
+          }
+          break;
+
+        case "derecha":
+          if (leftMono >= maxLeftMono) {
+            clearInterval(timer); run('izquierda');
+          } else {
+            document.getElementById("mono").style.left = (parseInt(document.getElementById("mono").style.left) + velMono) + "px";
+          }
+          break;
+
+        case "arr-izq":
+          if (topMono <= minTopMono) {
+            clearInterval(timer); run('ab-izq');
+          } if (leftMono <= minLeftMono) {
+            clearInterval(timer); run('arr-der');
+          } else {
+            document.getElementById("mono").style.left = (parseInt(document.getElementById("mono").style.left) - velMono) + "px";
+            document.getElementById("mono").style.top = (parseInt(document.getElementById("mono").style.top) - velMono) + "px";
+          }
+          break;
+
+        case "arr-der":
+          if (topMono <= minTopMono) {
+            clearInterval(timer); run('ab-der');
+          } if (leftMono >= maxLeftMono) {
+            clearInterval(timer); run('arr-izq');
+          } else {
+            document.getElementById("mono").style.left = (parseInt(document.getElementById("mono").style.left) + velMono) + "px";
+            document.getElementById("mono").style.top = (parseInt(document.getElementById("mono").style.top) - velMono) + "px";
+          }
+          break;
+
+        case "ab-izq":
+          if (topMono >= maxTopMono) {
+            clearInterval(timer); run('arr-izq');
+          } if (leftMono <= minLeftMono) {
+            clearInterval(timer); run('ab-der');
+          } else {
+            document.getElementById("mono").style.left = (parseInt(document.getElementById("mono").style.left) - velMono) + "px";
+            document.getElementById("mono").style.top = (parseInt(document.getElementById("mono").style.top) + velMono) + "px";
+          }
+          break;
+
+        case "ab-der":
+          if (topMono >= maxTopMono) {
+            clearInterval(timer); run('arr-der');
+          } if (leftMono >= maxLeftMono) {
+            clearInterval(timer); run('ab-izq');
+          } else {
+            document.getElementById("mono").style.left = (parseInt(document.getElementById("mono").style.left) + velMono) + "px";
+            document.getElementById("mono").style.top = (parseInt(document.getElementById("mono").style.top) + velMono) + "px";
+          }
+          break;
+
+        default:
+          break;
+      }
+
+      spawBanana();
+
+    }
+
+    function movimientoMomia(direccion) {
+      //console.log("dir momia: " + direccion);
+      //console.log("Left momia:" + document.getElementById("momia").style.left);
+      //console.log("Top momia:" + document.getElementById("momia").style.top);
+      //document.getElementsByName("marcador").value = puntuacion;
+      //console.log(document.getElementsByName("marcador").value);
+
+      topMomia = parseInt(document.getElementById("momia").style.top);
+      leftMomia = parseInt(document.getElementById("momia").style.left);
+      topMono = parseInt(document.getElementById("mono").style.top);
+      leftMono = parseInt(document.getElementById("mono").style.left);
+
+      iaMomia();
+
+      switch (direccion) {
+
+        case "abajo":
+          if (topMomia >= maxTopMomia) {
+            clearInterval(timer2); runMomia('arriba');
+          } else {
+            document.getElementById("momia").style.top = (parseInt(document.getElementById("momia").style.top) + velMomia) + "px";
+          }
+          break;
+
+        case "arriba":
+          if (topMomia <= minTopMomia) {
+            clearInterval(timer2); runMomia('abajo');
+          } else {
+            document.getElementById("momia").style.top = (parseInt(document.getElementById("momia").style.top) - velMomia) + "px";
+          }
+          break;
+
+        case "izquierda":
+          if (leftMomia <= minLeftMomia) {
+            clearInterval(timer2); runMomia('derecha');
+          } else {
+            document.getElementById("momia").style.left = (parseInt(document.getElementById("momia").style.left) - velMomia) + "px";
+          }
+          break;
+
+        case "derecha":
+          if (leftMomia >= maxLeftMomia) {
+            clearInterval(timer2); runMomia('izquierda');
+          } else {
+            document.getElementById("momia").style.left = (parseInt(document.getElementById("momia").style.left) + velMomia) + "px";
+          }
+          break;
+
+        case "arr-izq":
+          if (topMomia <= minTopMomia) {
+            clearInterval(timer2); runMomia('ab-izq');
+          } if (leftMomia <= minLeftMomia) {
+            clearInterval(timer2); runMomia('arr-der');
+          } else {
+            document.getElementById("momia").style.left = (parseInt(document.getElementById("momia").style.left) - velMomia) + "px";
+            document.getElementById("momia").style.top = (parseInt(document.getElementById("momia").style.top) - velMomia) + "px";
+          }
+          break;
+
+        case "arr-der":
+          if (topMomia <= minTopMomia) {
+            clearInterval(timer2); runMomia('ab-der');
+          } if (leftMomia >= maxLeftMomia) {
+            clearInterval(timer2); runMomia('arr-izq');
+          } else {
+            document.getElementById("momia").style.left = (parseInt(document.getElementById("momia").style.left) + velMomia) + "px";
+            document.getElementById("momia").style.top = (parseInt(document.getElementById("momia").style.top) - velMomia) + "px";
+          }
+          break;
+
+        case "ab-izq":
+          if (topMomia >= maxTopMomia) {
+            clearInterval(timer2); runMomia('arr-izq');
+          } if (leftMomia <= minLeftMomia) {
+            clearInterval(timer2); runMomia('ab-der');
+          } else {
+            document.getElementById("momia").style.left = (parseInt(document.getElementById("momia").style.left) - velMomia) + "px";
+            document.getElementById("momia").style.top = (parseInt(document.getElementById("momia").style.top) + velMomia) + "px";
+          }
+          break;
+
+        case "ab-der":
+          if (topMomia >= maxTopMomia) {
+            clearInterval(timer2); runMomia('arr-der');
+          } if (leftMomia >= maxLeftMomia) {
+            clearInterval(timer2); runMomia('ab-izq');
+          } else {
+            document.getElementById("momia").style.left = (parseInt(document.getElementById("momia").style.left) + velMomia) + "px";
+            document.getElementById("momia").style.top = (parseInt(document.getElementById("momia").style.top) + velMomia) + "px";
+          }
+          break;
+
+        default:
+          break;
+      }
+      colision(topMomia, topMono, leftMomia, leftMono);
+    }
+
+    function iaMomia() {
+      //console.log("ini iamomia()");
+      if (topMomia == topMono) { // Si estan en paralelo
+        //console.log("ini iamomia(1)");
+        if (leftMomia < leftMono) {
+          clearInterval(timer2);
+          runMomia('derecha');
+        } else {
+          clearInterval(timer2);
+          runMomia('izquierda');
+        }
+      } else if (topMono < topMomia && leftMono != leftMomia) { // Mono mas alto que momia
+        //console.log("ini iamomia(2)");
+        if (leftMono < leftMomia) {
+          //console.log("ini iamomia(21)");
+
+          //console.log("t2:" + timer2);
+          clearInterval(timer2);
+          //console.log("t22:" + timer2);
+          //console.log("ini iamomia(23)");
+          runMomia('arr-izq');
+          //console.log("ini iamomia(24)");
+        } else {
+          //console.log("ini iamomia(22)");
+          clearInterval(timer2);
+          runMomia('arr-der');
+        }
+      } else if (topMono > topMomia && leftMono != leftMomia) { // Mono mas bajo que momia
+        //console.log("ini iamomia(3)");
+        if (leftMono < leftMomia) {
+          clearInterval(timer2);
+          runMomia('ab-izq');
+        } else {
+          clearInterval(timer2);
+          runMomia('ab-der');
+        }
+      } else { // Si estan en vertical leftMono == leftMomia
+        //console.log("ini iamomia(4)");
+        if (topMono < topMomia && leftMono == leftMomia) { // Mono encima de momia
+          clearInterval(timer2);
+          runMomia('arriba');
+        } else { // Mono debajo de momia
+          clearInterval(timer2);
+          runMomia('abajo');
+        }
+      }
+
+    }
+
+    function colision(topMomia, topMono, leftMomia, leftMono) {
+      console.log('colision');
+      // hitbox momia x +10 x' +90 // y +10 y' +90
+      let hitMinTopMomia = topMomia + 10;
+      let hitMaxTopMomia = topMomia + 90;
+      let hitMinLeftMomia = leftMomia + 10;
+      let hitMaxLeftMomia = leftMomia + 90;
+      // hitbox mono x +20 x' +60 // y +20 y' +60
+      let hitTopMono = topMono + 40;
+      let hitLeftMono = leftMono + 40;
+      console.log('a ver');
+      console.log('hitMinTopMomia: ' + hitMinTopMomia);
+      console.log('hitMaxTopMomia: ' + hitMaxTopMomia);
+      console.log('hitMinLeftMomia: ' + hitMinLeftMomia);
+      console.log('hitMaxLeftMomia: ' + hitMaxLeftMomia);
+      console.log('hitTopMono: ' + hitTopMono);
+      console.log('hitLeftMono: ' + hitLeftMono);
+      if (hitTopMono >= hitMinTopMomia && hitTopMono <= hitMaxTopMomia) {
+        console.log('casi');
+        if (hitLeftMono >= hitMinLeftMomia && hitLeftMono <= hitMaxLeftMomia) {
+          console.log('busted');
+
+          clearInterval(timer);
+          clearInterval(timer2);
+          if (confirm("game over")) {
+            puntuacion = 0;
+            marcador(puntuacion);
+            location.reload();
+          }
+        }
+      }
+
+      /*
+            let centroMomia = (topMomia + 50) + (leftMomia + 50);
+            let centroMono = (topMono + 40) + (leftMono + 40);
+            let choque = "";
+            let top;
+            let left;
+
+            console.log("centro MOMIA: " + centroMomia);
+            console.log("centro MONO: " + centroMono);
+            *//*
+if (centroMomia > centroMono) {
+choque = centroMomia - centroMono;
+} else {
+choque = centroMono - centroMomia;
+}
+
+if ((choque) <= 2) {
+alert("game over");
+clearInterval(timer);
+clearInterval(timer2);
+}
+*//*
+      
+                                                                                                                              if (topMono > topMomia) {
+                                                                                                                                top = (topMono - topMomia) + 20;
+                                                                                                                              } else {
+                                                                                                                                top = (topMomia - topMono) + 20;
+                                                                                                                              }
+      
+                                                                                                                              if (leftMono > leftMomia) {
+                                                                                                                                left = (leftMono - leftMomia) + 20;
+                                                                                                                              } else {
+                                                                                                                                left = (leftMomia - leftMono) + 20;
+                                                                                                                              }
+      
+                                                                                                                              if (top <= 30 && left <= 30) {
+                                                                                                                                alert("game over");
+                                                                                                                                clearInterval(timer);
+                                                                                                                                clearInterval(timer2);
+                                                                                                                              }
+      
+                                                                                                                              */
+
+    }
+
+    function spawBanana() {
+      topMono = parseInt(document.getElementById("mono").style.top);
+      leftMono = parseInt(document.getElementById("mono").style.left);
+      topBanana = parseInt(document.getElementById("banana").style.top);
+      leftBanana = parseInt(document.getElementById("banana").style.left);
+      // hitbox momia x +10 x' +90 // y +10 y' +90
+      let hitMinTopBanana = topBanana + 10;
+      let hitMaxTopBanana = topBanana + 90;
+      let hitMinLeftBanana = leftBanana + 10;
+      let hitMaxLeftBanana = leftBanana + 90;
+      // hitbox mono x +20 x' +60 // y +20 y' +60
+      let hitTopMono = topMono + 40;
+      let hitLeftMono = leftMono + 40;
+
+      if (hitTopMono >= hitMinTopBanana && hitTopMono <= hitMaxTopBanana) {
+        console.log('casi');
+        if (hitLeftMono >= hitMinLeftBanana && hitLeftMono <= hitMaxLeftBanana) {
+          console.log('busted');
+          document.getElementById("banana").style.top = Math.floor(Math.random() * 450) + "px";
+          document.getElementById("banana").style.left = Math.floor(Math.random() * 750) + "px";
+          puntuacion++;
+          marcador(puntuacion);
+        }
+      }
+
+    }
+
+    function marcador(puntuacion) {
+      document.getElementById("marcador").value = puntuacion;
+    }
+
+    iaMomia();
+
+  </script>
+
+</head>
+
+<body>
+
+  <div class="botonera" style="position: relative; left: 0; top:0px;left:0px">
+    <div class="arriba">
+      <button id="arr-izq" onclick="clearInterval(timer); run('arr-izq')">Arriba - Izquierda</button>
+      <button id="arriba" onclick="clearInterval(timer); run('arriba')">Arriba</button>
+      <button id="arr-der" onclick="clearInterval(timer); run('arr-der')">Arriba - Derecha</button>
+    </div>
+    <div class="centro">
+      <button id="izquierda" onclick="clearInterval(timer); run('izquierda')">Izquierda</button>
+      <input type="text" id="marcador" style="text-align: center">
+      <button id="derecha" onclick="clearInterval(timer); run('derecha')">Derecha</button>
+    </div>
+    <div class="abajo">
+      <button id="ab-izq" onclick="clearInterval(timer); run('ab-izq')">Abajo - Izquierda</button>
+      <button id="abajo" onclick="clearInterval(timer); run('abajo')">Abajo</button>
+      <button id="ab-der" onclick="clearInterval(timer); run('ab-der')">Abajo - Derecha</button>
+    </div>
+  </div>
+
+  <div class="tablero">
+
+    <div style="position: absolute; height: 450px; width: 750px; border: 1px solid; top: 0px; left: 0px;">
+    </div>
+
+
+    <img src="../ima/banana.gif" width="50px" height="50px" alt="banana" id="banana" class="banana" style="position: absolute; top: 200px; left: 350px; border: 1px solid red;">
+    <img src="../ima/momia.gif" width="100px" height="100px" alt="momia" id="momia" class="momia" style="position: absolute; top: 400px; left: 700px; border: 1px solid red;">
+    <img src="../ima/mono.gif" width="80px" height="80px" alt="mono" id="mono" class="mono" style="position: absolute; top: 0px; left: 0px; border: 1px solid red;">
+
+  </div>
+
+  <script>
+
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>EO3</title>
+  <meta name="description" content="descripcion">
+  <meta name="author" content="Blas Barragán">
+
+  <style>
+    .botonera {
+      display: inline-block;
+      justify-content: center;
+      align-items: center;
+      border: 1.5px solid black;
+    }
+
+    .arriba {
+      display: flex;
+      justify-content: center;
+      color: aqua;
+    }
+
+    .centro {
+      display: flex;
+      justify-content: center;
+      color: aqua;
+    }
+
+    .abajo {
+      display: flex;
+      justify-content: center;
+      color: aqua;
+    }
+
+    button {
+      margin: 2px;
+    }
+
+  </style>
+
+  <script language="JavaScript">
+
+    let timer;
+
+    function run(id) { // incrementa en 1px el valor de posicion
+
+      switch (id) {
+        case "empezar":
+          document.getElementById("capa1").style.left = (parseInt(document.getElementById("capa1").style.left) + 1) + "px";
+          break;
+
+        case "abajo":
+          document.getElementById("capa1").style.top = (parseInt(document.getElementById("capa1").style.top) + 1) + "px";
+          break;
+
+        case "arriba":
+          document.getElementById("capa1").style.top = (parseInt(document.getElementById("capa1").style.top) - 1) + "px";
+          break;
+
+        case "izquierda":
+          document.getElementById("capa1").style.left = (parseInt(document.getElementById("capa1").style.left) - 1) + "px";
+          break;
+
+        case "derecha":
+          document.getElementById("capa1").style.left = (parseInt(document.getElementById("capa1").style.left) + 1) + "px";
+          break;
+
+        default:
+          break;
+      }
+      timer = setTimeout(run, 10, id);
+
+    }
+
+  </script>
+
+</head>
+
+<body>
+
+  <div class="botonera" style="position: relative; left: 0; top:0px;left:0px">
+    <div class="arriba">
+      <button id="arriba" onclick="clearInterval(timer); run('arriba')">Arriba</button>
+    </div>
+    <div class="centro">
+      <button id="izquierda" onclick="clearInterval(timer); run('izquierda')">Izquierda</button>
+      <button id="parar" onclick="clearInterval(timer)">Parar</button>
+      <button id="empezar" onclick="clearInterval(timer); run('empezar')">Empezar</button>
+      <button id="derecha" onclick="clearInterval(timer); run('derecha')">Derecha</button>
+    </div>
+    <div class="abajo">
+      <button id="abajo" onclick="clearInterval(timer); run('abajo')">Abajo</button>
+    </div>
+  </div>
+
+  <div id="capa1" style="position: relative; width: 100px; height: 100px; background-color:aqua; text-align: left; top: 0px; left: 0px;">Capa 1 - setInterval
+  </div>
+
+
+</body>
+</html>
