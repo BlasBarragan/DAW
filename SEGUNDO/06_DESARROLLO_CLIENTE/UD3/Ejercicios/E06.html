@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>EO6</title>
+  <meta name="description" content="descripcion">
+  <meta name="author" content="Blas Barragán">
+
+  <style>
+    body {
+      background-color: #CCCCCC;
+    }
+
+    form {
+      border: 10px outset #B2B2B2;
+      padding: 10px;
+      background-color: #BBBBBB;
+      margin: 20px;
+    }
+
+    img {
+      border: 3px solid black;
+    }
+
+    input,
+    select {
+      background-color: #FFDAFF;
+      color: red;
+    }
+
+  </style>
+
+</head>
+<h1>
+  <center>Gestió d'un parking</center>
+</h1>
+
+<body>
+
+  <form name="formulari">
+    <table align="center">
+      <tr>
+        <td width="60">client</td>
+        <td>
+          <select name="codi">
+            <option value="-1">selecciona un codi de client...</option>
+            <option value="client1;matricula;marca;model;color">codiclient1</option>
+            <option value="client2;1234-wer;ford;mondeo;blau">codiclient2</option>
+            <option value="client3;4567-fgh;audi; a4;negre">codiclient3</option>
+            <option value="client4;0987-tyu;mercedes;merche;blanc">codiclient4</option>
+          </select>
+          <a href=""><img src="../ima/buscar.jpeg" alt="buscar codi" width="18"></a>
+          <input type="text" name="busca" size="25">
+        </td>
+      </tr>
+      <tr>
+        <td>data</td>
+        <td><input type="text" name="data" size="55" disabled>
+          <img src="../ima/trianguloa.jpg" alt="mostrar detall" width="18">
+          <img src="../ima/triangulob.jpg" alt="ocultar detall" width="18">
+        </td>
+      </tr>
+    </table>
+    <div id="detall">
+      <table align="center">
+        <tr>
+          <td width="60">codi</td>
+          <td><input type="text" name="cod" size="66" disabled></td>
+        </tr>
+        <tr>
+          <td>nom</td>
+          <td><input type="text" name="nom" size="66" disabled></td>
+        </tr>
+        <tr>
+          <td>matricula</td>
+          <td><input type="text" name="matricula" size="66" disabled></td>
+        </tr>
+        <tr>
+          <td>marca</td>
+          <td><input type="text" name="marca" size="66" disabled></td>
+        </tr>
+        <tr>
+          <td>model</td>
+          <td><input type="text" name="model" size="66" disabled></td>
+        </tr>
+        <tr>
+          <td>color</td>
+          <td><input type="text" name="color" size="66" disabled></td>
+        </tr>
+      </table>
+    </div>
+    <center><input type="button" name="boto" value="entrada parking" style="border-color: #B2B2B2;"></center>
+  </form>
+
+  <script>
+
+  </script>
+
+</body>
+</html>
