@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>E08</title>
+</head>
+
+<body>
+
+  <script>
+
+    let caducidad = new Date();
+    caducidad = new Date(caducidad.getTime() + 1000 * 60 * 1); //1minuto
+
+    let contador = 1;
+
+    function crear(visita) {
+      document.cookie = "visita=" + visita + "; expires=" + caducidad.toGMTString() + ";";
+    }
+
+    function leer() {
+      let cookie = document.cookie;
+      return cookie;
+    }
+
+    function checkCookie() {
+      if (leer() == "") {
+        crear(1);
+        document.write('<h1>Visita numero: ' + contador + ' </h1>')
+      } else {
+        let pack = leer();
+        console.log("pack: " + pack);
+        let caja = pack.split(";");
+        console.log(caja);
+        let paquete = caja[0].split("=");
+        console.log(paquete);
+        let galleta = paquete[1];
+        contador = parseInt(galleta) + 1;
+        crear(contador);
+        document.write('<h1>Visita numero: ' + contador + ' </h1>')
+      }
+    }
+
+    checkCookie();
+
+  </script>
+
+
+</body>
+</html>
