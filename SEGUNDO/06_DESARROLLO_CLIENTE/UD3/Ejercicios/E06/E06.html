@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>EO6</title>
+  <meta name="description" content="descripcion">
+  <meta name="author" content="Blas Barragán">
+  <link rel="stylesheet" href="estilos.css">
+
+</head>
+
+
+<body>
+
+  <h1>
+    Gestió d'un parking
+  </h1>
+
+  <form name="formulari" action="#" onsubmit="return valida()" method="GET">
+    <table>
+      <tr>
+        <td width="60">client</td>
+        <td>
+          <select name="codi" id="select">
+            <option value="-1">selecciona un codi de client...</option>
+            <option onclick="seleccion(value)" value="client1;matricula;marca;model;color">codiclient1</option>
+            <option onclick="seleccion(value)" value="client2;1234-wer;ford;mondeo;blau">codiclient2</option>
+            <option onclick="seleccion(value)" value="client3;4567-fgh;audi; a4;negre">codiclient3</option>
+            <option onclick="seleccion(value)" value="client4;0987-tyu;mercedes;merche;blanc">codiclient4</option>
+          </select>
+          <img src="../ima/buscar.jpeg" alt="buscar codi" width="18" onclick="buscar()">
+          <input type="text" name="busca" size="25">
+        </td>
+      </tr>
+      <tr>
+        <td>data</td>
+        <td><input type="text" name="data" size="55" disabled>
+          <img src="../ima/trianguloa.jpg" alt="mostrar detall" width="18" onclick="ocultar()">
+          <img src="../ima/triangulob.jpg" alt="ocultar detall" width="18" onclick="mostrar()">
+        </td>
+      </tr>
+    </table>
+    <div id="detall">
+      <table align="center">
+        <tr>
+          <td width="60">codi</td>
+          <td><input type="text" name="cod" size="66" disabled></td>
+        </tr>
+        <tr>
+          <td>nom</td>
+          <td><input type="text" name="nom" size="66" disabled></td>
+        </tr>
+        <tr>
+          <td>matricula</td>
+          <td><input type="text" name="matricula" size="66" disabled></td>
+        </tr>
+        <tr>
+          <td>marca</td>
+          <td><input type="text" name="marca" size="66" disabled></td>
+        </tr>
+        <tr>
+          <td>model</td>
+          <td><input type="text" name="model" size="66" disabled></td>
+        </tr>
+        <tr>
+          <td>color</td>
+          <td><input type="text" name="color" size="66" disabled></td>
+        </tr>
+      </table>
+    </div>
+    <center><input type="submit" name="boto" value="entrada parking" style="border-color: #B2B2B2;"></center>
+  </form>
+
+  <script>
+
+    function mostrar() {
+      document.getElementById("detall").removeAttribute("hidden");
+    }
+
+    function ocultar() {
+      document.getElementById("detall").setAttribute("hidden", "");
+    }
+
+    function obtenerFecha() {
+      const d = new Date();
+      let f = d.toLocaleDateString();
+      return f;
+    }
+
+    function obtenerHora() {
+      const d = new Date();
+      let h = d.toLocaleTimeString();
+      return h;
+    }
+
+    function seleccion(select) {
+
+      let fecha = obtenerFecha();
+      let hora = obtenerHora();
+      const datos = select.split(";");
+
+      document.getElementsByName("data")[0].value = fecha + " " + hora;
+      document.getElementsByName("cod")[0].value = "codi" + datos[0];
+      document.getElementsByName("nom")[0].value = datos[0];
+      document.getElementsByName("matricula")[0].value = datos[1];
+      document.getElementsByName("marca")[0].value = datos[2];
+      document.getElementsByName("model")[0].value = datos[3];
+      document.getElementsByName("color")[0].value = datos[4];
+
+    }
+
+    let resultado = "";
+    function buscar() {
+
+      const usuarios = document.getElementsByTagName("option");
+      //console.log(usuarios);
+      let encontrado = false;
+
+      for (let i = 0; i <= usuarios.length - 1; i++) {
+        let busqueda = document.getElementsByName("busca")[0].value;
+        let entrada = document.getElementsByTagName("option")[i].value;
+        //console.log("busqueda: " + busqueda);
+        //console.log("entrada: " + entrada);
+        const codi = entrada.split(";");
+        //console.log("codi:" + codi);
+        for (let j = 0; j <= codi.length - 1; j++) {
+          if (busqueda == codi[j]) {
+            resultado = "codi" + codi[0];
+            console.log("resul: " + resultado);
+            document.getElementById("select").value = entrada;
+            seleccion(entrada);
+            encontrado = true;
+            break;
+          }
+        }
+      }
+
+      if (!encontrado) {
+        document.getElementsByName("data")[0].value = "";
+        document.getElementsByName("cod")[0].value = "";
+        document.getElementsByName("nom")[0].value = "";
+        document.getElementsByName("matricula")[0].value = "";
+        document.getElementsByName("marca")[0].value = "";
+        document.getElementsByName("model")[0].value = "";
+        document.getElementsByName("color")[0].value = "";
+        document.getElementById("select").value = "";
+        alert("Usuario no encontrado");
+      }
+
+    }
+
+    function valida() {
+
+      let usuario = document.getElementById("select").value;
+      if (usuario == "-1" || usuario == "") {
+        console.log("usuario: " + usuario);
+        alert("Por favor, seleccione un usuario valido");
+      } else {
+        alert("Entrada registrada");
+      }
+    }
+
+  </script>
+
+</body>
+</html>

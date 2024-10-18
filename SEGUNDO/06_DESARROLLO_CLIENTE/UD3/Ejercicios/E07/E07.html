@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>E07</title>
+  <link rel="stylesheet" href="estilos.css">
+
+</head>
+
+<body>
+
+  <script>
+
+    const partida = ["moble", "cua", "novembre", "porta", "setembre", "quadre", "quatre", "hipervincle"];
+    const usado = ["0"];
+
+    let vidas = 0;
+    let mensaje = "";
+    let imagen = "";
+    let palabra = "";
+    let marcador = 0;
+
+
+
+    function iniciar() { // elegimos palabra al azar y creamos un imput por cada letra de la palabra
+
+      palabra = partida[Math.floor(Math.random() * 8)];
+      console.log("palabra elegida: " + palabra);
+      vidas = 7;
+
+      // Titulo
+      document.write('<h1>ahorcado</h1>');
+      document.write('<form id="ahorcado" autocomplete="off">');
+      // Imagen monigote
+      document.write('<div id="imgAhorcado">');
+      mostrarImg(vidas);
+      document.write('</div>');
+      // Campos de palabra elegida
+      document.write('<div id="campos" class="campos">');
+      document.write('Palabra<br>');
+      for (let i = 0; i <= palabra.length - 1; i++) {
+        document.write('<input type="text" id=' + i + ' value="" style="width: 30px" class="campos">');
+      }
+      document.write("</div>");
+      // Marcador vidas
+      document.write('<div id="vidas">');
+      mostrarVidas(vidas);
+      document.write("</div>");
+      // Mensaje
+      document.write('<div id="mensaje" class="mensaje">');
+      mostrarMensaje(mensaje);
+      document.write("</div>");
+      // Introduccion de letras
+      document.write('<div class="entrada">');
+      document.write('Letra: ');
+      document.write('<input type="text" id="entrada" class="entrada" onkeyup="juego(this.value)" value="" style="width: 30px">');
+      document.write("</div>");
+      // Final
+      document.write('Solo aparece la letra cuando se gana o se pierde la partida');
+      document.write("</form>");
+
+    }
+
+    function mostrarImg(vidas) {
+
+      switch (vidas) {
+        case 0:
+          imagen = '<img src="../ima/ahorcado0.jpg" alt="ahorcado">';
+          break;
+        case 1:
+          imagen = '<img src="../ima/ahorcado1.jpg" alt="ahorcado">';
+          break;
+        case 2:
+          imagen = '<img src="../ima/ahorcado2.jpg" alt="ahorcado">';
+          break;
+        case 3:
+          imagen = '<img src="../ima/ahorcado3.jpg" alt="ahorcado">';
+          break;
+        case 4:
+          imagen = '<img src="../ima/ahorcado4.jpg" alt="ahorcado">';
+          break;
+        case 5:
+          imagen = '<img src="../ima/ahorcado5.jpg" alt="ahorcado">';
+          break;
+        case 6:
+          imagen = '<img src="../ima/ahorcado6.jpg" alt="ahorcado">';
+          break;
+        case 7:
+          imagen = '<img src="../ima/ahorcado7.jpg" alt="ahorcado">';
+          break;
+      }
+
+      document.getElementById('imgAhorcado').innerHTML = imagen;
+      console.log("imagen:" + imagen);
+
+    }
+
+    function mostrarVidas(vidas) {
+      console.log("vidas: " + vidas);
+      document.getElementById("vidas").textContent = 'Vidas: ' + vidas;
+    }
+
+    function mostrarMensaje(mensaje) {
+      document.getElementById('mensaje').textContent = 'Mensaje: ' + mensaje;
+    }
+
+    function juego(letra) {
+
+      console.log("letra: " + letra);
+      console.log("palabra: " + palabra);
+      const caracteres = palabra.split('');
+      let letraCorrecta = false;
+
+      if (usado.includes(letra)) {
+        vidas--;
+        mostrarVidas(vidas);
+        mostrarImg(vidas);
+        mostrarMensaje("Letra repetida, intenta otra.");
+        document.getElementById('entrada').value = "";
+        return;
+      }
+
+      for (let i = 0; i <= palabra.length - 1; i++) {
+        if (letra == caracteres[i]) {
+          document.getElementById(i).value = letra;
+          usado.push(letra);
+          letraCorrecta = true;
+          marcador++;
+        }
+      }
+
+      if (!letraCorrecta) {
+        vidas--;
+        mostrarVidas(vidas);
+        mostrarImg(vidas);
+        mostrarMensaje("La letra no está, intenta otra.");
+        document.getElementById('entrada').value = "";
+      } else {
+        mostrarMensaje("ENHORABUENA, intenta otra.");
+        document.getElementById('entrada').value = "";
+      }
+
+      if (vidas === 0) {
+        alert("Has perdido. La palabra era: " + palabra);
+        location.reload();
+      }
+
+      if (marcador === palabra.length) {
+        alert("¡¡FELICIDADES!! Has ganado!!");
+        location.reload();
+      }
+
+    }
+
+    iniciar();
+  </script>
+
+</body>
+
+</html>

@@ -1,0 +1,28 @@
+body {
+    background-color: #CCCCCC;
+}
+
+h1 {
+    text-align: center;
+}
+
+form {
+    border: 10px outset #B2B2B2;
+    padding: 10px;
+    background-color: #BBBBBB;
+    margin: 20px;
+}
+
+table {
+    margin: 0 auto;
+}
+
+img {
+    border: 3px solid black;
+}
+
+input,
+select {
+    background-color: #FFDAFF;
+    color: red;
+}
