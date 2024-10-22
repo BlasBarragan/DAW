@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>E10</title>
+  <meta name="description" content="descripcion">
+  <meta name="author" content="Blas Barragán">
+
+  <style>
+    .botonera {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      grid-template-rows: 1fr 1fr 1fr;
+      justify-items: center;
+      border: 1.5px solid black;
+      width: 400px;
+      height: 80px;
+      padding: 5px;
+    }
+
+
+    .arriba {
+      grid-column: 2;
+      grid-row: 1;
+    }
+
+    .arriba-izquierda {
+      grid-column: 1;
+      grid-row: 1;
+    }
+
+    .arriba-derecha {
+      grid-column: 3;
+      grid-row: 1;
+    }
+
+    .centro {
+      grid-column: 2;
+      grid-row: 2;
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+    }
+
+    .izquierda {
+      grid-column: 1;
+      grid-row: 2;
+    }
+
+    .derecha {
+      grid-column: 3;
+      grid-row: 2;
+    }
+
+    .abajo {
+      grid-column: 2;
+      grid-row: 3;
+    }
+
+    .abajo-izquierda {
+      grid-column: 1;
+      grid-row: 3;
+    }
+
+    .abajo-derecha {
+      grid-column: 3;
+      grid-row: 3;
+    }
+
+    input {
+      text-align: center;
+      width: 150px;
+      height: 10px;
+      padding-bottom: 5px;
+    }
+
+    button {
+      height: 20px;
+      padding: 5p;
+    }
+
+  </style>
+
+</head>
+
+<body>
+
+  <div style="display: none;">
+
+    // Imagenes
+    <img src="../ima/banana.gif" width="50px" height="50px" alt="banana" id="banana" class="banana">
+    <img src="../ima/momia.gif" width="100px" height="100px" alt="momia" id="momia" class="momia" style="position: absolute; top: 400px; left: 700px; border: 1px solid red;">
+    <img src="../ima/mono.gif" width="80px" height="80px" alt="mono" id="mono" class="mono" style="position: absolute; top: 0px; left: 0px; border: 1px solid red;">
+
+  </div>
+
+  <div id="botonera" class="botonera" style="top: 10px; left: 10px">
+    <button id="arr-izq" class="arriba-izquierda" onclick="clearInterval(timer); run('arr-izq')">Arriba - Izquierda</button>
+    <button id="arriba" class="arriba" onclick="clearInterval(timer); run('arriba')">Arriba</button>
+    <button id="arr-der" class="arriba-derecha" onclick="clearInterval(timer); run('arr-der')">Arriba - Derecha</button>
+
+    <button id="izquierda" class="izquierda" onclick="clearInterval(timer); run('izquierda')">Izquierda</button>
+    <div class="centro">
+      <input type="text" id="marcador" style="text-align: center">
+    </div>
+    <button id="derecha" class="derecha" onclick="clearInterval(timer); run('derecha')">Derecha</button>
+
+    <button id="ab-izq" class="abajo-izquierda" onclick="clearInterval(timer); run('ab-izq')">Abajo - Izquierda</button>
+    <button id="abajo" class="abajo" onclick="clearInterval(timer); run('abajo')">Abajo</button>
+    <button id="ab-der" class="abajo-derecha" onclick="clearInterval(timer); run('ab-der')">Abajo - Derecha</button>
+  </div>
+
+  <canvas id="tablero" width="800" height="500" style="position: absolute; top: 100px; left: 10px; border: 5px solid lime;">
+  </canvas>
+
+  <script>
+
+    var tablero = document.getElementById("tablero");
+    var lienzo = tablero.getContext("2d");
+    const mono = document.getElementById("mono");
+    const momia = document.getElementById("momia");
+    const banana = document.getElementById("banana");
+
+    function iniciar() {
+
+      mono.addEventListener("load", (e) => {
+        lienzo.drawImage(mono, 0, 0, 80, 80);
+      })
+      momia.addEventListener("load", (e) => {
+        lienzo.drawImage(momia, 700, 400, 100, 100);
+      })
+      banana.addEventListener("load", (e) => {
+        lienzo.drawImage(banana, 350, 200, 50, 50);
+      })
+
+    }
+
+    iniciar();
+
+    // timer
+    let timer;
+    let miliTimer = 10;
+    let timer2;
+    let miliTimer2 = 10;
+    // marcador
+    let puntuacion = "0";
+
+    // velocidad desplazamiento
+    let velMono = 2;
+    let velMomia = velMono / 2 - 1;
+
+    // posicion actual
+    let topMono = 0;
+    let leftMono = 0;
+    let topMomia = 400;
+    let leftMomia = 700;
+    let topBanana = 200;
+    let leftBanana = 350;
+
+    // margen sup-izq
+    let minTopMono = -10;
+    let minTopMomia = 0;
+    let minLeftMono = -10;
+    let minLeftMomia = 0;
+
+    // margen inf-der
+    let maxTopMono = 420;
+    let maxTopMomia = 400;
+    let maxLeftMono = 730;
+    let maxLeftMomia = 700;
+
+    function run(id) {
+      timer = setInterval(movimientoMono, miliTimer, id);
+    }
+
+    function runMomia(id) {
+      timer2 = setInterval(movimientoMomia, miliTimer2, id);
+    }
+
+    function movimientoMono(direccion) { // incrementa en 1px el valor de posicion
+
+      switch (direccion) {
+
+        case "abajo":
+          if (topMono >= maxTopMono) {
+            clearInterval(timer); run('arriba');
+          } else {
+            topMono += velMono;
+          }
+          break;
+
+        case "arriba":
+          if (topMono <= minTopMono) {
+            clearInterval(timer); run('abajo');
+          } else {
+            topMono -= velMono;
+          }
+          break;
+
+        case "izquierda":
+          if (leftMono <= minLeftMono) {
+            clearInterval(timer); run('derecha');
+          } else {
+            leftMono -= velMono;
+          }
+          break;
+
+        case "derecha":
+          if (leftMono >= maxLeftMono) {
+            clearInterval(timer); run('izquierda');
+          } else {
+            leftMono += velMono;
+          }
+          break;
+
+        case "arr-izq":
+          if (topMono <= minTopMono) {
+            clearInterval(timer); run('ab-izq');
+          } if (leftMono <= minLeftMono) {
+            clearInterval(timer); run('arr-der');
+          } else {
+            topMono -= velMono;
+            leftMono -= velMono;
+          }
+          break;
+
+        case "arr-der":
+          if (topMono <= minTopMono) {
+            clearInterval(timer); run('ab-der');
+          } if (leftMono >= maxLeftMono) {
+            clearInterval(timer); run('arr-izq');
+          } else {
+            topMono -= velMono;
+            leftMono += velMono;
+          }
+          break;
+
+        case "ab-izq":
+          if (topMono >= maxTopMono) {
+            clearInterval(timer); run('arr-izq');
+          } if (leftMono <= minLeftMono) {
+            clearInterval(timer); run('ab-der');
+          } else {
+            topMono += velMono;
+            leftMono -= velMono;
+          }
+          break;
+
+        case "ab-der":
+          if (topMono >= maxTopMono) {
+            clearInterval(timer); run('arr-der');
+          } if (leftMono >= maxLeftMono) {
+            clearInterval(timer); run('ab-izq');
+          } else {
+            topMono += velMono;
+            leftMono += velMono;
+          }
+          break;
+
+        default:
+          break;
+      }
+
+      pintar();
+      spawBanana();
+
+    }
+
+    function movimientoMomia(direccion) {
+
+      iaMomia();
+
+      switch (direccion) {
+
+        case "abajo":
+          if (topMomia >= maxTopMomia) {
+            clearInterval(timer2); runMomia('arriba');
+          } else {
+            topMomia += velMomia;
+          }
+          break;
+
+        case "arriba":
+          if (topMomia <= minTopMomia) {
+            clearInterval(timer2); runMomia('abajo');
+          } else {
+            topMomia -= velMomia;
+          }
+          break;
+
+        case "izquierda":
+          if (leftMomia <= minLeftMomia) {
+            clearInterval(timer2); runMomia('derecha');
+          } else {
+            leftMomia -= velMomia;
+          }
+          break;
+
+        case "derecha":
+          if (leftMomia >= maxLeftMomia) {
+            clearInterval(timer2); runMomia('izquierda');
+          } else {
+            leftMomia += velMomia;
+          }
+          break;
+
+        case "arr-izq":
+          if (topMomia <= minTopMomia) {
+            clearInterval(timer2); runMomia('ab-izq');
+          } if (leftMomia <= minLeftMomia) {
+            clearInterval(timer2); runMomia('arr-der');
+          } else {
+            topMomia -= velMomia;
+            leftMomia -= velMomia;
+          }
+          break;
+
+        case "arr-der":
+          if (topMomia <= minTopMomia) {
+            clearInterval(timer2); runMomia('ab-der');
+          } if (leftMomia >= maxLeftMomia) {
+            clearInterval(timer2); runMomia('arr-izq');
+          } else {
+            topMomia -= velMomia;
+            leftMomia += velMomia;
+          }
+          break;
+
+        case "ab-izq":
+          if (topMomia >= maxTopMomia) {
+            clearInterval(timer2); runMomia('arr-izq');
+          } if (leftMomia <= minLeftMomia) {
+            clearInterval(timer2); runMomia('ab-der');
+          } else {
+            topMomia += velMomia;
+            leftMomia -= velMomia;
+          }
+          break;
+
+        case "ab-der":
+          if (topMomia >= maxTopMomia) {
+            clearInterval(timer2); runMomia('arr-der');
+          } if (leftMomia >= maxLeftMomia) {
+            clearInterval(timer2); runMomia('ab-izq');
+          } else {
+            topMomia += velMomia;
+            leftMomia += velMomia;
+          }
+          break;
+
+        default:
+          break;
+      }
+
+      colision(topMomia, topMono, leftMomia, leftMono);
+    }
+
+    function iaMomia() {
+      if (topMomia == topMono) { // Si estan en paralelo
+        if (leftMomia < leftMono) {
+          clearInterval(timer2);
+          runMomia('derecha');
+        } else {
+          clearInterval(timer2);
+          runMomia('izquierda');
+        }
+      } else if (topMono < topMomia && leftMono != leftMomia) { // Mono mas alto que momia
+        if (leftMono < leftMomia) {
+          clearInterval(timer2);
+          runMomia('arr-izq');
+        } else {
+          clearInterval(timer2);
+          runMomia('arr-der');
+        }
+      } else if (topMono > topMomia && leftMono != leftMomia) { // Mono mas bajo que momia
+        if (leftMono < leftMomia) {
+          clearInterval(timer2);
+          runMomia('ab-izq');
+        } else {
+          clearInterval(timer2);
+          runMomia('ab-der');
+        }
+      } else { // Si estan en vertical leftMono == leftMomia
+        if (topMono < topMomia && leftMono == leftMomia) { // Mono encima de momia
+          clearInterval(timer2);
+          runMomia('arriba');
+        } else { // Mono debajo de momia
+          clearInterval(timer2);
+          runMomia('abajo');
+        }
+      }
+      pintar();
+    }
+
+    function colision(topMomia, topMono, leftMomia, leftMono) {
+      // hitbox momia x +10 x' +90 // y +10 y' +90
+      let hitMinTopMomia = topMomia + 10;
+      let hitMaxTopMomia = topMomia + 90;
+      let hitMinLeftMomia = leftMomia + 10;
+      let hitMaxLeftMomia = leftMomia + 90;
+
+      // hitbox mono x +20 x' +60 // y +20 y' +60
+      let hitTopMono = topMono + 40;
+      let hitLeftMono = leftMono + 40;
+
+      if (hitTopMono >= hitMinTopMomia && hitTopMono <= hitMaxTopMomia) {
+
+        if (hitLeftMono >= hitMinLeftMomia && hitLeftMono <= hitMaxLeftMomia) {
+
+          clearInterval(timer);
+          clearInterval(timer2);
+          if (confirm("game over")) {
+            puntuacion = 0;
+            marcador(puntuacion);
+            location.reload();
+          }
+        }
+      }
+
+    }
+
+    function spawBanana() {
+      // hitbox momia x +10 x' +90 // y +10 y' +90
+      let hitMinTopBanana = topBanana + 10;
+      let hitMaxTopBanana = topBanana + 90;
+      let hitMinLeftBanana = leftBanana + 10;
+      let hitMaxLeftBanana = leftBanana + 90;
+      // hitbox mono x +20 x' +60 // y +20 y' +60
+      let hitTopMono = topMono + 40;
+      let hitLeftMono = leftMono + 40;
+
+      if (hitTopMono >= hitMinTopBanana && hitTopMono <= hitMaxTopBanana) {
+        console.log('casi');
+        if (hitLeftMono >= hitMinLeftBanana && hitLeftMono <= hitMaxLeftBanana) {
+          console.log('busted');
+          topBanana = Math.floor(Math.random() * 450);
+          leftBanana = Math.floor(Math.random() * 750);
+          pintar();
+          puntuacion++;
+          marcador(puntuacion);
+        }
+      }
+
+    }
+
+    function marcador(puntuacion) {
+      document.getElementById("marcador").value = puntuacion;
+    }
+
+    function pintar() {
+      // Borramos canvas
+      lienzo.clearRect(0, 0, tablero.width, tablero.height);
+
+      // Dibuja las imagenes en nueva posicion
+      lienzo.drawImage(mono, leftMono, topMono, 80, 80);
+      lienzo.drawImage(momia, leftMomia, topMomia, 100, 100);
+      lienzo.drawImage(banana, leftBanana, topBanana, 50, 50);
+
+    }
+
+    iaMomia();
+
+    // Se añade funcionalidad de control con teclas
+
+    document.addEventListener('keyup', function (event) {
+
+      let tecla = event.key;
+
+      console.log("tecla: " + tecla);
+
+      switch (tecla) {
+        case "ArrowUp":
+          run("arriba");
+          break;
+        case "ArrowDown":
+          run("abajo");
+          break;
+        case "ArrowRight":
+          run("derecha");
+          break;
+        case "ArrowLeft":
+          run("izquierda");
+          break;
+
+      }
+
+    });
+
+  </script>
+
+</body>
+</html>

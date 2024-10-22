@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <title>Plantilla</title>
+  <meta name="description" content="descripcio">
+  <meta name="author" content="Jose Masip">
+  <link rel="stylesheet" href="css/estilos.css">
+  <script language="JavaScript">
+    window.addEventListener('load', ini, false);
+    function ini() {
+      //interior i despres es propaga a la exterior
+      document.getElementById('capa1').addEventListener('click', fexecutar, false);
+      document.getElementById('capa2').addEventListener('click', fexecutar2, false);
+    }
+    function fexecutar() {
+      alert("event capturat per exterior");
+    }
+    function fexecutar2(e) {
+      alert("event capturat per interior");
+      e.stopPropagation();
+    }
+  </script>
+</head>
+
+<body>
+  <h1>DOM</h1>
+  qui captura l'event?
+  <div id="capa1" style="background-color:pink;position:absolute;width:100px;top:400px;">
+    <p>capa1</p>
+    <div id="capa2" style="background-color:cyan;width:50px;">
+      <p>capa2 dins de capa1</p>
+    </div>
+  </div>
+</body>
+</html>

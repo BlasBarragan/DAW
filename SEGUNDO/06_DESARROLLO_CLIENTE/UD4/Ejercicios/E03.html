@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>E03</title>
+
+  <script>
+
+    function funcionCrear() {
+      if (!document.getElementById("hiper")) {
+        // Preparamos el parrafo nuevo
+        let link = document.createElement("a"); // Crea la etiqueta <a>
+        let texto = document.createTextNode("enlace google"); // Crea texto
+        link.appendChild(texto); // Añade texto a <a>
+        document.body.appendChild(link); // Anñáde <a> al body
+        link.setAttribute("id", "hiper"); // Crea id
+        link.setAttribute('href', "http://www.google.es"); // Crea href
+      }
+      if (!document.getElementById("hiper").hasAttribute("href")) {
+        document.getElementById("hiper").setAttribute('href', "http://www.google.es");
+
+      }
+    }
+
+    function funcionEliminar() {
+      if (document.getElementById("hiper").hasAttribute("href")) {
+        document.getElementById("hiper").removeAttribute("href"); // Eliminamos href
+      }
+
+    }
+  </script>
+</head>
+
+<body>
+  <h1>DOM</h1>
+
+  <input type="button" name="crear" id="crear" value="crear enlace" onclick="funcionCrear()">
+  <input type="button" name="eliminar" id="eliminar" value="eliminar atributo" onclick="funcionEliminar()">
+  <p>node.setAttribute(atributo a definir, valor asignado)</p>
+  <p>node.removeAttribute(atributo a eliminar)</p>
+
+</body>
+
+</html>

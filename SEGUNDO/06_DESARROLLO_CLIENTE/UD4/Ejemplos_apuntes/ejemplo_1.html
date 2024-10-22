@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <title>Plantilla</title>
+  <meta name="description" content="descripcio">
+  <meta name="author" content="elteunom">
+  <link rel="stylesheet" href="css/estilos.css">
+</head>
+
+<body>
+  <h1>DOM</h1>
+  <div id="capa">
+    <p>p1</p>
+    <p>p2</p>
+  </div>
+  <input type="button" onclick="fexecutar()">
+  <script language="JavaScript">
+    function tamanytext() {
+      var obj = document.getElementById('capa');
+      text = 14;
+      for (f = 0; f < obj.childNodes.length; f++) {
+        obj.childNodes[f].style.fontSize = text + 'px';
+        text = text + 4;
+      }
+    }
+
+    function fexecutar() {
+      var obj = document.getElementById('capa');
+      text = 14;
+      for (f = 0; f < obj.childNodes.length; f++) {
+        alert(obj.childNodes[f].nodeType);
+        if (obj.childNodes[f].nodeType == 1) {
+          obj.childNodes[f].style.fontSize = text + 'px';
+          text = text + 4;
+        }
+      }
+    }
+
+    var paragrafs = document.getElementByTagName('p');
+    var pare = paragrafs[0].parentNode; //estariem en el div
+
+    var para = document.createElement("p"); // crear etiqueta
+    var node = document.createTextNode("NOU PARÀGRAF."); //crear text
+    para.appendChild(node); // afegir el text al paràgraf
+    document.body.appendChild(para); // afegir el paràgraf al body
+
+    document.body.removeChild(document.body.lastChild);
+    document.body.removeChild(document.body.childNodes[document.body.childNodes.length - 1])
+
+    node.setAttribute('id', 'hiper');
+    node.getAttribute("id");
+    node.removeAttribute('id');
+
+  </script>
+  <p>tots navegadors generen mateix numero de fills?</p>
+</body>
+</html>

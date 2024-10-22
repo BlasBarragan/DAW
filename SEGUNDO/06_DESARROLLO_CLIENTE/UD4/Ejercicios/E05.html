@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>E02</title>
+
+  <script>
+    let contador = 0;
+
+    function funcionCrear() {
+      // Preparamos el parrafo nuevo
+      let para = document.createElement("p"); // Crea la etiqueta <p>
+      let node = document.createTextNode("Nuevo parrafo " + contador); // Crea un texto
+      para.appendChild(node); // Añade el texto al parrafo <p>
+      contador++;
+
+      // Añadimos el parrafo creado al div en primer lugar
+      const element = document.getElementById("capa"); // Buscamos el div en el que queremos añadir
+      const hijo = element.childNodes[0]; // Seleccionamos el primer nodo que contenga element
+      element.appendChild(para); // Insertamos el parrafo preparado antes del primer nodo del div
+    }
+
+    function funcionEliminar() {
+
+      const element = document.getElementById("capa"); // Buscamos el div en el que queremos añadir
+      const hijo = element.firstElementChild; // Seleccionamos el primer nodo que contenga element
+      element.removeChild(hijo); // Insertamos el parrafo preparado antes del primer nodo del div
+    }
+  </script>
+</head>
+
+<body>
+  <h1>DOM</h1>
+  <p>Crea 3 parrafos. Elimina el primer parrafo. Crear al final</p>
+  <div id="capa">
+    <p>p1</p>
+    <p>p2</p>
+    <p>p3</p>
+  </div>
+  <input type="button" name="crear" id="crear" value="crear" onclick="funcionCrear()">
+  <input type="button" name="eliminar" id="eliminar" value="eliminar" onclick="funcionEliminar()">
+</body>
+
+</html>
