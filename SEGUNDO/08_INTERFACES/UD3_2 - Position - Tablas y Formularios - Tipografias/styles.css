@@ -1,0 +1,73 @@
+/*dando etsilo a la tabla*/
+/* Es􀆟lo para la tabla */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  border-spacing: 0;
+  /* Elimina el espacio entre las celdas */
+}
+
+/* Es􀆟lo para las celdas de encabezado en todas las tablas y si hubiese puesto th sólo aplica a
+esa table y no a todas*/
+table th {
+  text-align: le􀅌;
+  background-color: #006400;
+  /* Verde oscuro para la cabecera */
+  color: white;
+  /* Color del texto en la cabecera */
+  /*padding: 10px;*/
+  text-shadow: 1px 1px 0 black;
+}
+
+/*sus􀆟tuye a es􀆟lo de table th y table td por separado*/
+table th,
+table td {
+  border: 1px solid #869960;
+  /*borde celda*/
+  padding: 10px;
+  /*altura celda*/
+  ver􀆟cal-align: middle;
+}
+
+/* Es􀆟lo para filas pares en el cuerpo de la tabla*/
+/*table tbody, se asegurará de que los es􀆟los se apliquen solo a las filas y celdas de datos
+dentro del cuerpo de la tabla, y no afectarán a otros elementos en la página. */
+tbody tr:nth-child(even) th {
+  background-color: #FFFFFF;
+  /* Color de fondo para filas pares (blanco)*/
+}
+
+/* Es􀆟lo para filas impares en el cuerpo de la tabla */
+tbody tr:nth-child(odd) th {
+  background-color: #90EE90;
+  /* Verde claro para filas impares */
+}
+
+/* Es􀆟lo para las celdas de datos en el cuerpo de la tabla */
+/*td {
+text-align: center; /* Alineación del texto en las celdas de datos
+} */
+/*con las clases que he puesto nombre-col, col-cant.col-prec puedo modificar ancho columnas
+y fijarlo en un %*/
+.nombre-col-prod {
+  width: 60%;
+}
+
+.col.can􀆟dad,
+.col-precio {
+  width: 20%;
+}
+
+/*centrarás el contenido de las celdas en la segunda y tercera columna de todas las filas en
+todas las tablas. */
+/*los hijos de los tr son los th y traducido a código es sólo querer afectar a los hijos 2 y 3 es
+decir al elemnento 2º y 3º de cada una de todas las filas*/
+table tr :nth-child(2),
+table tr :nth-child(3) {
+  text-align: center;
+}
+
+/*podríamos haber definido la table como una clase llamada lista-compra y aquí hubiésemos
+u􀆟lizado la sintaxis table.lista-compra para en el caso de varias tablas asegurar que sólo
+afectamos a esta tabla*/
+/*fin del es􀆟lo a la tabla*/

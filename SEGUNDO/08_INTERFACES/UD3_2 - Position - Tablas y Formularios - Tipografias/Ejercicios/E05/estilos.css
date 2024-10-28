@@ -1,0 +1,117 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+
+@font-face {
+  font-family: "loveseattle-demo";
+  src: url(./fonts/loveseattle-demo.regular.ttf);
+}
+
+html {
+  background-color: #39ff14;
+}
+
+body {
+  font-family: Tahoma, sans-serif;
+  font-size: 87%;
+}
+
+.pagina {
+  width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: #fff;
+  padding-left: 40px;
+  padding-right: 40px;
+  box-sizing: border-box;
+}
+
+header {
+  color: #617740;
+  padding-top: 20px;
+}
+
+h1 {
+  margin: 0;
+  font-weight: 100;
+  font-size: 165%;
+  word-spacing: 15px;
+}
+
+header p {
+  margin: 0;
+}
+
+nav {
+  margin-top: 20px;
+}
+
+a {
+  text-decoration: none;
+  color: #617740;
+  border: 2px solid #e5e9dd;
+  border-bottom: 0px;
+  padding-block: 10px;
+  padding-inline: 20px;
+  display: inline-block;
+}
+
+a:hover {
+  background-color: #e5e9dd;
+}
+
+.contenido {
+  border-top: 2px solid #e5e9dd;
+  border-bottom: 2px solid #e5e9dd;
+  font-size: 15px;
+}
+
+.grupo:before,
+.grupo:after {
+  content: "";
+  display: table;
+}
+
+.grupo:after {
+  clear: both;
+}
+
+.grupo {
+  zoom: 1;
+}
+
+.izquierda {
+  width: 66%;
+  float: left;
+  padding-right: 65px;
+  box-sizing: border-box;
+}
+
+.primer-p {
+  font-family: "Ubuntu", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  text-indent: 25px;
+  font-size: 200%;
+}
+
+.segundo-p {
+  font-family: "loveseattle-demo", sans-serif;
+  font-size: medium;
+  line-height: 32px;
+}
+
+.derecha {
+  background-color: #e5e9dc;
+  font-size: 85%;
+  width: 34%;
+  float: left;
+  padding: 20px 40px;
+  box-sizing: border-box;
+}
+
+footer p {
+  text-align: center;
+  font-size: 85%;
+  color: #999;
+  padding-bottom: 20px;
+  padding-top: 20px;
+}

@@ -1,0 +1,35 @@
+.contenedor {
+  position: relative;
+  background-color: #ccc;
+  width: 500px;
+  height: 300px;
+  font-family: sans-serif;
+  font-size: 40px;
+}
+
+.caja {
+  width: 100px;
+  height: 200px;
+  position: absolute;
+  top: 50px;
+}
+
+.uno {
+  left: 50px;
+  background-color: #0f0;
+}
+
+.dos {
+  left: 150px;
+  background-color: #ff0;
+}
+
+.tres {
+  left: 250px;
+  background-color: #f00;
+}
+
+.cuatro {
+  left: 350px;
+  background-color: #00f;
+}

@@ -1,0 +1,114 @@
+html {
+  background-color: #39ff14;
+}
+
+body {
+  font-family: Tahoma, sans-serif;
+  font-size: 87%;
+}
+
+.pagina {
+  width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: #fff;
+  padding-left: 40px;
+  padding-right: 40px;
+  box-sizing: border-box;
+}
+
+header {
+  color: #617740;
+  padding-top: 20px;
+}
+
+h1 {
+  margin: 0;
+  font-weight: 100;
+  font-size: 165%;
+}
+
+header p {
+  margin: 0;
+}
+
+nav {
+  margin-top: 20px;
+}
+
+a {
+  text-decoration: none;
+  color: #617740;
+  border: 2px solid #e5e9dd;
+  border-bottom: 0px;
+  padding-block: 10px;
+  padding-inline: 20px;
+  display: inline-block;
+}
+
+a:hover {
+  background-color: #e5e9dd;
+}
+
+.contenido {
+  border-top: 2px solid #e5e9dd;
+  border-bottom: 2px solid #e5e9dd;
+}
+
+.grupo:before,
+.grupo:after {
+  content: "";
+  display: table;
+}
+
+.grupo:after {
+  clear: both;
+}
+
+.grupo {
+  zoom: 1;
+}
+
+.izquierda {
+  width: 66%;
+  float: left;
+  padding-right: 65px;
+  box-sizing: border-box;
+}
+
+div .foto {
+  position: relative;
+}
+
+#ardilla {
+  width: 100%;
+  height: 100%;
+}
+
+.pie-foto {
+  width: auto;
+  color: #fff;
+  background-color: rgba(0, 0, 0, 0.4);
+  position: absolute;
+  bottom: 3px;
+  padding: 20px 0;
+  padding-left: 10px;
+  margin: 0;
+}
+
+.derecha {
+  background-color: #e5e9dc;
+  font-size: 85%;
+  width: 34%;
+  float: left;
+  padding: 20px 40px;
+  box-sizing: border-box;
+}
+
+footer p {
+  text-align: center;
+  font-size: 85%;
+  color: #999;
+  padding-bottom: 20px;
+  padding-top: 20px;
+}
