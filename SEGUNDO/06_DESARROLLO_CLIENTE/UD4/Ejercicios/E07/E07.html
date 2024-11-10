@@ -32,21 +32,22 @@
       // Titulo
       document.write('<h1>ahorcado</h1>');
       document.write('<form id="ahorcado" autocomplete="off">');
+
       // Imagen monigote
       document.write('<div id="imgAhorcado">');
       mostrarImg(vidas);
       document.write('</div>');
+
       // Campos de palabra elegida
       document.write('<div id="campos" class="campos">');
       document.write('Palabra<br>');
-      for (let i = 0; i <= palabra.length - 1; i++) {
-        document.write('<input type="text" id=' + i + ' value="" style="width: 30px" class="campos">');
-      }
       document.write("</div>");
+
       // Marcador vidas
       document.write('<div id="vidas">');
       mostrarVidas(vidas);
       document.write("</div>");
+
       // Mensaje
       document.write('<div id="mensaje" class="mensaje">');
       mostrarMensaje(mensaje);
@@ -60,6 +61,21 @@
       // Final
       document.write('Solo aparece la letra cuando se gana o se pierde la partida');
       document.write("</form>");
+      console.log('hola');
+
+    }
+
+    function crearCampo(nCeldas) {
+
+      for (let i = 0; i <= nCeldas - 1; i++) {
+        let campo = document.createElement('input');
+        campo.setAttribute('id', i);
+        campo.setAttribute('value', '');
+        campo.setAttribute('style', 'width: 30px');
+        campo.setAttribute('class', 'campos');
+        const element = document.getElementById('campos');
+        element.appendChild(campo);
+      }
 
     }
 
@@ -170,6 +186,7 @@
     }
 
     iniciar();
+    crearCampo(palabra.length);
 
     document.addEventListener('keyup', function (event) {
       let tecla = event.key;
