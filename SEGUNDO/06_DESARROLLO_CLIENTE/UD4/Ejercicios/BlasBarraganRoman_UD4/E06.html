@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>E06</title>
+  <style>
+    body {
+      margin: 20px;
+    }
+
+  </style>
+
+  <script>
+
+    function linkTodos() {
+
+      let todos = document.createElement('a');
+      let texto = document.createTextNode('abrir todos');
+
+      todos.appendChild(texto);
+      todos.setAttribute('href', "#");
+      document.body.appendChild(todos);
+
+      todos.addEventListener("click", abrirTodos, false);
+    }
+
+    function abrirTodos(event) {
+
+      let enlace = document.getElementsByTagName("a");
+
+      for (let i = 0; i <= enlace.length - 1; i++) {
+        let url = enlace[i].getAttribute("href");
+        window.open(url, "_blank");
+      }
+    }
+
+    window.addEventListener("load", linkTodos, false);
+
+  </script>
+</head>
+
+<body>
+  <a href="https://google.com">google</a><br>
+  <a href="https://yahoo.com">yahoo</a><br>
+  <a href="https://terra.com">terra</a><br>
+  <a href="https://google.com">google</a><br>
+  <a href="https://yahoo.com">yahoo</a><br>
+  <a href="https://terra.com">terra</a><br>
+  <a href="https://google.com">google</a><br>
+  <a href="https://yahoo.com">yahoo</a><br>
+  <a href="https://terra.com">terra</a><br>
+</body>
+
+</html>

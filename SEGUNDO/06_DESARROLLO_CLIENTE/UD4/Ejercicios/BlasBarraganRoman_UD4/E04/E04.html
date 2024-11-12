@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>E04</title>
+  <link rel="stylesheet" href="style.css">
+
+  <script>
+    const campos = 6;
+    let contador = 0;
+
+    function inicio() {
+      for (let i = 1; i <= campos; i++) {
+        let opcion = document.createElement('option');
+        let valor = document.createTextNode(i);
+        opcion.appendChild(valor);
+        document.getElementById('select').appendChild(opcion);
+        opcion.setAttribute('value', i);
+      }
+    }
+
+    function funcionCrear() {
+      let seleccion = document.getElementById('select').value; // obtenemos valor seleccionado
+      let formulario = document.getElementById('form'); // Apuntamos al form
+
+      for (let j = 1; j <= seleccion; j++) {
+
+        let etiqueta = document.createElement('label'); // Crea label
+        let texto = document.createTextNode("campo " + j); // Crea texto
+        etiqueta.appendChild(texto); // Añade texto a label
+        let campo = document.createElement('input'); // Crea input
+        let salto = document.createElement('br');
+        etiqueta.appendChild(campo); // Añade input a label
+        etiqueta.appendChild(salto); // Añade salto de linea a label
+
+        if (!document.getElementById('campo ' + j)) {
+          formulario.appendChild(etiqueta); // Añade todo al form
+
+          etiqueta.setAttribute('for', 'campo' + j); // Añade att for
+
+          campo.setAttribute('type', 'text'); // Añade att type
+          campo.setAttribute('id', 'campo ' + j); // Añade att id
+        }
+      }
+    }
+
+    window.addEventListener('load', inicio, false);
+  </script>
+</head>
+
+<body>
+  <select name="select" id="select"></select>
+  <input type="button" name="crear" id="crear" value="crear formulario" onclick="funcionCrear()">
+  <form id="form" action="GET"></form>
+</body>
+
+</html>
