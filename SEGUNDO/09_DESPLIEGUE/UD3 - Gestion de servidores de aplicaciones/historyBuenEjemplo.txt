@@ -1,0 +1,50 @@
+    1  history -w
+    2  history -w
+    3  sudo poweroff
+
+Comandos de les IPs duplicades
+ 
+    4  sudo rm -f /etc/machine-id
+    5  sudo dbus-uuidgen --ensure=/etc/machine-id
+    6  sudo rm /var/lib/dbus/machine-id
+    7  sudo dbus-uuidgen --ensure
+    8  sudo reboot now
+
+Fallo 1: el tomcat no podia arrancar degut a que en la carpeta /opt/tomcat9/apache-tomcat-9.0.68/bin no existia el arxiu startup.sh, habiem de tornar a descargarnos el comprimit y copiar ixe archiu dins de la nova carpeta a la nombrada anteriorment
+
+    9  cd /opt/tomcat9/apache-tomcat-9.0.68/bin
+   10  ls
+   11  /opt/tomcat9/apache-tomcat-9.0.68/bin/startup.sh
+  
+   12  cd ..
+   13  cd /opt/tomcat9/apache-tomcat-9.0.68/conf/
+   14  ls
+   15  cd ..
+   16  sudo nano /opt/tomcat9/apache-tomcat-9.0.68/conf/server.xml
+   17  keytool -genkey -alias vsf -keyalg RSA -keystore vsf.jks
+   18  keytool -genkey -alias svf -keyalg RSA -keystore tomcat.jks -validity 365 -keysize 2048
+   19  sudo nano /opt/tomcat9/apache-tomcat-9.0.68/conf/server.xml
+
+Fallo 2: El arxiu /opt/tomcat.jks estaba eliminat y habia que crearlo
+y modificar el archiu de /opt/tomcat9/apache-tomcat-9.0.68/conf/tomcat-users.xml y añadir en la linea del <user username, el campo password="svf"
+
+   20  keytool -genkey -alias svf -keyalg RSA -keystore tomcat.jks -validity 365 -keysize 2048
+   21  sudo keytool -genkey -alias svf -keyalg RSA -keystore tomcat.jks -validity 365 -keysize 2048
+   22  sudo nano /opt/tomcat9/apache-tomcat-9.0.68/conf/server.xml
+   23  /opt/tomcat9/apache-tomcat-9.0.68/bin/shutdown.sh
+   24  /opt/tomcat9/apache-tomcat-9.0.68/bin/startup.sh
+   
+Fallo 3: No nos permitia el acceso remoto ya que el /opt/tomcat9/apache-tomcat-9.0.68/conf/Catalina/localhost/manager.xml habia puesto en el campo de "allow", una IP distinta a la mia y en el archivo /opt/tomcat9/apache-tomcat-9.0.68/webapps/manager/META-INF/contenxt.xml y comentar la etiqueta de "Valve"
+
+   25  cd /opt/tomcat9/apache-tomcat-9.0.68/conf/Catalina/localhost/
+   26  ls
+   27  nano manager.xml 
+   28  /opt/tomcat9/apache-tomcat-9.0.68/bin/shutdown.sh
+   29  /opt/tomcat9/apache-tomcat-9.0.68/bin/startup.sh
+   30  nano /opt/tomcat9/apache-tomcat-9.0.68/webapps/manager/META-INF/context.xml
+
+
+
+
+3.
+4

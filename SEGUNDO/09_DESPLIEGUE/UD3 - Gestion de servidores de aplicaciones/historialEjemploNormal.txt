@@ -1,0 +1,146 @@
+   3  sudo poweroff
+    4  ifconfig
+    5  clear
+    6  ls
+    7  cd
+    8  sudo ls
+    9  ls
+   10  sudo tar xzf apache-tomcat-9.0.54.tar.gz -C /opt/tomcat9
+   11  cd /opt/tomcat9
+   12  ls
+   13  cd ..
+   14  ls
+   15  cd ..
+   16  ls
+   17  sudo tar xzf apache-tomcat-9.0.54.tar.gz -C /opt/tomcat9
+   18  sudo tar xzf apache-tomcat-9.0.68.tar.gz -C /opt/tomcat9
+   19  sudo  chown -hR svf:svf /opt/tomcat9/apache-tomcat-9.0.54
+   20  ls
+   21  ls apache-tomcat-9.0.68.tar.gz
+   22  ls apache-tomcat-9.0.68
+ 23  ls apache-tomcat-9.0.68/opt
+   24  ls apache-tomcat-9.0.68/opt/
+   25  ls apache-tomcat-9.0.68/opt
+   26  ls /apache-tomcat-9.0.68/opt
+   27  ls /apache-tomcat-9.0.68
+   28  ls /apache-tomcat-9.0.68/bin
+   29  sudo ls /apache-tomcat-9.0.68/bin
+   30  ls
+   31  sudo ls /apache-tomcat-9.0.68/bin
+   32  sudo cp /apache-tomcat-9.0.68/bin/startup.sh /opt/tomcat9/apache-tomcat->
+   33  /opt/tomcat9/apache-tomcat-9.0.54/bin/startup.sh
+   34  sudo /opt/tomcat9/apache-tomcat-9.0.68/bin/startup.sh
+   35  ls
+   36  ls opt/
+   37  cd opt/tomcat9/apache-tomcat-9.0.68/
+   38  ls
+   39  cd conf/
+   40  ls
+   41  cd conf/
+   42  sudo cd conf/
+   43  sduo cd conf/
+   44  sudo cd conf
+   45  ls conf/
+   46  sudo ls conf/
+   47  sudo nano conf/tomcat-users.xml
+   48  cd ..
+   49  cd..
+   50  cd ..
+   51  ls
+   52  cd apache-tomcat-9.0.68/
+   53  cd bin/
+   54  ls
+   55  cd conf/
+   56  sudo cd  conf/
+   57  sudo ls  conf/
+   58  sudo nano conf/tomcat-users.xml
+   59  cd ..
+   60  ls
+   61  cd bin
+   62  ls
+   63  cd ..
+   64  ls
+   65  ls apache-tomcat-9.0.68
+   66  cd bin
+   67  ls
+   68  cd ..
+   69  ls
+   70  cd opt/
+   71  ls
+   72  cd tomcat9/
+   73  ls
+   74  cd apache-tomcat-9.0.68/
+   75  ls
+   76  cd conf/
+   77  ls
+   78  nano tomcat-users.xml
+   79  keytool -genkey -alias tomcat -keyalg RSA -keystore tomcat.jks -validity>
+   80  sudo nano server.xml
+   81  sudo /opt/tomcat9/apache-tomcat-9.0.68/bin/shutdown.sh
+    82  sudo /opt/tomcat9/apache-tomcat-9.0.68/bin/startup.sh
+   83  sudo rm -f /etc/machine-id
+   84  sudo dbus-uuidgen --ensure=/etc/machine-id
+   85  sudo rm /var/lib/dbus/machine-id
+   86  sudo dbus-uuidgen --ensure
+   87  sudo reboot
+   88  opt/tomcat9/apache-tomcat-9.0.54/bin/startup.sh
+   89  /opt/tomcat9/apache-tomcat-9.0.54/bin/startup.sh
+   90  cd /opt/tomcat9/apache-tomcat-9.0.68/bin/
+   91  ls
+   92  cd ..
+   93  sudo wget https://dlcdn.apache.org/tomcat/tomcat-9/v9.0.68/bin/apache-to>
+   94  sudo tar xzf apache-tomcat-9.0.54.tar.gz
+   95  sudo tar xzf apache-tomcat-9.0.68.tar.gz
+   96  cd /apache-tomcat-9.0.68/bin/
+   97  sudo cd /apache-tomcat-9.0.68/bin/
+   98  cd apache-tomcat-9.0.68/
+   99  ls
+  100  cd bin/
+   101  sudo su
+  102  move /bin/startup.sh /opt/tomcat9/apache-tomcat-9.0.68/bin/
+  103  cp /bin/startup.sh /opt/tomcat9/apache-tomcat-9.0.68/bin/
+  104  cd ..
+  105  sudo cp apache-tomcat-9.0.68/bin/startup.sh /opt/tomcat9/apache-tomcat-9>
+  106  /opt/tomcat9/apache-tomcat-9.0.68/bin/startup.sh
+  107  sudo /opt/tomcat9/apache-tomcat-9.0.68/bin/startup.sh
+  108  cd /opt/tomcat9/apache-tomcat-9.0.68/conf/
+  109  sudo cd /opt/tomcat9/apache-tomcat-9.0.68/conf/
+  110  cd ..
+  111  cd /opt/tomcat9/
+  112  cd apache-tomcat-9.0.68/
+  113  cd conf/
+  114  cd /conf
+  115  ls
+  116  sudo conf
+  117  cd /conf
+  118  cd conf
+  119  sudo cd conf
+  120  cd /opt/tomcat9/apache-tomcat-9.0.68/conf/
+  121  cd conf
+  122  pwd
+  123*
+  124  ls -l
+  125  cd ..
+  126  sudo chown -hR svf:svf /opt/tomcat9/apache-tomcat-9.0.68
+  127  sudo chmod 755 /opt/tomcat9/apache-tomcat-9.0.68/bin/*
+  128  cd /opt/tomcat9/apache-tomcat-9.0.68/conf/
+  129  sudo nano server.xml
+  130  keytool -genkey -alias tomcat -keyalg RSA -keystore tomcat.jks -validity>
+  131  /opt/tomcat9/apache-tomcat-9.0.54/bin/shutdown.sh
+  132  /opt/tomcat9/apache-tomcat-9.0.68/bin/shutdown.sh
+  133  /opt/tomcat9/apache-tomcat-9.0.68/bin/startup.sh
+  134  sudo nano server.xml
+  135  ls
+  136  sudo nano server.xml
+  137  history
+  138  cat history
+  139  cat /home/svf/.bash_history
+  140  history > prova.txt
+
+
+
+
+   
+
+
+
