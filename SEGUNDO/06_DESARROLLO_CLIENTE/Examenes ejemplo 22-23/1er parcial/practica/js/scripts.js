@@ -2,26 +2,26 @@
 let vector = ['valor1', 'valor2', 'valor3', 'valor4'];
 
 function crearP() {
-  window.onload = function () {
+  window.onload = function () { // aseguramos que la pagina este cargada para modificar el DOM
     // parrafo
-    let parrafo = document.createElement('p');
-    parrafo.setAttribute('id', 'parrafo');
-    parrafo.setAttribute('class', 'parrafo');
-    document.body.appendChild(parrafo);
+    let parrafo = document.createElement('p'); // crea <p>
+    parrafo.setAttribute('id', 'parrafo'); // añade id
+    parrafo.setAttribute('class', 'parrafo'); // añade class
+    document.body.appendChild(parrafo); // añade <p> a <body>
 
     // checkbox
-    for (let i = 0; i < vector.length; i++) {
-      let casilla = document.createElement('input');
-      casilla.setAttribute('id', 'checkB' + i);
-      casilla.setAttribute('value', vector[i]);
-      casilla.setAttribute('class', 'checkbox');
-      casilla.setAttribute('type', 'checkbox');
+    for (let i = 0; i < vector.length; i++) { // para cada valor de vector
+      let casilla = document.createElement('input'); // crea <input>
+      casilla.setAttribute('id', 'checkB' + i); // añade id
+      casilla.setAttribute('value', vector[i]); // añade value segun valor de vector
+      casilla.setAttribute('class', 'checkbox'); // añade class
+      casilla.setAttribute('type', 'checkbox'); // añade type=checkbox
 
       // label valor
-      let labValor = document.createTextNode(vector[i]);
+      let labValor = document.createTextNode(vector[i]); // añade texto con valor de vector
 
       // boton
-      let boton = document.createElement('button');
+      let boton = document.createElement('button'); //
       boton.setAttribute('id', 'boton' + i);
       boton.setAttribute('value', vector[i]);
       boton.setAttribute('class', 'boton');
@@ -84,7 +84,6 @@ function getCookie() {
 
   return valores;
 }
-
 
 function funcionMostrar() {
   let mensaje;
