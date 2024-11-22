@@ -53,6 +53,8 @@ html {
 body {
   font-family: 'PTSans', Arial, sans-serif;
   font-size: 15px;
+  margin: 0;
+  padding: 0;
 }
 
 img {
@@ -64,26 +66,6 @@ a {
   text-decoration: none;
 }
 
-/* Birds Background Demo */
-.birds {
-  background: #c2bbb1 url(bird.jpg) center;
-  /* Elimino background-color y añado background con color e imagen */
-  background-size: cover;
-  text-align: center;
-  padding: 100px 0;
-}
-
-.birds p {
-  margin: 0;
-  background-color: rgba(0, 0, 0, .7);
-  color: #FFF;
-  text-shadow: 1px 1px 0 #000;
-  display: inline-block;
-  padding: 10px;
-}
-
-/* End Birds Demo */
-
 /* Main Column Typography */
 .main-area h2 {
   font-size: 200%;
@@ -91,11 +73,14 @@ a {
   font-style: italic;
   letter-spacing: 4px;
   word-spacing: 10px;
+  text-shadow: 2px 10px 10px rgba(0, 0, 0, .5);
   text-transform: lowercase;
 }
 
 .main-area p {
   font-size: 108%;
+  text-align: left;
+  text-indent: 25px;
 }
 
 /* Banner Overlay */
@@ -117,22 +102,24 @@ a {
 }
 
 .container {
-
   width: 940px;
   margin-left: auto;
   margin-right: auto;
-  padding-top: 15px;
-  padding-left: 40px;
+  background-color: #fff;
+  /* Suprimimos el padding para ocupar todo el ancho y top del contenedor
+    padding-left: 40px;
+    padding-right: 40px; */
   box-sizing: border-box;
-  background: url(color-tile.png) repeat-x top, #FFF url(color-tile.png) repeat-x bottom;
-  /* Elimino background-color y añado background top y bottom con color e imagen */
 }
 
 header {
   padding-top: 20px;
-  color: #617140;
-  background: url(flower.jpg) no-repeat center right;
-  /* Añado background con imagen centrada y a la derecha */
+  color: #fff;
+  /* Cambio color de fuente a blanco */
+  background-color: #617140;
+  /* Aplicamos color verde de fondo */
+  padding: 20px 40px 0;
+
 }
 
 header h1 {
@@ -163,16 +150,18 @@ header p {
 
 .site-nav a {
   display: block;
-  color: #617140;
+  color: #fff;
+  /* Cambio color de fuente a blanco */
   text-decoration: none;
   padding: 10px 20px;
-  background-color: #FFF;
   border: 3px solid #e5e9dc;
   border-bottom: none;
 }
 
 .site-nav a:hover {
   background-color: #e5e9dc;
+  color: #617140;
+  /* Añado color verde oscuro durante :hover */
 }
 
 /* End Site Navigation */
@@ -181,6 +170,9 @@ header p {
 .content-area {
   border-top: 3px solid #e5e9dc;
   border-bottom: 3px solid #e5e9dc;
+  padding: 0 40px;
+  /* Añado padding de 40px a los laterales del area de contenido */
+
 }
 
 .main-area {
@@ -193,20 +185,18 @@ header p {
 .sidebar {
   width: 34%;
   float: left;
+  background-color: #e5e9dc;
   padding: 20px 40px;
   box-sizing: border-box;
-  font-size: 114%;
-  background: #e5e9dc linear-gradient(to bottom, #E6A78D, #8965);
-  /* Añado un gradiente como fondo */
+  font-size: 85%;
 }
 
 footer {
   text-align: center;
   font-size: 85%;
-  color: #999;
+  color: #FFF;
   padding-bottom: 20px;
   padding-top: 20px;
-
 }
 
 .fix {

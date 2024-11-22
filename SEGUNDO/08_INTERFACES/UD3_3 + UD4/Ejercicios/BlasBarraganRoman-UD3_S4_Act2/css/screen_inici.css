@@ -1,0 +1,301 @@
+/* Custom Fonts */
+@font-face {
+  font-family: 'PTSans';
+  src: url('fonts/PT-Sans.eot');
+  src: url('fonts/PT-Sans.eot?#iefix') format('embedded-opentype'),
+    url('fonts/PT-Sans.woff') format('woff'),
+    url('fonts/PT-Sans.ttf') format('truetype'),
+    url('fonts/PT-Sans.svg#pt_sansregular') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'PTSans';
+  src: url('fonts/PT-Sans-Bold.eot');
+  src: url('fonts/PPT-Sans-Bold.eot?#iefix') format('embedded-opentype'),
+    url('fonts/PT-Sans-Bold.woff') format('woff'),
+    url('fonts/PT-Sans-Bold.ttf') format('truetype'),
+    url('fonts/PT-Sans-Bold.svg#pt_sansbold') format('svg');
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'PTSans';
+  src: url('fonts/PT-Sans-Italic.eot');
+  src: url('fonts/PPT-Sans-Italic.eot?#iefix') format('embedded-opentype'),
+    url('fonts/PT-Sans-Italic.woff') format('woff'),
+    url('fonts/PT-Sans-Italic.ttf') format('truetype'),
+    url('fonts/PT-Sans-Italic.svg#pt_sansitalic') format('svg');
+  font-weight: normal;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'PTSans';
+  src: url('fonts/PT-Sans-BoldItalic.eot');
+  src: url('fonts/PPT-Sans-BoldItalic.eot?#iefix') format('embedded-opentype'),
+    url('fonts/PT-Sans-BoldItalic.woff') format('woff'),
+    url('fonts/PT-Sans-BoldItalic.ttf') format('truetype'),
+    url('fonts/PT-Sans-BoldItalic.svg#pt_sansbold_italic') format('svg');
+  font-weight: bold;
+  font-style: italic;
+}
+
+/* End Custom Fonts */
+
+html {
+  background-color: #869960;
+  line-height: 1.7;
+}
+
+body {
+  font-family: 'PTSans', Arial, sans-serif;
+  font-size: 15px;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+a {
+  text-decoration: none;
+}
+
+/* Birds Background Demo */
+.birds {
+  background: #c2bbb1 url(../images/bird.jpg) center center no-repeat;
+  background-size: cover;
+  text-align: center;
+  padding: 100px 0;
+}
+
+.birds p {
+  margin: 0;
+  background-color: rgba(0, 0, 0, .7);
+  color: #FFF;
+  text-shadow: 1px 1px 0 #000;
+  display: inline-block;
+  padding: 10px;
+}
+
+/* End Birds Demo */
+
+/* Main Column Typography */
+.main-area h2 {
+  font-size: 200%;
+  font-weight: normal;
+  font-style: italic;
+  letter-spacing: 4px;
+  word-spacing: 10px;
+  text-transform: lowercase;
+}
+
+.main-area p {
+  font-size: 108%;
+}
+
+/* Banner Overlay */
+.image-banner {
+  position: relative;
+}
+
+.image-banner img {
+  display: block;
+}
+
+.banner-description {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  color: #FFF;
+  background-color: rgba(0, 0, 0, .65);
+  padding: 15px 25px;
+}
+
+.container {
+  width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+  background: url(../images/color-tile.png) left bottom repeat-x, #FFF url(../images/color-tile.png) left top repeat-x;
+  padding-top: 15px;
+  padding-left: 40px;
+  box-sizing: border-box;
+}
+
+header {
+  padding-top: 20px;
+  color: #617140;
+  background-image: url(../images/flower.jpg);
+  background-position: right center;
+  background-repeat: no-repeat;
+}
+
+header h1 {
+  margin: 0;
+  font-weight: normal;
+  font-size: 165%;
+}
+
+header p {
+  margin: 0;
+}
+
+/* Site Navigation */
+.site-nav {
+  margin-top: 20px;
+}
+
+.site-nav ul {
+  margin: 0;
+  padding: 0;
+}
+
+.site-nav li {
+  list-style: none;
+  float: left;
+  margin-right: 5px;
+}
+
+.site-nav a {
+  display: block;
+  color: #617140;
+  text-decoration: none;
+  padding: 10px 20px;
+  background-color: #FFF;
+  border: 3px solid #e5e9dc;
+  border-bottom: none;
+}
+
+.site-nav a:hover {
+  background-color: #e5e9dc;
+}
+
+/* End Site Navigation */
+
+
+.content-area {
+  border-top: 3px solid #e5e9dc;
+  border-bottom: 3px solid #e5e9dc;
+}
+
+.main-area {
+  width: 66%;
+  float: left;
+  padding-right: 40px;
+  box-sizing: border-box;
+}
+
+.sidebar {
+  width: 34%;
+  float: left;
+  padding: 20px 40px;
+  box-sizing: border-box;
+  font-size: 114%;
+  background-color: #e5e9dc;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#e5e9dc), to(#FFF));
+  background-image: -webkit-linear-gradient(top, #e5e9dc, #FFF);
+  background-image: -moz-linear-gradient(top, #e5e9dc, #FFF);
+  background-image: -ms-linear-gradient(top, #e5e9dc, #FFF);
+  background-image: -o-linear-gradient(top, #e5e9dc, #FFF);
+  background-image: linear-gradient(to bottom, #e5e9dc, #FFF);
+}
+
+
+/* UI Menu */
+.ui-menu ul {
+  margin: 0;
+  padding: 0;
+}
+
+.ui-menu li {
+  float: left;
+  list-style: none;
+  margin-right: 20px;
+}
+
+/*
+.ui-menu a {
+	display: block;
+	width: 50px;
+	height: 50px;
+	background-position: top left;
+	background-image: url(../images/sprites.png);
+	text-indent: -9999px;
+	background-repeat: no-repeat;
+} */
+/*
+.ui-home a:hover {background-position: -50px 0;}
+
+.ui-profile a {background-position: 0 -50px;}
+.ui-profile a:hover {background-position: -50px -50px;}
+
+.ui-settings a {background-position: 0 -100px;}
+.ui-settings a:hover {background-position: -50px -100px;} */
+
+/* Damos estilo a cada <a> dentro del <nav> con clase ui-menu */
+.ui-menu a {
+  display: block;
+  /* Cambiamos la visalizacion a bloque para que se muestre todo el espacio */
+  width: 50px;
+  height: 50px;
+  background: url(../images/sprites.png) no-repeat;
+  /* añadimos la imagen con sprites a cada uno de los enlaces */
+  text-indent: -99999px;
+  /* identamos el texto para que desaparezca de la visualizacion */
+}
+
+/* Damos posicion a los sprites en su enlace y creamos :hover para cada uno usando las clases creadas en el .HTML */
+.sprite__home a {
+  background-position: 0 0;
+}
+
+.sprite__home a:hover {
+  background-position: -50px 0;
+}
+
+.sprite__profile a {
+  background-position: 0 -50px;
+}
+
+.sprite__profile a:hover {
+  background-position: -50px -50px;
+}
+
+.sprite__settings a {
+  background-position: 0 -100px;
+}
+
+.sprite__settings a:hover {
+  background-position: -50px -100px;
+}
+
+
+
+footer {
+  text-align: center;
+  font-size: 85%;
+  color: #999;
+  padding-bottom: 20px;
+  padding-top: 20px;
+}
+
+.fix {
+  clear: both;
+}
+
+.group:before,
+.group:after {
+  content: "";
+  display: table;
+}
+
+.group:after {
+  clear: both;
+}
+
+.group {
+  zoom: 1;
+}

@@ -1,0 +1,239 @@
+html {
+  background-color: #869960;
+  line-height: 1.7;
+}
+
+body {
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 15px;
+  margin: 0;
+  padding: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin-top: 0;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+a {
+  text-decoration: none;
+}
+
+/* Main Column Typography */
+.main-area h2 {
+  font-size: 165%;
+  font-weight: normal;
+}
+
+.container {
+  max-width: 960px;
+  margin: 0 auto;
+  padding-left: 40px;
+  padding-right: 40px;
+}
+
+/* Aplicamos estilos para pantallas con ancho de visualizacion mayor o igual a 1000px */
+@media screen and (min-width: 1000px) {
+
+  /* Modificamos el body */
+  body {
+    /* Aumentamos el tamaño de fuente */
+    font-size: 17px;
+  }
+
+  /* Modificamos la clase container */
+  .container {
+    /* Aplicamos un ancho maximo al contenedor para que conserve el diseño al ampliar*/
+    max-width: 1200px;
+  }
+}
+
+/* Aplicamos estilos para pantallas con ancho de visualizacion menor o igual a 480px */
+@media screen and (max-width: 480px) {
+
+  /* Modificamos la clase container */
+  .container {
+    /* Reducimos los padding laterales de container para reducir margenes vacios y aprovechar el espacio */
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
+
+header {
+  padding-top: 20px;
+  color: #fff;
+  background-color: #617140;
+}
+
+header h1 {
+  margin: 0;
+  font-weight: normal;
+  font-size: 165%;
+}
+
+header p {
+  font-size: 90%;
+  margin: 0;
+}
+
+/* Site Navigation */
+.site-nav {
+  margin-top: 20px;
+}
+
+.site-nav ul {
+  margin: 0;
+  padding: 0;
+}
+
+.site-nav li {
+  list-style: none;
+  float: left;
+  margin-right: 5px;
+}
+
+.site-nav a {
+  display: block;
+  color: #fff;
+  padding: 10px 20px;
+  background-color: #536036;
+}
+
+.site-nav a:hover {
+  background-color: #4e5a33;
+}
+
+/* Aplicamos estilos para pantallas con ancho de visualizacion menor o igual a 700px */
+@media screen and (max-width: 700px) {
+
+  /* Modificamos los <li> dentro de la clase site-nav */
+  .site-nav li {
+    /* Aplicamos un ancho del 33% para cuadrar 3 elementos <li> por linea */
+    width: 33.332%;
+    /* Eliminamos el margen derecho para evitar sepracion entre elementos no deseada */
+    margin-right: 0;
+  }
+
+  /* Modificamos los <a> dentro de la clase site-nav */
+  .site-nav a {
+    /* Modificamos el padding vertical y eliminamos el horizontal */
+    padding: 15px 0;
+    /* Aplicamos margin right y bottom para crear separacion entre los elementos simulando una cuadricula */
+    margin-right: 5px;
+    margin-bottom: 5px;
+    /* Alineamos el texto al centro del elemento */
+    text-align: center;
+  }
+}
+
+/* Aplicamos estilos para pantallas con ancho de visualizacion menor o igual a 480px */
+@media screen and (max-width: 480px) {
+
+  /* Modificamos los <li> dentro de la clase site-nav */
+  .site-nav li {
+    /* Aplicamos un ancho del 50% para cuadrar 2 elementos <li> por linea */
+    width: 50%;
+  }
+}
+
+/* End Site Navigation */
+
+.content-area {
+  background-color: #fff;
+  padding-bottom: 40px;
+  padding-top: 40px;
+}
+
+/* Aplicamos estilos para pantallas con ancho de visualizacion menor o igual a 480px */
+@media screen and (max-width: 480px) {
+
+  /* Modificamos la clase content-area */
+  .content-area {
+    /* Reducimos el padding superior de content-area para reducir margen y aprovechar el espacio */
+    padding-top: 20px;
+  }
+}
+
+.main-area {
+  width: 66%;
+  float: left;
+  padding-right: 40px;
+  box-sizing: border-box;
+}
+
+.sidebar {
+  width: 34%;
+  float: left;
+  background-color: #e5e9dc;
+  padding: 20px 40px;
+  box-sizing: border-box;
+  font-size: 85%;
+}
+
+/* Aplicamos estilos para pantallas con ancho de visualizacion menor o igual a 700px */
+@media screen and (max-width: 700px) {
+
+  /* Modificamos las clases main-area y site-bar */
+  .main-area,
+  .sidebar {
+    /* Para que se adapte al tamaño de pantalla de forma automatica*/
+    width: auto;
+    /* Para que el elemento no flote y se apile verticalmente */
+    float: none;
+  }
+
+  /* Modificamos la clase main-area */
+  .main-area {
+    /* Eliminamos el padding para que el contenido de main-area quede centrado */
+    padding-right: 0;
+  }
+}
+
+.info-box {
+  background-color: #efeedb;
+  border: 5px solid #e6e5c2;
+  padding: 20px 40px 7px 40px;
+  margin-bottom: 1em;
+}
+
+/* Aplicamos estilos para pantallas con ancho de visualizacion menor o igual a 480px */
+@media screen and (max-width: 480px) {
+
+  /* Modificamos la clase hide-small */
+  .hide-small {
+    /* Aplicamos display:none para ocultar la visualizacion de elementos que no son necesarios en pantallas pequeñas */
+    display: none;
+  }
+}
+
+footer {
+  text-align: center;
+  font-size: 85%;
+  color: #fff;
+  padding-bottom: 20px;
+  padding-top: 20px;
+}
+
+.group:before,
+.group:after {
+  content: "";
+  display: table;
+}
+
+.group:after {
+  clear: both;
+}
+
+.group {
+  zoom: 1;
+}
