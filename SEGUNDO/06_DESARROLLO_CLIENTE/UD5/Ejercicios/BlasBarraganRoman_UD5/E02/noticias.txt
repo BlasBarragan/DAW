@@ -1,0 +1,16 @@
+data
+usuari
+comentari de la noticia escrit per usuari
+---------------------
+27-12-2012
+juanito
+comentari de la noticia
+---------------------
+1-12-2012
+manuel
+asdf asdf asdf asdf asdf asdf asdf asdf asdf asdf
+---------------------
+11-11-2010
+juanito
+asdf jklñ jklñ jklñ jklñ jklñ jklñ jklñ jklñ
+---------------------

@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <title>AJAX</title>
+  <meta name="description" content="descripcio">
+  <meta name="author" content="Jose Masip">
+  <link rel="stylesheet" href="css/estilos.css">
+  <script type="text/javascript">
+    var peticio_http;
+    function mostratitol() {
+      if (peticio_http.readyState == 4) {
+        if (peticio_http.status == 200) { //si tot OK
+          //vector amb tots els cds
+          var cds = peticio_http.responseXML.getElementsByTagName("CD");
+          //recorrer els cds per a mostrar valors
+          for (i = 0; i < cds.length; i++) {
+            //obtindre els distints camps
+            tit = cds[i].getElementsByTagName("TITOL");
+            titol = tit[0].firstChild.data;
+            art = cds[i].getElementsByTagName("ARTISTA");
+            artista = art[0].firstChild.data;
+            pai = cds[i].getElementsByTagName("PAIS");
+            pais = pai[0].firstChild.data;
+            pr = cds[i].getElementsByTagName("PREU");
+            preu = pr[0].firstChild.data;
+            an = cds[i].getElementsByTagName("ANY");
+            any = an[0].firstChild.data;
+            //mostrar taula amb datos
+            document.getElementById("cdclub").innerHTML = document.getElementById("cdclub").innerHTML + "</br><table border='2'><tr><td rowspan='5'>caratula cd</td><td>" + titol + "</td> </tr> <tr><td>" + artista + "</td></tr><tr><td>" + pais + "</td></tr><tr><td>" + preu + " euros</td></tr><tr><td>" + any + "</td></tr></table>";
+          }
+        }
+        else { //mostra el estat en format de text
+          alert("error: " + peticio_http.statusText);
+        }
+      }
+    }
+    function llegircds() {
+      // Obtener instancia objete XMLHttpRequest
+      if (window.XMLHttpRequest) {
+        peticio_http = new XMLHttpRequest();
+      }// Prepara funcio rep dades del servidor
+      peticio_http.onreadystatechange = mostratitol;
+      // Realizar peticio HTTP
+      peticio_http.open('GET', './cdclub.xml', true);
+      //comence el proces. envies les dades
+      peticio_http.send(null);
+    }
+    function inici() {
+      document.getElementById('boto').addEventListener('click', llegircds, false);
+    }
+    window.onload = inici;
+  </script>
+</head>
+
+<body>
+  <div id="capa" style="background-color:cyan;">
+    <h1>capa</h1>
+    <input type="button" name="boto" id="boto" value="cdclub" />
+    </br>
+    <span id="cdclub"></span>
+  </div>
+  <p>LLegir les dades d'un xml. Mostra tota la cdteca</p>
+</body>
+</html>

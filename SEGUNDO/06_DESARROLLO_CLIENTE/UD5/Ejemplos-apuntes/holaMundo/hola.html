@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <script type="text/javascript">
+    var peticio_http;
+    //funció que rep les dades, resposta petició ajax
+    function mostraContingut() {
+      // 0 No inicializado. 1 Cargando. 2 Cargado. 3 Interactivo. 4 Completado.
+      if (peticio_http.readyState == 4) {
+        if (peticio_http.status == 200) { //si tot OK
+          alert(peticio_http.responseText);
+        }
+        else { //mostra el estat en format de text
+          alert("error: " + peticio_http.statusText);
+        }
+      }
+    }
+    //funció llança la petició ajax
+    function descarregaArxiu() {
+      // Obtener instancia objete XMLHttpRequest
+      if (window.XMLHttpRequest) {
+        peticio_http = new XMLHttpRequest();
+      }
+      else if (window.ActiveXObject) { //navegadors obsolets
+        peticio_http = new ActiveXObject("Microsoft.XMLHTTP");
+      }
+      // Prepara funcio rep dades del servidor
+      peticio_http.onreadystatechange = mostraContingut;
+      // Realizar peticio HTTP
+      peticio_http.open('GET', './holamon.txt', true);
+      //comence el proces. envies les dades
+      peticio_http.send(null);
+    }
+    window.onload = descarregaArxiu;
+  </script>
+
+</head>
+
+<body>
+
+</body>
+</html>

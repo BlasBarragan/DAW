@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>UD - E04</title>
+  <script>
+
+    function mostrarContenido() {
+      // 0 No inicializado. 1 Cargando. 2 Cargado. 3 Interactivo. 4 Completado.
+      if (peticion_http.readyState == 4) {
+        if (peticion_http.status == 200) { //si OK
+          const noticia = peticion_http.responseXML.getElementsByTagName('NOTICIA'); // array con todas las noticias
+          for (let i = 0; i < noticia.length; i++) { // recorremos el array
+
+            let fec = noticia[i].getElementsByTagName('DATA'); // obtenemos fecha
+            let fecha = fec[0].firstChild.data; // obtenemos datos fecha
+            let aut = noticia[i].getElementsByTagName('AUTOR'); // obtenemos autor
+            let autor = '';
+            if (!aut[0]) { // si autor no aparece lo definimos como Anonim
+              autor = 'Anonim';
+            } else {
+              autor = aut[0].firstChild.data;
+            } // obtenemos datos autor
+            console.log(autor);
+            let com = noticia[i].getElementsByTagName('COMENTARI'); // obtenemos comentario
+            let comentario = com[0].firstChild.data; // obtenemos datos comentario
+
+
+            let articulo = document.createElement('div'); // creamos div para el articulo
+            articulo.setAttribute('id', 'articulo ' + i); // añadimos id de articulo con numero i
+            articulo.innerHTML = '<h1>' + autor + '</h1><h3>' + fecha + '</h3><p>' + comentario + '</p>'; // añadimos contenido
+            document.getElementById('content').appendChild(articulo); // añadimos articulo a div contenedor
+          }
+        }
+        else { //muestra el estado en formato de texto;
+          alert("error: " + peticion_http.statusText);
+        }
+      }
+    }
+    function obtenerArchivo(event) {
+      // Obtener instancia objeto XMLHttpRequest
+      peticion_http = new XMLHttpRequest();
+      // Prepara la funcion para recibir datos sel servidor
+      peticion_http.onreadystatechange = mostrarContenido;
+      peticion_http.open('GET', './noticias.xml', true);
+      //Indicamos que los datos estan codificados como un formulario
+      //peticion_http.setRequestHeader("Content-Type(GET o POST)","application/x-www-form-urlencoded(ruta al archivo ./archivo)");
+      //comienza el proceso. Envio los datos
+      peticion_http.send();
+    }
+
+
+    window.onload = obtenerArchivo;
+  </script>
+
+</head>
+
+<body>
+
+  <div id="content">
+
+  </div>
+
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>UD - E02</title>
+  <script>
+
+    function mostrarContenido() {
+      // 0 No inicializado. 1 Cargando. 2 Cargado. 3 Interactivo. 4 Completado.
+      if (peticion_http.readyState == 4) {
+        if (peticion_http.status == 200) { //si OK
+
+          let texto = peticion_http.responseText; // obtenemos texto de archivo .txt
+          const lineas = texto.split('---------------------\n'); // array dividiento por linea descartada
+
+          for (let i = 0; i < lineas.length; i++) {
+            const datos = lineas[i].split('\n');// array dividiendo por salto de linea
+
+            let fecha = datos[0]; // saco fecha
+            let usuario = datos[1]; // saco usuario
+            let comentario = datos[2]; // saco comentario
+
+            let noticia = document.createElement('div'); // creamos div para cada noticia
+            noticia.setAttribute('id', 'noticia ' + i); // añadimos id
+            noticia.innerHTML = "<h1>" + usuario + "</h1><h3>" + fecha + "</h3><p>" + comentario + "</p>"; // añadimos tags con su contenido
+            document.getElementById('content').appendChild(noticia); // añadimos al div principal
+
+          }
+        } else { //muestra el estado en formato de texto;
+          alert("error: " + peticion_http.statusText);
+        }
+      }
+    }
+    function obtenerArchivo(event) {
+      // Obtener instancia objeto XMLHttpRequest
+      peticion_http = new XMLHttpRequest();
+      // Prepara la funcion para recibir datos sel servidor
+      peticion_http.onreadystatechange = mostrarContenido;
+      peticion_http.open('GET', './noticias.txt', true);
+      //Indicamos que los datos estan codificados como un formulario
+      //peticion_http.setRequestHeader("Content-Type(GET o POST)","application/x-www-form-urlencoded(ruta al archivo ./archivo)");
+      //comienza el proceso. Envio los datos
+      peticion_http.send();
+    }
+
+    window.onload = obtenerArchivo;
+  </script>
+
+</head>
+
+<body>
+
+  <div id="content">
+
+  </div>
+
+</body>
+</html>

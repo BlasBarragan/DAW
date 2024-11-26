@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<NOTICIARI>
+  <NOTICIA>
+    <DATA>27-12-2123</DATA>
+    <AUTOR>juanito</AUTOR>
+    <COMENTARI>COMENTARI de la NOTICIA</COMENTARI>
+  </NOTICIA>
+  <NOTICIA>
+    <DATA>1-12-2045</DATA>
+    <COMENTARI>asdf asdf asdf asdf asdf asdf asdf asdf asdf asdf asfdf asf asdf asdf asdf</COMENTARI>
+  </NOTICIA>
+  <NOTICIA>
+    <DATA>11-11-1945</DATA>
+    <COMENTARI>asdf jklñ jklñ jklñ jklñ jklñ jklñ jklñ</COMENTARI>
+  </NOTICIA>
+  <NOTICIA>
+    <DATA>11-11-1785</DATA>
+    <AUTOR>juanitosss</AUTOR>
+    <COMENTARI>asdf jklñ jklñ jklñ jklñ jklñ jklñ jklñ jklñss</COMENTARI>
+  </NOTICIA>
+</NOTICIARI>

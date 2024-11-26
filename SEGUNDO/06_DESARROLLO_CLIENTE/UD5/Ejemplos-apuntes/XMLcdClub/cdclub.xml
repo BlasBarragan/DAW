@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<CATALEG>
+  <CD>
+    <TITOL>cantar</TITOL>
+    <ARTISTA>tamara</ARTISTA>
+    <PAIS>espanya</PAIS>
+    <PREU>2</PREU>
+    <ANY>2010</ANY>
+  </CD>
+  <CD>
+    <TITOL>manolo</TITOL>
+    <ARTISTA>manolo escobar</ARTISTA>
+    <PAIS>espanya</PAIS>
+    <PREU>5</PREU>
+    <ANY>1985</ANY>
+  </CD>
+  <CD>
+    <TITOL>cd</TITOL>
+    <ARTISTA>juanito</ARTISTA>
+    <PAIS>francia</PAIS>
+    <PREU>23</PREU>
+    <ANY>2012</ANY>
+  </CD>
+  <CD>
+    <TITOL>cd2</TITOL>
+    <ARTISTA>juanito</ARTISTA>
+    <PAIS>francia</PAIS>
+    <PREU>32</PREU>
+    <ANY>2013</ANY>
+  </CD>
+  <CD>
+    <TITOL>recopilatori</TITOL>
+    <ARTISTA>dj</ARTISTA>
+    <PAIS>espanya</PAIS>
+    <PREU>4</PREU>
+    <ANY>2008</ANY>
+  </CD>
+</CATALEG>
