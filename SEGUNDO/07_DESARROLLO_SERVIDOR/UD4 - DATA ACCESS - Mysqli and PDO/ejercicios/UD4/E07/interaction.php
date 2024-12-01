@@ -46,8 +46,6 @@ try {
     $textNext = '';
   }
 
-
-
   // write links
   echo '<a href="?link=prev&begin=' . $begin . '"; ' . $textPrev . '>Previous</a> ';
   echo '<a href="?link=next&begin=' . $begin . '"; ' . $textNext . '>Next</a>';
