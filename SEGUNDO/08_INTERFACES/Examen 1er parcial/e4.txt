@@ -1,0 +1,8 @@
+Ejercicio 4 - Blas Barragán Román
+
+a) 
+La caja <div> tendrá un ancho de 335 píxeles y un alto de 15 píxeles (10px del padding y 5px del borde) siempre que no contenga nada en su interior.
+Los valores de padding y borden se suman al de width.
+
+b)
+Si añadimos la propiedad box-sizing:border-box, el <div> pasará a tener un ancho de 290 píxeles, ya que el padiding y el borde se restan del valor width total.
