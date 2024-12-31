@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <title>Plantilla</title>
+  <meta name="description" content="descripcio">
+  <meta name="author" content="">
+  <link rel="stylesheet" href="css/estilos.css">
+  <script src="scripts.js"></script>
+</head>
+
+<body>
+  <script language="JavaScript">
+
+    window.onload = function () {
+
+
+
+      // creamos formulario
+      let formu = document.createElement('form');
+      formu.setAttribute('id', 'formu');
+      formu.setAttribute('method', 'GET');
+      formu.innerHTML = "<h1> Vota esta foto </h1> <br> <img src='images.jpg' alt='aguacate' height='200px' width='200px'> <br>";
+
+      // creamos select
+      let txt = document.createTextNode('Voto:');
+      let select = document.createElement('select');
+      select.setAttribute('id', 'select');
+      select.setAttribute('name', 'voto');
+      for (let i = 0; i < 11; i++) {
+        let option = document.createElement('option');
+        option.setAttribute('value', i);
+        option.setAttribute('label', i);
+        select.appendChild(option);
+      }
+
+      formu.appendChild(txt);
+      formu.appendChild(select);
+
+      // creamos boton enviar
+      let boton = document.createElement('input');
+      boton.setAttribute('type', 'button');
+      boton.setAttribute('id', 'boton');
+      boton.setAttribute('value', 'votar');
+      boton.addEventListener('click', function () {
+        let seleccion = document.getElementById('select');
+        let puntos = '';
+        for (let i = 0; i < seleccion.length; i++) {
+          if (seleccion[i].selected) {
+            puntos = seleccion[i].value;
+          }
+        }
+        leerDatos(puntos)
+      });
+
+      formu.appendChild(boton);
+
+      // creamos resultado
+      let resultado = document.createElement('div');
+      resultado.setAttribute('id', 'resultado');
+      resultado.innerHTML = "<h1> resultado </h1>";
+
+      // añadimos al body
+      document.body.appendChild(formu);
+      document.body.appendChild(resultado);
+
+    }
+
+  </script>
+</body>
+</html>

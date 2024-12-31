@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <title>Plantilla</title>
+  <meta name="description" content="descripcio">
+  <meta name="author" content="">
+  <link rel="stylesheet" href="estilos.css">
+  <script src="scripts.js"></script>
+</head>
+
+<body>
+  <script language="JavaScript">
+
+    window.onload = function () {
+
+      // creamos formulario
+      let formu = document.createElement('form');
+      formu.setAttribute('id', 'formu');
+      formu.setAttribute('method', 'POST');
+      formu.innerHTML = `
+        <h1>Vota esta foto</h1>
+        <img src="images.jpg" alt="Aguacate" height="200px" width="200px">
+        <p>Voto:</p>
+      `;
+
+      // creamos hipervinculos
+
+      for (let i = 0; i < 11; i++) {
+        let hiper = document.createElement('a');
+        hiper.addEventListener('click', function () { leerDatos(i) });
+        hiper.setAttribute('href', '#');
+        hiper.setAttribute('value', i);
+        hiper.setAttribute('label', i);
+        hiper.innerHTML = i + '<br>';
+        formu.appendChild(hiper);
+      }
+
+      // creamos resultado
+      let resultado = document.createElement('div');
+      resultado.setAttribute('id', 'resultado');
+      resultado.innerHTML = "<h1> resultado </h1>";
+
+      // añadimos al body
+      document.body.appendChild(formu);
+      document.body.appendChild(resultado);
+
+    }
+
+  </script>
+</body>
+</html>

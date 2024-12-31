@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <title>Plantilla</title>
+  <meta name="description" content="descripcio">
+  <meta name="author" content="">
+  <link rel="stylesheet" href="estilos.css">
+  <script src="scripts.js"></script>
+
+</head>
+
+<body>
+  <script language="JavaScript">
+
+    window.onload = function () {
+
+      // creamos formulario
+      let formu = document.createElement('form');
+      formu.setAttribute('id', 'formu');
+      formu.setAttribute('method', 'GET');
+      formu.innerHTML = `
+        <h1>Video</h1>
+        <img src="images.jpg" alt="Aguacate" height="200px" width="200px name="video">
+      `;
+
+      // creamos resultado
+      let resultado = document.createElement('div');
+      resultado.setAttribute('id', 'resultado');
+      resultado.innerHTML = "<h1> Comentarios </h1>";
+
+      // añadimos al body
+      document.body.appendChild(formu);
+      document.body.appendChild(resultado);
+
+      setInterval(leerDatos, 20000);
+
+    }
+
+  </script>
+</body>
+</html>

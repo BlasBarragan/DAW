@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <title>Plantilla</title>
+  <meta name="description" content="descripcio">
+  <meta name="author" content="">
+  <link rel="stylesheet" href="css/estilos.css">
+  <script src="scripts.js"></script>
+</head>
+
+<body>
+  <script language="JavaScript">
+
+    window.onload = function () {
+
+      // creamos capa
+      let capa = document.createElement('div');
+      capa.setAttribute('id', 'capa');
+      capa.setAttribute('style', 'background-color: cyan');
+      capa.innerHTML = "<h1> capa </h1>";
+
+      // creamos formulario
+      let formu = document.createElement('form');
+      formu.setAttribute('id', 'formu');
+      formu.setAttribute('method', 'GET');
+      formu.innerHTML = "<h1> formulari </h1><br>";
+
+      // creamos radioButton A
+      let txtA = document.createTextNode('a.txt');
+      let botA = document.createElement('input');
+      botA.setAttribute('type', 'radio');
+      botA.setAttribute('id', 'a');
+      botA.setAttribute('name', 'radio');
+      botA.setAttribute('value', 'a');
+
+      formu.appendChild(txtA);
+      formu.appendChild(botA);
+
+      // creamos radioButton B
+      let txtB = document.createTextNode('b.txt');
+      let botB = document.createElement('input');
+      botB.setAttribute('type', 'radio');
+      botB.setAttribute('id', 'b');
+      botB.setAttribute('name', 'radio');
+      botB.setAttribute('value', 'b');
+
+      formu.appendChild(txtB);
+      formu.appendChild(botB);
+
+      // creamos boton enviar
+      let boton = document.createElement('input');
+      boton.setAttribute('type', 'button');
+      boton.setAttribute('id', 'boton');
+      boton.setAttribute('value', 'enviar');
+      boton.addEventListener('click', function () {
+        let seleccion = document.getElementsByName('radio');
+        let arxiu = '';
+        for (let i = 0; i < seleccion.length; i++) {
+          if (seleccion[i].checked) {
+            arxiu = seleccion[i].value;
+          }
+        }
+        leerDatos(arxiu)
+      });
+
+      formu.appendChild(boton);
+
+      // añadimos al body
+      document.body.appendChild(capa);
+      document.body.appendChild(formu);
+
+    }
+
+  </script>
+</body>
+</html>

@@ -1,0 +1,19 @@
+.estadisticas {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 20px;
+  border: 2px solid #555;
+}
+
+.barra {
+  background-color: lightgreen;
+  border: 1px solid #000;
+  display: flex;
+  justify-content: space-between;
+  height: 30px;
+}
+
+.total {
+  background-color: #3f3;
+}
