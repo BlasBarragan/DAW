@@ -1,0 +1,145 @@
+p {
+  border: black 1px solid;
+  margin: 2px;
+}
+
+/*  */
+.contenedor {
+  display: flex;
+  /* El contenedor se comporta como un bloque ocupando todo el ancho de la pagina */
+  margin-bottom: 5px;
+  background-color: #eee;
+}
+
+.uno {
+  width: 100px;
+}
+
+/*  */
+.contenedor2 {
+  display: inline-flex;
+  /* El contenedor se como un elemento linea y solo ocupa el espacio necesario (lo que ocupan los items del interior) */
+  margin-bottom: 5px;
+  background-color: #eee;
+}
+
+.dos {
+  width: 100px;
+}
+
+/*  */
+.contenedor3 {
+  display: flex;
+  margin-bottom: 5px;
+}
+
+.tres {
+  width: 100px;
+}
+
+p.primero {
+  order: -1;
+  /* Permite cambiar el orden de los item hijo (-1 representa el primer lugar) */
+}
+
+/*  */
+.contenedor4 {
+  display: flex;
+  /* El contenedor se comporta como un bloque ocupando todo el ancho de la pagina */
+  margin-bottom: 5px;
+  background-color: #eee;
+}
+
+.cuatro {
+  width: 100px;
+}
+
+p.basis {
+  flex-basis: content;
+  /* Permite establecer el tamaño inicial del elemento hijo */
+  /* Content = tamaño del contenido // Auto = width y height // Indicado por ps, % , etc */
+
+}
+
+p.basis2 {
+  flex-basis: auto;
+}
+
+p.basis3 {
+  flex-basis: 300px;
+}
+
+/*  */
+.contenedor5 {
+  display: flex;
+  background-color: #eee;
+}
+
+p.grow {
+  flex-grow: 1;
+  /* Hace que los elementos crezcan proporcionalmente hasta ocupar todo el espacio en la direccion principal (ancho por defecto). El numero representa el indice de proporcion, mismo numero, misma proporcion */
+}
+
+p.grow2 {
+  flex-grow: 2;
+}
+
+p.grow3 {
+  flex-grow: 10;
+}
+
+/*  */
+.contenedor6 {
+  display: flex;
+  background-color: #4e4;
+}
+
+p.shrink {
+  flex-shrink: 1;
+  /* Hace que los elementos se estrechen proporcionalmente cuando el contenido no cabe en el espacio disponible en la direccion principal (ancho por defecto). El numero representa el indice de proporcion, mismo numero, misma proporcion */
+}
+
+p.shrink2 {
+  flex-shrink: 2;
+}
+
+p.shrink3 {
+  flex-shrink: 4;
+}
+
+/*  */
+.contenedor7 {
+  display: flex;
+  background-color: #44e;
+}
+
+.siete {
+  flex: 1;
+  /* Permite establecer grow, shrink y basis */
+}
+
+/*  */
+.contenedor8 {
+  display: flex;
+  justify-content: space-around;
+  /* establece la forma en que se reparte el espacio en la direccion principal */
+  background-color: #4ee;
+}
+
+/*  */
+.contenedor9 {
+  display: flex;
+  align-items: flex-start;
+  /* Establece la forma en que se alinean los elementos en la direccion secundaria */
+  background-color: #e4e;
+}
+
+/*  */
+.contenedor10 {
+  display: flex;
+  height: 10em;
+  flex-wrap: wrap;
+  align-content: space-around;
+  /* Establece la forma en que se reparte el espacio sobrante en la direccion secundaria */
+  background-color: #ee4;
+}

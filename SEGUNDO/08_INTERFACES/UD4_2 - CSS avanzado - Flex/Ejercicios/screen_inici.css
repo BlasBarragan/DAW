@@ -1,0 +1,221 @@
+html,
+body {
+  padding: 0;
+  margin: 0;
+}
+
+input {
+  font-size: 14px;
+  font-family: Helvetica, sans-serif;
+}
+
+body {
+  background-color: #BBB;
+  font-family: Helvetica, sans-serif;
+  padding-bottom: 100px;
+}
+
+h2,
+h3 {
+  margin: 0 0 .75em 0;
+}
+
+/* primer ejercicio */
+.container {
+  max-width: 750px;
+  margin: 20px auto 0 auto;
+  padding: 30px;
+  background-color: #FFF;
+  /* damos propiedad flex al contenedor */
+  display: flex;
+  /* aplicamos column al contenedor para asegurar que los elementos de su interior se apilan verticalmente */
+  flex-direction: column;
+}
+
+.form-row {
+  padding: 10px 0;
+  /* Aplicamos tambien flex a cada fila de elementos */
+  display: flex;
+}
+
+input {
+  /* Le damos al input un valor de 1 de importancia para que ocupe el mayor espacio disponible */
+  flex-grow: 1;
+}
+
+.form-row label {
+  padding-right: 10px;
+  /* Le damos un valor de 0 en el ancho para que ocupe lo minimo posible */
+  flex-grow: 0;
+}
+
+
+
+/* segundo ejercicio */
+.column-layout {
+  max-width: 1300px;
+  background-color: #FFF;
+  margin: 40px auto 0 auto;
+  line-height: 1.65;
+  padding: 20px 50px;
+  /* para colocar los elementos a nuestro gusto */
+  display: flex;
+
+}
+
+/* Establecemos el orden en que queremos mostrar los elementos */
+.main-column {
+  /* 2 para el segundo puesto */
+  order: 2;
+}
+
+.sidebar-one {
+  /* 1 para el primer puesto de izquirda a derecha */
+  order: 1;
+  ;
+}
+
+.sidebar-two {
+  /* 3 para el tercer puesto */
+  order: 3;
+}
+
+/* tercer ejercicio */
+.call-outs-container {
+  max-width: 1400px;
+  margin: 40px auto 0 auto;
+  /* para colocar los elementos a nuestro gusto */
+  display: flex;
+  /* Establece que se ordenen los elemento en forma de columna */
+  flex-direction: column;
+}
+
+.call-out {
+  padding: 20px;
+  box-sizing: border-box;
+  margin-bottom: 20px;
+}
+
+.call-out:nth-child(1) {
+  background-color: #c0dbe2;
+}
+
+.call-out:nth-child(2) {
+  background-color: #cdf1c3;
+}
+
+.call-out:nth-child(3) {
+  background-color: #ccb9da;
+}
+
+/* a partir de 900px se aplican las siguientes propiedades */
+@media screen and (min-width: 900px) {
+
+  .call-outs-container {
+    /* Se ordenan como linea */
+    flex-direction: row;
+    /* Hace que los elementos no se amontonen */
+    flex-wrap: row wrap;
+    /* Reparte los elementos dejando espacio entre ellos */
+    justify-content: space-between;
+  }
+
+  .call-out {
+    /* Establece un tamaño inicial para los elementos */
+    flex-basis: 350px;
+    /* Ordena los elementos como columna */
+    flex-direction: column;
+  }
+}
+
+@media screen and (min-width: 1450px) {
+  .call-outs-container {
+    /* Reparte el espacio sobrante alrededor de los elementos */
+    justify-content: space-around;
+  }
+}
+
+
+/* cuarto ejercicio */
+.fixed-size-container {
+  max-width: 1400px;
+  margin: 40px auto 0 auto;
+  background-color: #FFF;
+  padding: 30px 0;
+  border: solid 1px black;
+  /* para colocar los elementos a nuestro gusto */
+  display: flex;
+  /* Evita que los elementos se amontonen dentro del contenedor */
+  flex-wrap: wrap;
+  /* Reparte el espacio sobrante alrededor de los elementos */
+  justify-content: space-around;
+}
+
+.fixed-size {
+  width: 150px;
+  height: 100px;
+  background-color: #990b47;
+  color: #FFF;
+  line-height: 100px;
+  text-align: center;
+  font-weight: bold;
+  font-size: 60px;
+  margin-bottom: 20px;
+
+}
+
+/* quinto ejercicio */
+.banner {
+  height: 400px;
+  max-width: 700px;
+  margin: 40px auto 40px auto;
+  background-color: #2a2a2a;
+  /* para colocar los elementos a nuestro gusto */
+  display: flex;
+  /* Centra los elementos en el eje vertical */
+  align-items: center;
+  /* Centra los elementos en el eje horizontal */
+  justify-content: center;
+}
+
+.center-me {
+  color: #FFF;
+  font-size: 50px;
+}
+
+/* sexto ejercicio */
+.equal-height-container {
+  max-width: 900px;
+  margin: 0 auto;
+  /* para colocar los elementos a nuestro gusto */
+  display: flex;
+}
+
+.first {
+  background-color: #FFF;
+  padding: 20px;
+  /* Establecemos un tamaño inicial del 50% */
+  flex-basis: 50%;
+}
+
+.second {
+  background-color: yellow;
+  /* para colocar los elementos a nuestro gusto */
+  display: flex;
+  /* Establecemos un tamaño inicial del 50% */
+  flex-basis: 50%;
+  /* Ordenamos los elementos como columna */
+  flex-direction: column;
+}
+
+.second-a {
+  background-color: #c0dbe2;
+  /* Establecemos prioridad de amplicacion en 1 */
+  flex-grow: 1;
+}
+
+.second-b {
+  background-color: #cdf1c3;
+  /* Establecemos prioridad de amplicacion en 1. Al se igual que la del otro elemento, ambos tendran el mismo tamaño */
+  flex-grow: 1;
+}
