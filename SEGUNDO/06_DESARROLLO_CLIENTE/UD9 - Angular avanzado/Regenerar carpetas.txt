@@ -1,0 +1,9 @@
+Per a regenerar les carpetes eliminades al comprimir:
+
+    Descomprimeix la carpeta
+    connecta el docker d'Angular i situat en la carpeta.
+    npm install ----> regenera el node_modules
+    ng serve --host=0.0.0.0    -----> regenera .angular
+    chmod -R 777 ./
+
+NOTA: recorda que necessitem el servei de xamp (BD i php) i el docker d'angular en marxa al mateix temps.
