@@ -1,0 +1,573 @@
+html {
+  background-color: #608699;
+  line-height: 1.7;
+}
+
+body {
+  font-family: 'PT Sans', Arial, sans-serif;
+  font-size: 15px;
+  margin: 0;
+  padding: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin-top: 0;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+a {
+  text-decoration: none;
+}
+
+/* Main Column Typography */
+.main-area h2 {
+  font-size: 165%;
+  font-weight: normal;
+}
+
+.section {
+  padding-left: 40px;
+  padding-right: 40px;
+}
+
+.container {
+  max-width: 960px;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+@media screen and (min-width: 1280px) {
+  body {
+    font-size: 16px;
+  }
+
+  .container {
+    max-width: 1200px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .section {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
+
+header {
+  padding-top: 20px;
+  color: #fff;
+  background-color: #405c71;
+}
+
+header h1 {
+  margin: 0;
+  font-weight: normal;
+  font-size: 165%;
+}
+
+header p {
+  font-size: 90%;
+  margin: 0;
+}
+
+/* Site Navigation */
+.site-nav {
+  margin-top: 20px;
+}
+
+.site-nav ul {
+  margin: 0;
+  padding: 0;
+}
+
+.site-nav li {
+  list-style: none;
+  float: left;
+  margin-right: 5px;
+}
+
+.site-nav a {
+  display: block;
+  color: #fff;
+  padding: 10px 20px;
+  background-color: #365267;
+  transition-property: color, background-color;
+  transition-duration: 2s;
+
+
+}
+
+.site-nav a:hover {
+  background-color: #fff;
+  color: #2c465a;
+}
+
+@media screen and (max-width: 1023px) {
+  .site-nav li {
+    width: 33.332%;
+    margin-right: 0;
+  }
+
+  .site-nav a {
+    padding: 15px 0;
+    margin-right: 5px;
+    margin-bottom: 5px;
+    text-align: center;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .site-nav li {
+    width: 50%;
+  }
+}
+
+/* End Site Navigation */
+
+.content-area {
+  background-color: #fff;
+  padding-bottom: 40px;
+  padding-top: 40px;
+}
+
+@media screen and (max-width: 767px) {
+  .content-area {
+    padding-top: 20px;
+  }
+}
+
+.main-area {
+  width: 66%;
+  float: left;
+  padding-right: 40px;
+  box-sizing: border-box;
+}
+
+.sidebar {
+  color: #555;
+  font-size: 85%;
+}
+
+.sidebar h3 {
+  font-size: 138.5%;
+  margin-bottom: 7px;
+}
+
+.info-box {
+  background-color: #efeedb;
+  border: 5px solid #e6e5c2;
+  padding: 20px 40px 7px 40px;
+  margin-bottom: 1em;
+}
+
+@media screen and (max-width: 767px) {
+  .hide-small {
+    display: none;
+  }
+}
+
+.box-a {
+  background-color: #e7eff5;
+  padding: 20px 20px 0 20px;
+  border: 2px solid #d3dee7;
+  margin-bottom: 30px;
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+}
+
+.box-b {
+  text-align: center;
+  background-color: #ccc;
+  width: 200px;
+  height: 200px;
+  line-height: 200px;
+  margin-bottom: 40px;
+  border-radius: 50%;
+}
+
+/* ############### UD4 S3 - EJERCICIO 1 SECCION 3 ###########*/
+/* Añadimos @keyframe para la animacion */
+@keyframes giro {
+
+  /* Inicio de la animacion */
+  0% {
+    /* 0deg posicion original */
+    transform: rotate(0deg);
+  }
+
+  /* final de la animacion */
+  100% {
+    /* 360deg poasicion final */
+    transform: rotate(360deg);
+  }
+}
+
+/* :hover para activar al pasar el mouse */
+.box-b:hover {
+  /* llamada a la animacion */
+  animation-name: giro;
+  /* duracion de la animacion */
+  animation-duration: 3s;
+}
+
+/* ############### UD4 S3 - EJERCICIO 2 SECCION 3 ###########*/
+/* Un triangulo hecho con CSS que se mueve arriba, abajo, derecha, izquierda y vuelve a su posicion inicial, mientras va cambiando de colores. */
+.box-c {
+  text-align: center;
+  border-bottom: 200px solid #ccc;
+  width: 0px;
+  height: 0px;
+  border-left: 100px solid transparent;
+  border-right: 100px solid transparent;
+}
+
+/* Añadimos @keyframe para la animacion */
+@keyframes triangulo {
+
+  /* Inicio de la animacion */
+  0% {
+    /* 0deg posicion original */
+    transform: translate(0%, 0%);
+    border-bottom: 200px solid #00f;
+    ;
+  }
+
+  20% {
+    /* 0deg posicion original */
+    transform: translate(0%, -20%);
+    border-bottom: 200px solid #0f0;
+    ;
+  }
+
+  40% {
+    /* 0deg posicion original */
+    transform: translate(0%, 30%);
+    border-bottom: 200px solid #f00;
+    ;
+  }
+
+  60% {
+    /* 0deg posicion original */
+    transform: translate(30%, 0%);
+    border-bottom: 200px solid #0ff;
+    ;
+  }
+
+  80% {
+    /* 0deg posicion original */
+    transform: translate(-50%, 0%);
+    border-bottom: 200px solid #ff0;
+    ;
+  }
+
+  /* final de la animacion */
+  100% {}
+}
+
+/* :hover para activar al pasar el mouse */
+.box-c:hover {
+  /* llamada a la animacion */
+  animation-name: triangulo;
+  /* duracion de la animacion */
+  animation-duration: 3s;
+}
+
+
+
+
+/* Banner Overlay */
+.image-banner {
+  position: relative;
+  margin-bottom: 40px;
+  overflow: hidden;
+
+
+
+}
+
+.image-banner img {
+  display: block;
+  transition: all 1s;
+
+
+
+}
+
+.image-banner:hover img {
+  transform: scale(1.5);
+}
+
+.banner-description {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  color: #fff;
+  background-color: rgba(0, 0, 0, 0.65);
+  padding: 15px 25px;
+  transform: translateY(100%);
+  transition-property: all;
+  transition-duration: 1s;
+
+}
+
+.image-banner:hover .banner-description {
+  transform: translateY(0);
+}
+
+@media screen and (max-width: 767px) {
+  .box-a {
+    margin-bottom: 15px;
+  }
+}
+
+
+
+/* Grid */
+.row {
+  margin-right: -20px;
+}
+
+.col {
+  width: 100%;
+  float: left;
+  padding-right: 20px;
+  box-sizing: border-box;
+}
+
+.col-xs-11 {
+  width: 91.662%;
+}
+
+.col-xs-10 {
+  width: 83.332%;
+}
+
+.col-xs-9 {
+  width: 75%;
+}
+
+.col-xs-8 {
+  width: 66.662%;
+}
+
+.col-xs-7 {
+  width: 58.331%;
+}
+
+.col-xs-6 {
+  width: 50%;
+}
+
+.col-xs-5 {
+  width: 41.662%;
+}
+
+.col-xs-4 {
+  width: 33.332%;
+}
+
+.col-xs-3 {
+  width: 25%;
+}
+
+.col-xs-2 {
+  width: 16.662%;
+}
+
+.col-xs-1 {
+  width: 8.332%;
+}
+
+@media screen and (min-width: 768px) {
+  .row {
+    margin-right: -40px;
+  }
+
+  .col {
+    padding-right: 40px;
+  }
+
+  .col-sm-11 {
+    width: 91.662%;
+  }
+
+  .col-sm-10 {
+    width: 83.332%;
+  }
+
+  .col-sm-9 {
+    width: 75%;
+  }
+
+  .col-sm-8 {
+    width: 66.662%;
+  }
+
+  .col-sm-7 {
+    width: 58.331%;
+  }
+
+  .col-sm-6 {
+    width: 50%;
+  }
+
+  .col-sm-5 {
+    width: 41.662%;
+  }
+
+  .col-sm-4 {
+    width: 33.332%;
+  }
+
+  .col-sm-3 {
+    width: 25%;
+  }
+
+  .col-sm-2 {
+    width: 16.662%;
+  }
+
+  .col-sm-1 {
+    width: 8.332%;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .col-md-11 {
+    width: 91.662%;
+  }
+
+  .col-md-10 {
+    width: 83.332%;
+  }
+
+  .col-md-9 {
+    width: 75%;
+  }
+
+  .col-md-8 {
+    width: 66.662%;
+  }
+
+  .col-md-7 {
+    width: 58.331%;
+  }
+
+  .col-md-6 {
+    width: 50%;
+  }
+
+  .col-md-5 {
+    width: 41.662%;
+  }
+
+  .col-md-4 {
+    width: 33.332%;
+  }
+
+  .col-md-3 {
+    width: 25%;
+  }
+
+  .col-md-2 {
+    width: 16.662%;
+  }
+
+  .col-md-1 {
+    width: 8.332%;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .col-lg-11 {
+    width: 91.662%;
+  }
+
+  .col-lg-10 {
+    width: 83.332%;
+  }
+
+  .col-lg-9 {
+    width: 75%;
+  }
+
+  .col-lg-8 {
+    width: 66.662%;
+  }
+
+  .col-lg-7 {
+    width: 58.331%;
+  }
+
+  .col-lg-6 {
+    width: 50%;
+  }
+
+  .col-lg-5 {
+    width: 41.662%;
+  }
+
+  .col-lg-4 {
+    width: 33.332%;
+  }
+
+  .col-lg-3 {
+    width: 25%;
+  }
+
+  .col-lg-2 {
+    width: 16.662%;
+  }
+
+  .col-lg-1 {
+    width: 8.332%;
+  }
+}
+
+@media screen and (max-width: 1023px) {
+  .push-down-sm {
+    margin-bottom: 30px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .push-down-sm {
+    margin-bottom: 15px;
+  }
+}
+
+footer {
+  text-align: center;
+  font-size: 85%;
+  color: #fff;
+  padding-bottom: 20px;
+  padding-top: 20px;
+}
+
+.row:before,
+.row:after,
+.group:before,
+.group:after {
+  content: "";
+  display: table;
+}
+
+.row:after,
+.group:after {
+  clear: both;
+}
+
+.row,
+.group {
+  zoom: 1;
+}
