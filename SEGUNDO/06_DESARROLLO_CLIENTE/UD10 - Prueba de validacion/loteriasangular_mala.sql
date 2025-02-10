@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost
--- Tiempo de generación: 02-02-2025 a las 09:48:27
+-- Tiempo de generación: 23-01-2025 a las 16:51:59
 -- Versión del servidor: 10.4.28-MariaDB
 -- Versión de PHP: 8.2.4
 
@@ -43,16 +43,6 @@ CREATE TABLE `premis` (
 --
 
 INSERT INTO `premis` (`ident`, `ident-sorteig`, `nom`, `numero`, `quantitat-total`, `quantitat-decim`) VALUES
-(35, 12, '1r premi', 55555, 1220000, 12),
-(36, 12, '2n premi', 55555, 620000, 6),
-(37, 12, '3r premi', 66666, 320000, 3),
-(39, 12, 'reintegre', 3, 100, 1),
-(40, 12, 'reintegre', 5, 100, 1),
-(41, 12, 'reintegre', 7, 100, 1),
-(42, 12, 'terminacio', 37, 200, 2),
-(43, 12, 'terminacio', 68, 200, 2),
-(44, 12, 'terminacio', 43, 200, 2),
-(45, 12, 'terminacio', 98, 200, 2),
 (123, 1, '1r premi', 11111, 40000000, 400000),
 (124, 1, '2n premi', 12345, 200000000, 200000),
 (125, 1, '3r premi(1)', 23456, 100000000, 1000000),
