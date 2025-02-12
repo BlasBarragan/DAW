@@ -1,0 +1,511 @@
+en /laravel = sudo docker compose up
+en /laravel/blog = sudo docker exec -it laravel-myapp-1 bash
+
+-Change default db connection:	config/database.php
+		-'default' => env('DB_CONNECTION', 'mysql'),
+
+
+### ROUTES
+
+    -Predefined routes:	routes/web.php
+	-Main route: /
+		Route::get('/', function() {
+		return view('welcome');
+		});
+    
+    -Simple route: /hello
+        Route::get('hello', function() {
+        return "Hello world";
+        });
+
+    -Route with paremetes: /greeting/blas #mandatory parameter isn't => 404 error
+        Route::get('greeting/{name}', function($name){
+        return "Hello, " . $name;
+        });
+    -Route with parameter (not mandatory): /greeting/no_name
+        Route::get('greeting/{name?}' , function($name = "Guest"){ #in case no_name, name=guest
+        return "Hello, " . $name;
+        });
+    
+    -Route with parameter validation: 
+        Route::get('greeting/{name?}' , function($name = "Guest"){
+        return "Hello, " . $name;
+        })->where('name', "[A-Za-z]+"); #this make name only contains letters upp/lowcase
+    
+    -Named route: Instead of: echo '<a href="/contact">contact</a>'; We do: <a href="{{ route('path_contact') }}">contact</a>
+        Route::get('contact', function() {
+        return "Contact Page";
+        })->name('path_contact');
+
+    -Combined items route: 
+        Route::get('greeting/{name?}/{id?}' ,
+        function($name="Guest", $id=0)
+        {
+            return "Hello $name,your code is the $id";
+        })->where('name', "[A-Za-z]+")
+        ->where('id', "[0-9]+")
+        -> name('greeting');
+
+### VIEWS
+
+    -Route with view: 
+        Route::get('/', function() {
+        return view('start');
+        });
+
+    -View with parameters:
+        Route::get('/', function() {
+        $name = "Nacho";
+        return view('start')->with('name', $name); // OR // return view('start', compact('name')); // OR // return view('start')->with(['name' => $name,...]); // OR // return view('start',['name' => $name,...]);
+        });
+
+        Abbreviate: Route::view('/', 'start',['name' => 'Nacho']);
+
+        *** IN VIEW
+            <html>
+                <head>
+                    <title>Init</title>
+                </head>
+                <body>          
+                    <h1>Home page</h1>
+                    <p>Wellcome <?php echo $name; ?></p>
+                </body>
+            </html>
+
+### CONTROL STRUCTURES
+
+    -@foreach:
+        <ul>
+        @foreach($elements as $element)
+            < li>{{ $element }}</li>
+        @endforeach
+        </ul>
+
+    -@if:
+        <ul>
+        @if($elements)
+        @foreach($elements as $element)
+            < li>{{ $element }}</li>
+        @endforeach
+        @else
+            < li>No items to display</li>
+        @endif
+        </ul>
+
+    @forelse:
+        <ul>
+        @forelse($elements as $element)
+            < li>{{ $element }}</li>
+        @empty
+            < li>No items to display</li>
+        @endforelse
+        </ul>
+
+    @isset:
+        <ul>
+        @isset($elements)
+        @forelse ($elements as $element)
+            <li>{{ $element }}</li>
+        @empty
+            <li>No items to display</li>
+        @endforelse
+        @else
+            <li>elements is not defined</li>
+        @endisset
+        </ul>
+
+    $loop:
+        <ul>
+        @forelse($elements as $element)
+            < li>{{ $element }} {{ var_dump($loop)}} </li>
+        @empty
+            < li>No items to display</li>
+        @endforelse
+        </ul>
+
+    -Message if last item:
+        <ul>
+        @forelse($elements as $element)
+            <li>{{ $element }}
+                {{ $loop->last ? "Last item" : "" }}
+            </li>
+        @empty
+            < li>No items to display</li>
+        @endforelse
+        </ul>
+
+    -Array loop:
+        Route::get('list', function() {
+        $books = array(
+            array("title" => "Ender's game",
+            "author" => "Orson Scott Card"),
+            array("title" => "The table of Flanders",
+            "author" => "Arturo Pérez Reverte"),
+            array("title" => "The Endless Story",
+            "author" => "Michael Ende"),
+            array("title" => "The Lord of the Rings",
+            "author" => "J.R.R. Tolkien")
+        );
+        return view('list', compact('books'));
+        });
+
+        (list.blade.php)
+            <html>
+                <head>
+                    <title>List of books</title>
+                </head>
+                <body>
+                    <h1>List of books</h1>
+                    <ul>
+                    @isset($books)
+                    @forelse ($books as $book)
+                        <li>{{ $book["title"] }} ({{ $book["author"] }})</li>
+                    @empty
+                        <li>No books found</li>
+                    @endforelse
+                    @else
+                        <li>No books to display</li>
+                    @endisset
+                    </ul>
+                </body>
+            </html>
+
+### LINK TO OTHER ROUTES
+
+    -echo '<a href="/contact">contact</a>';
+    -<a href="{{ route('path_contact') }}">contact</a>
+    -<a href="{{ url('/contact') }}">contact</a>
+
+### TEMPLATES
+
+    <html>
+        <head>
+            <title>
+                @yield('title')
+            </title>
+        </head>
+        <body>
+            <nav>
+                <!-- ... Navigation menu -->
+            </nav>
+            @yield('content')
+        </body>
+    </html>
+
+    ('start.blade.php')
+
+        @extends('template')
+        @section('title', 'Home')
+        
+        @section('content')
+            <h1>Home page</h1>
+        Welcome {{ $name }}
+        @endsection
+
+    ('list.blade.php')
+        @extends('template')
+        @section('title', 'List of books')
+        
+        @section('content')
+            <h1>List of books</h1>
+            <ul>
+            @isset($books)
+            @forelse ($books as $book)
+                <li>{{ $book["title"] }} ({{ $book["author"] }})</li>
+            @empty
+                <li>No books found</li>
+            @endforelse
+            @else
+                <li>No books to display</li>
+            @endisset
+            </ul>
+        @endsection
+
+### INCLUDE VIEWS ON VIEWS (PARTIALS)
+
+    (''resources/views/partials/nav.blade.php')
+        <nav>
+        <a href="{{ route('start') }}">Start</a>
+        &nbsp;&nbsp;
+        <a href="{{ route('book_list') }}">List of books</a>
+        </nav>
+
+### CONTROLLER
+    -php artisan make:controller TestController
+    -invoke:
+        php artisan make:controller TestController -i
+    -resource controller (multi):
+        php artisan make:controller -r BookController
+
+Para cada controlador:
+-Cambiar en las vistas los return de las funciones: 
+    public function index()
+    {
+        $books = array(
+        array("title" => "Ender's game",
+        "author" => "Orson Scott Card"),
+        array("title" => "The table of Flanders",
+        "author" => "Arturo Pérez Reverte"),
+        array("title" => "The Endless Story",
+        "author" => "Michael Ende"),
+        array("title" => "The Lord of the Rings",
+        "author" => "J.R.R. Tolkien")
+        );
+        return view('books.list', compact('books')); => OJO de list anterior a 'books.list'
+        }
+            public function show(string $id)
+        {
+        return "Showing book file $id";
+    }
+
+-Cambiar en route/web.php: 
+    use App\Http\Controllers\BookController;
+
+    Route::get('books', [BookController::class, 'index'])-> name('book_list');
+    Route::get('books/{id}', [BookController::class, 'show']);
+
+-crear en /resources/views una carpeta con el nombre del controlador y definir las vistas relacionadas dentro:
+Lviews
+    Lposts
+        Lcreate.blade.php
+        Ledit.blade.php
+        Lindex.blade.php
+        Lshow.blade.php
+
+### PATH CONTROLLERS
+        use App\Http\Controllers\BookController;
+
+    -only:
+        ...
+        Route::resource('books', BookController::class)
+        ->only(['index', 'show']);
+    -except:
+        ...
+        Route::resource('books', BookController::class)
+        ->except(['update', 'edit']);
+    -API:
+        ...
+        Route::apiResource('test', TestController::class);
+
+
+Asi, en /routes/web.php:
+
+    Route::resource('posts', PostController::class); // call view posts method in posts folder thanks to ::resource
+    ->only(['index', 'show', 'create', 'edit']); // to work only with that methods
+
+
+### FORMS
+
+/resources
+    Lviews
+        Lbooks'
+           L'create.blade.php'
+
+            @extends('template')
+            @section('title', 'New Book')
+            
+            @section('content')
+            <h1>New book</h1>
+            <form action="{{ route('books.store') }}" method="POST">
+                @csrf
+                <div class="form-group">
+                    <label for="title">Title:</label>
+                    <input type="text" class="form-control" name="title" id="title">
+                </div>
+                <div class="form-group">
+                    <label for="editorial">Editorial:</label>
+                    <input type="text" class="form-control" name="editorial" id="editorial">
+                </div>
+                <div class="form-group">
+                    <label for="price">Price:</label>
+                    <input type="text" class="form-control" name="price" id="price">
+                </div>
+                <div class="form-group">
+                    <label for="author">Author:</label>
+                    <select class="form-control" name="author" id="author">
+                        @foreach ($authors the $author)
+                        <option value="{{ $author->id }}">
+                            {{ $author->name }}
+                        </option>
+                        @endforeach
+                    </select>
+                </div>
+                <input type="submit" name="send" value="Send" class="btn btn-dark btn-block">
+            </form>
+            @endsection
+
+/App
+    LModels
+        LAuthor.php (the controller)
+
+        public function create()
+        {
+            $authors = Author::get();
+            return view('books.create', compact('authors'));
+        }
+
+        public function store(Request $request)
+        {
+            $book = new Book();
+            $book->title = $request->get('title');
+            $book->editorial = $request->get('editorial');
+            $book->price = $request->get('price');
+            $book->author()->associate(Author::findOrFail($request->get('author')));
+            $book->save();
+            return redirect()->route('books.index');
+        }
+    
+        public function store(Request $request)
+        {
+            if($request->has('title'))
+            {
+                ...
+            }
+        }
+
+/resources
+    Lviews
+        Lpartials
+            Lnav.blade.php
+
+            <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+                <a class="navbar-brand" href="#">Library</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" datatarget="#navbarNav" aria-controls="navbarNav" aria-expanded="false" arialabel="
+                Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item active">
+                            <a class="nav-link" href="{{ route('start') }}">Start </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('books.index') }}">List of books</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('books.create') }}">New Book</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+
+### UPDATE
+
+    <form action="{{ route('books.edit', $book) }}">
+        @csrf
+        <button>Update</button>
+    </form>
+
+    public function edit(book $book)
+    {
+        $authors = Author::get();
+        return view('books.edit', compact('book','authors'));
+    }
+
+### DELETE
+
+    <form action="{{ route('books.destroy', $book) }}" method="POST">
+    @method('DELETE')
+    @csrf
+        <button>Delete</button>
+    </form>
+
+    public function destroy(book $book)
+    {
+        $book->delete();
+        return redirect()->route('books.index');
+    }
+
+***create a new edit.blade.php view:
+
+    @extends('template')
+    @section('title', 'Edit Book')
+    
+    @section('content')
+    <h1>Edit book</h1>
+    <form action="{{ route('books.update',$book) }}" method="POST">
+        @method('PUT')
+        @csrf
+        <div class="form-group">
+            <label for="title">Title:</label>
+            <input type="text" class="form-control" name="title" id="title" value="{{ $book->title }}">
+        </div>
+        <div class="form-group">
+            <label for="editorial">Editorial:</label>
+            <input type="text" class="form-control" name="editorial" id="editorial" value="{{ $book->editorial }}">
+        </div>
+        <div class="form-group">
+            <label for="price">Price:</label>
+            <input type="text" class="form-control" name="price" id="price" value="{{ $book->price }}">
+        </div>
+        <div class="form-group">
+            <label for="author_id">Author:</label>
+            <select class="form-control" name="author_id" id="author_id">
+                @foreach ($authors as $author)
+                @if ($author->id==$book->author_id)
+                    <option value="{{ $author->id }}" selected>
+                        {{ $author->name }}
+                    </option>
+                @else
+                    <option value="{{ $author->id }}">
+                        {{ $author->name }}
+                    </option>
+                @endif
+                @endforeach
+            </select>
+        </div>
+        <input type="submit" name="send" value="Send"
+        class="btn btn-dark btn-block">
+    </form>
+    @endsection
+
+***In controller: UPDATE METHOD=
+
+    public function update(Request $request, book $book)
+    {
+        $book->title = $request->get('title');
+        $book->editorial = $request->get('editorial');
+        $book->price = $request->get('price');
+        $book->author_id=$request->get('author_id');
+        $book->save();
+        return redirect()->route('books.index');
+    }
+
+### FORM VALIDATION
+
+    public function store()
+    {
+        request()->validate(
+        [
+            'title' => 'required|min:3',
+            'editorial' => 'required',
+            'price' => 'required|numeric|min:0'
+        ]);
+        // ... Code to process the form
+    }
+
+### ERROR MESSAGES
+
+@if ($errors->any())
+    <ul>
+    @foreach($errors->all() as $error)
+        <li>{{ $error }}</li>
+    @endforeach
+    </ul>
+@endif
+<form ... >
+@csrf
+...
+</form>
+
+<form action="{{ route('books.store') }}" method="POST">
+@csrf
+<div class="form-group">
+    <label for="title">Title:</label>
+    <input type="text" class="form-control" name="title" id="title">
+    @if ($errors->has('title'))
+        <div class="text-danger">
+            {{ $errors->first('title') }}
+        </div>
+    @endif
+</div>
